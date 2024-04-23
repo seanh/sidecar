@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main id="content">
+  {% if page_title is defined %}
+    <h1>{{ page_title }}</h1>
+  {% endif %}
+  {{ page_content }}
+</main>
+{% endblock %}

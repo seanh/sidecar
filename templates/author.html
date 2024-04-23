@@ -1,0 +1,7 @@
+{% with page_title="Posts by " ~ author %}
+  {% set page_content %}
+    {% include "includes/archives.html" %}
+  {% endset %}
+
+  {% include "includes/page.html" %}
+{% endwith %}

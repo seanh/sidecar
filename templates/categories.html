@@ -1,0 +1,9 @@
+{% with page_title="Categories" %}
+  {% set page_content %}
+    {% with tags=categories %}
+      {% include "includes/tags.html" %}
+    {% endwith %}
+  {% endset %}
+
+  {% include "includes/page.html" %}
+{% endwith %}

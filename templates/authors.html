@@ -1,0 +1,9 @@
+{% with page_title="Authors" %}
+  {% set page_content %}
+    {% with tags=authors %}
+      {% include "includes/tags.html" %}
+    {% endwith %}
+  {% endset %}
+
+  {% include "includes/page.html" %}
+{% endwith %}

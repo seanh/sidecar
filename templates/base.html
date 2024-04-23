@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ SITENAME|striptags }}</title>
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments.css" />
+    <link rel="stylesheet" href="https://www.seanh.cc/oatcake/oatcake.css">
+    <link rel="stylesheet" href="https://www.seanh.cc/oatcake/lines/lines.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/sidecar.css" />
+  </head>
+  <body>
+    <nav id="nav">
+      <ul id="menu">
+        <li>
+          {% if page_name == 'index' %}
+          <a aria-current="page"><b>Home</b></a>
+          {% else %}
+          <a href="/">Home</a>
+          {% endif %}
+        </li>
+        {% if ARCHIVES_URL is defined %}
+        <li>
+          {% if ARCHIVES_SAVE_AS is defined %}
+            {# Remove any ".html" from the end of ARCHIVES_SAVE_AS #}
+            {% set archives_page_name = ARCHIVES_SAVE_AS.rsplit(".", maxsplit=1)[0] %}
+          {% else %}
+            {% set archives_page_name = 'archives' %}
+          {% endif %}
+          {% if page_name == archives_page_name %}
+          <a aria-current="page"><b>Archive</b></a>
+          {% else %}
+          <a href="{{ ARCHIVES_URL }}">Archive</a>
+          {% endif %}
+        </li>
+        {% endif %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+        {% for page_ in pages %}
+        <li>
+          {% if page_==page %}
+          <a aria-current="page"><b>{{ page_.title }}</b></a>
+          {% else %}
+          <a href="{{ SITEURL }}/{{ page_.url }}">{{ page_.title }}</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+        {% endif %}
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+        {% for cat, null in categories %}
+        <li>
+          {% if cat==category %}
+          <a aria-current="page"><b>{{ cat }}</b></a>
+          {% else %}
+          <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+        {% for title, url in MENUITEMS %}
+          <li><a href="{{ url }}">{{ title }}</a></li>
+        {% endfor %}
+        {% endif %}
+      </ul>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+  </body>
+</html>

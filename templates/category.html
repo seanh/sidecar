@@ -1,0 +1,9 @@
+{% with page_title="Posts in category &ldquo; " ~ category ~ "&rdquo;" %}
+  {% set page_content %}
+    {% with tags=categories %}
+      {% include "includes/archives.html" %}
+    {% endwith %}
+  {% endset %}
+
+  {% include "includes/page.html" %}
+{% endwith %}

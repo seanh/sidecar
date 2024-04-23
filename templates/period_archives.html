@@ -1,0 +1,7 @@
+{% with page_title="Posts from " ~ period | reverse | join(" ") %}
+  {% set page_content %}
+    {% include "includes/archives.html" %}
+  {% endset %}
+
+  {% include "includes/page.html" %}
+{% endwith %}

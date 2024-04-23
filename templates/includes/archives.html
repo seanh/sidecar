@@ -1,0 +1,9 @@
+{% for article in dates %}
+<article>
+  <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permanent link to {{ article.title|striptags }}">{{ article.title }}</a>
+  <span class="secondary nowrap">
+    &middot;
+    <time datetime="{{ article.date.strftime("%Y-%m") }}" pubdate>{{ article.locale_date }}</time>
+  </span>
+</article>
+{% endfor %}

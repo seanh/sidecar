@@ -1,0 +1,11 @@
+{% with %}
+  {% set page_content %}
+    {% for article in articles_page.object_list %}
+      {% include "includes/article.html" %}
+    {% endfor %}
+
+    {% include "includes/pagination.html" %}
+  {% endset %}
+
+  {% include "includes/page.html" %}
+{% endwith %}
