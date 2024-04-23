@@ -1,9 +1,7 @@
-{% with page_title="Authors" %}
-  {% set page_content %}
-    {% with tags=authors %}
-      {% include "includes/tags.html" %}
-    {% endwith %}
-  {% endset %}
+{% extends "tags.html" %}
 
-  {% include "includes/page.html" %}
-{% endwith %}
+{% block page_title %}
+  <h1>Authors</h1>
+{% endblock %}
+
+{% set tags=authors %}

@@ -1,7 +1,7 @@
-{% with page_title="Posts by " ~ author %}
-  {% set page_content %}
-    {% include "includes/archives.html" %}
-  {% endset %}
+{% extends "index.html" %}
 
-  {% include "includes/page.html" %}
-{% endwith %}
+{% set titles_only = SIDECAR_TITLES_ONLY_ON_AUTHOR_PAGES %}
+
+{% block page_title %}
+  <h1>Posts by {{ author }}</h1>
+{% endblock %}

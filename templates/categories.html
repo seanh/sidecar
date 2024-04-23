@@ -1,9 +1,7 @@
-{% with page_title="Categories" %}
-  {% set page_content %}
-    {% with tags=categories %}
-      {% include "includes/tags.html" %}
-    {% endwith %}
-  {% endset %}
+{% extends "tags.html" %}
 
-  {% include "includes/page.html" %}
-{% endwith %}
+{% block page_title %}
+  <h1>Categories</h1>
+{% endblock %}
+
+{% set tags=categories %}

@@ -1,7 +1,5 @@
-{% with page_title="Posts from " ~ period | reverse | join(" ") %}
-  {% set page_content %}
-    {% include "includes/archives.html" %}
-  {% endset %}
+{% extends "archives.html" %}
 
-  {% include "includes/page.html" %}
-{% endwith %}
+{% block page_title %}
+  <h1>Posts from {{ period | reverse | join(" ") }}</h1>
+{% endblock %}

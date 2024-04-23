@@ -1,7 +1,7 @@
-{% with page_title="Posts tagged &ldquo;" ~ tag ~ "&rdquo;" %}
-  {% set page_content %}
-    {% include "includes/archives.html" %}
-  {% endset %}
+{% extends "index.html" %}
 
-  {% include "includes/page.html" %}
-{% endwith %}
+{% set titles_only = SIDECAR_TITLES_ONLY_ON_TAG_PAGES %}
+
+{% block page_title %}
+  <h1>Posts tagged &ldquo;{{ tag }}&rdquo;</h1>
+{% endblock %}

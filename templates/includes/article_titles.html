@@ -1,0 +1,9 @@
+{% for article in articles %}
+  <article>
+    {% include "includes/article_permalink.html" %}
+    <span class="secondary nowrap">
+      &middot;
+      {% include "includes/article_time.html" %}
+    </span>
+  </article>
+{% endfor %}

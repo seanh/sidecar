@@ -1,3 +1,11 @@
-{% with page_content = page.content %}
-  {% include "includes/page.html" %}
-{% endwith %}
+{% extends "base.html" %}
+
+{% block content %}
+  <main id="content">
+    {% block page_title %}{% endblock %}
+
+    {% block page_content %}
+      {{ page.content }}
+    {% endblock %}
+  </main>
+{% endblock %}

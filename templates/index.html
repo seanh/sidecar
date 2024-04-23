@@ -1,11 +1,31 @@
-{% with %}
-  {% set page_content %}
+{% extends "page.html" %}
+
+{% if titles_only is not defined %}
+  {% set titles_only = SIDECAR_TITLES_ONLY_ON_INDEX_PAGE %}
+{% endif %}
+
+{% block page_content %}
+  {% if titles_only %}
+    {% with articles = articles_page.object_list %}
+      {% include "includes/article_titles.html" %}
+    {% endwith %}
+  {% else %}
     {% for article in articles_page.object_list %}
       {% include "includes/article.html" %}
     {% endfor %}
+  {% endif %}
 
-    {% include "includes/pagination.html" %}
-  {% endset %}
+  {% if DEFAULT_PAGINATION and articles_page.has_other_pages() %}
+    <div style="margin-bottom: var(--oatcake-body-line-height);">
+      {% if articles_previous_page %}
+        <a style="float: left;" rel="prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}">&blacktriangleleft; Previous</a>
+      {% endif %}
 
-  {% include "includes/page.html" %}
-{% endwith %}
+      {% if articles_next_page %}
+        <a style="float: right;" rel="next" href="{{ SITEURL }}/{{ articles_next_page.url }}">Next Page &blacktriangleright;</a>
+      {% endif %}
+    
+      <div style="clear: both;"></div>
+    </div>
+  {% endif %}
+{% endblock %}

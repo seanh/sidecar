@@ -1,7 +1,23 @@
-{% with page_title="Tags" %}
-  {% set page_content %}
-    {% include "includes/tags.html" %}
-  {% endset %}
+{% extends "page.html" %}
 
-  {% include "includes/page.html" %}
-{% endwith %}
+{% block page_title %}
+  <h1>Tags</h1>
+{% endblock %}
+
+{% block page_content %}
+  <ul>
+    {% for tag, articles in tags %}
+      <li style="list-style-type: none; margin-left: 0; padding-left: 0;">
+        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+        <span class="secondary">
+          &middot;
+          {% if articles|count == 1 %}
+            1 post
+          {% else %}
+            {{ articles|count }} posts
+          {% endif %} 
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
