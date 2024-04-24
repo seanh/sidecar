@@ -45,6 +45,17 @@ main#content > article:first-child > hgroup > *:first-child {
   color: inherit;
   text-decoration: none;
 }
+.prev,
+.next {
+  color: inherit;
+  text-decoration: none;
+}
+.prev {
+  float: left;
+}
+.next {
+  float: right;
+}
 @media screen and (max-width: 52rem){
   body {
     grid-template-columns: 100%;

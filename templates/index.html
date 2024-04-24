@@ -18,11 +18,11 @@
   {% if DEFAULT_PAGINATION and articles_page.has_other_pages() %}
     <div style="margin-bottom: var(--oatcake-body-line-height);">
       {% if articles_previous_page %}
-        <a style="float: left;" rel="prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}">&blacktriangleleft; Previous</a>
+        <a class="prev" rel="prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}">&blacktriangleleft; Previous</a>
       {% endif %}
 
       {% if articles_next_page %}
-        <a style="float: right;" rel="next" href="{{ SITEURL }}/{{ articles_next_page.url }}">Next Page &blacktriangleright;</a>
+        <a class="next" rel="next" href="{{ SITEURL }}/{{ articles_next_page.url }}">Next Page &blacktriangleright;</a>
       {% endif %}
     
       <div style="clear: both;"></div>
