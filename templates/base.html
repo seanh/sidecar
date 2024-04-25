@@ -32,5 +32,24 @@
 
     {% block content %}{% endblock %}
 
+    <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+    <script>
+      anchors.options.icon = '#';
+      anchors.add('h1:not(.noanchor), h2:not(.noanchor), h3:not(.noanchor), h4:not(.noanchor), h5:not(.noanchor), h6:not(.noanchor)');
+      anchors.remove('.no-anchor');
+      tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: 'body',
+        headingSelector: 'h1, h2, h3, h4, h5, h6',
+        ignoreSelector: '.notoc, .no_toc',
+        orderedList: false,
+        scrollSmooth: false,
+      });
+    </script>
+    <style>
+      .toc a {text-decoration: none;}
+      .toc a:hover {text-decoration: underline;}
+    </style>
   </body>
 </html>
