@@ -4,10 +4,12 @@
 <main id="content">
   {% block page_title %}{% endblock %}
 
-  {% if articles_page is defined %}
-    {% set articles_ = articles_page.object_list %}
-  {% else %}
-    {% set articles_ = articles %}
+  {% if articles_ is not defined %}
+    {% if articles_page is defined %}
+      {% set articles_ = articles_page.object_list %}
+    {% else %}
+      {% set articles_ = articles %}
+    {% endif %}
   {% endif %}
 
   {% for article in articles_ %}
