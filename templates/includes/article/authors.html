@@ -1,0 +1,5 @@
+{% if show_authors and article.authors %}
+{% for author in article.authors %}
+<a class="nowrap" rel="author" href="{{ SITEURL }}/{{ author.url }}" title="All posts by {{ author }}">{{ author }}</a>,&#32;
+{% endfor %}
+{% endif %}
