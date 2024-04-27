@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 
+{% block title %}{{ SITENAME|striptags }} - {{ page.title|striptags }}{%endblock%}
+
+{% set anchors = true %}
+
 {% block content %}
   <main id="content">
-    {% block page_title %}{% endblock %}
+    {% block page_title %}
+      <h1 class="noanchor notoc">{{ page.title_ or page.title }}</h1>
+    {% endblock %}
 
     {% block page_content %}
       {{ page.content }}

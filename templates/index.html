@@ -1,31 +1,43 @@
-{% extends "page.html" %}
+{% extends "base.html" %}
 
-{% if titles_only is not defined %}
-  {% set titles_only = SIDECAR_TITLES_ONLY_ON_INDEX_PAGE %}
-{% endif %}
+{% block content %}
+<main id="content">
+  {% block page_title %}{% endblock %}
 
-{% block page_content %}
-  {% if titles_only %}
-    {% with articles = articles_page.object_list %}
-      {% include "includes/article_titles.html" %}
-    {% endwith %}
+  {% if articles_page is defined %}
+    {% set articles_ = articles_page.object_list %}
   {% else %}
-    {% for article in articles_page.object_list %}
-      {% include "includes/article.html" %}
-    {% endfor %}
+    {% set articles_ = articles %}
   {% endif %}
 
-  {% if DEFAULT_PAGINATION and articles_page.has_other_pages() %}
-    <div style="margin-bottom: var(--oatcake-body-line-height);">
-      {% if articles_previous_page %}
-        <a class="prev" rel="prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}">&blacktriangleleft; Previous</a>
-      {% endif %}
+  {% for article in articles_ %}
+  <article class="article-preview">
+    <h4 class="article-preview__heading">
+      <a href="{{ SITEURL }}/{{ article.url }}"
+         rel="bookmark"
+         title="Permanent link to &lsquo;{{ article.title|striptags }}&rsquo;">
+        {{ article.title }}
+      </a>
+    </h4>
 
-      {% if articles_next_page %}
-        <a class="next" rel="next" href="{{ SITEURL }}/{{ articles_next_page.url }}">Next Page &blacktriangleright;</a>
-      {% endif %}
+    {% with css_class="article-preview__footer" %}
+      {% include "includes/article/footer.html" %}
+    {% endwith %}
+  </article>
+  {% endfor %}
+
+  {% if articles_page is defined and articles_page.has_other_pages() %}
+  <footer style="margin-bottom: var(--oatcake-body-line-height);">
+  {% if articles_previous_page %}
+    <a class="prev" rel="prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}">&blacktriangleleft; Previous</a>
+  {% endif %}
+
+  {% if articles_next_page %}
+    <a class="next" rel="next" href="{{ SITEURL }}/{{ articles_next_page.url }}">Next Page &blacktriangleright;</a>
+  {% endif %}
     
-      <div style="clear: both;"></div>
-    </div>
+    <div style="clear: both;"></div>
+  </footer>
   {% endif %}
+</main>
 {% endblock %}

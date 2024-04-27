@@ -3,17 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ SITENAME|striptags }}</title>
-    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments.css" />
+    <title>{% block title %}{{ SITENAME|striptags }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments.css">
     <link rel="stylesheet" href="https://www.seanh.cc/oatcake/oatcake.css">
     <link rel="stylesheet" href="https://www.seanh.cc/oatcake/lines/lines.css">
-    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/sidecar.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/sidecar.css">
   </head>
   <body>
     <nav id="nav">
       <ul id="menu">
         <li><a href="/">Home</a></li>
+        {% if ARCHIVES_URL %}
         <li><a href="{{ ARCHIVES_URL }}">Archive</a></li>
+        {% endif %}
         {% if DISPLAY_PAGES_ON_MENU %}
         {% for page_ in pages %}
         <li><a href="{{ SITEURL }}/{{ page_.url }}">{{ page_.title }}</a></li>
@@ -32,6 +34,7 @@
 
     {% block content %}{% endblock %}
 
+    {% if anchors %}
     <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
     <script>
@@ -46,9 +49,6 @@
         scrollSmooth: false,
       });
     </script>
-    <style>
-      .toc a {text-decoration: none;}
-      .toc a:hover {text-decoration: underline;}
-    </style>
+    {% endif %}
   </body>
 </html>

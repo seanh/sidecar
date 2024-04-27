@@ -1,7 +1,19 @@
 {% extends "base.html" %}
 
+{% block title %}{{ SITENAME|striptags }} - {{ article.title|striptags  }}{% endblock %}
+
+{% set anchors = true %}
+
 {% block content %}
-  {% with article_page=true %}
-    {% include "includes/article.html" %}
+<article id="content" class="article">
+  <h1 class="article__heading noanchor notoc">{{ article.title }}</h1>
+
+  <div class="article__content">
+    {{ article.content }}
+  </div>
+
+  {% with css_class="article__footer" %}
+    {% include "includes/article/footer.html" %}
   {% endwith %}
+</article>
 {% endblock %}

@@ -11,10 +11,13 @@ body {
   grid-template-areas: 
     "nav content";
 }
+#nav,
+#content {
+  margin-top: calc(2 * var(--oatcake-body-line-height));
+}
 #nav {
   grid-area: nav;
   text-align: right;
-  padding-top: calc(2 * var(--oatcake-body-line-height));
 }
 #nav a {
   color: inherit;
@@ -31,17 +34,16 @@ body {
 }
 #content {
   grid-area: content;
-  margin-top: calc(2 * var(--oatcake-body-line-height));
 }
-main#content > *:first-child,
-article#content > hgroup > *:first-child,
-main#content > article:first-child > hgroup > *:first-child {
+#content > *:first-child {
+  margin-top: 0;
   padding-top: 0;
 }
-.subheading {
-  margin-bottom: 0;
+.article__footer,
+.article-preview__footer {
+  margin-bottom: var(--oatcake-body-line-height);
 }
-.permalink {
+.article-preview__heading a {
   color: inherit;
   text-decoration: none;
 }
@@ -62,6 +64,9 @@ main#content > article:first-child > hgroup > *:first-child {
     grid-template-areas:
       "nav"
       "content";
+  }
+  #content {
+    margin-top: var(--oatcake-body-line-height);
   }
   #nav {
     text-align: left;

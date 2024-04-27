@@ -1,6 +1,6 @@
 {% extends "index.html" %}
 
-{% set titles_only = SIDECAR_TITLES_ONLY_ON_AUTHOR_PAGES %}
+{% block title %}{{ SITENAME|striptags }} - Posts by {{ author }}{% endblock %}
 
 {% block page_title %}
   <h1 class="noanchor notoc">Posts by {{ author }}</h1>

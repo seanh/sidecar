@@ -1,11 +1,7 @@
-{% extends "page.html" %}
+{% extends "index.html" %}
+
+{% block title %}{{ SITENAME|striptags }} - Archive{% endblock %}
 
 {% block page_title %}
   <h1 class="noanchor notoc">Archive</h1>
-{% endblock %}
-
-{% block page_content %}
-  {% with articles = dates %}
-    {% include "includes/article_titles.html" %}
-  {% endwith %}
 {% endblock %}
