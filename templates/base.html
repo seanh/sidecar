@@ -12,22 +12,42 @@
   <body>
     <nav id="nav">
       <ul id="menu">
-        <li><a href="/">Home</a></li>
-        {% if ARCHIVES_URL %}
-        <li><a href="{{ ARCHIVES_URL }}">Archive</a></li>
-        {% endif %}
+        {% if SIDECAR_MENU is not defined %}
+        {% set SIDECAR_MENU = ["HOME"] %}
         {% if DISPLAY_PAGES_ON_MENU %}
+        {{ SIDECAR_MENU.append("PAGES") or "" }}
+        {% endif %}
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+        {{ SIDECAR_MENU.append("CATEGORIES") or "" }}
+        {% endif %}
+        {{ SIDECAR_MENU.append("MENUITEMS") or "" }}
+        {% endif %}
+        {% for item in SIDECAR_MENU %}
+        {% if item == "HOME" %}
+        <li><a href="{{ SITEURL }}">Home</a></li>
+        {% elif item == "ARCHIVES" %}
+        <li><a href="{{ ARCHIVES_URL }}">Archive</a></li>
+        {% elif item == "AUTHORS" %}
+        <li><a href="{{ AUTHORS_URL }}">Authors</a></li>
+        {% elif item == "PAGES" %}
         {% for page_ in pages %}
         <li><a href="{{ SITEURL }}/{{ page_.url }}">{{ page_.title }}</a></li>
         {% endfor %}
-        {% endif %}
-        {% if DISPLAY_CATEGORIES_ON_MENU %}
+        {% elif item == "CATEGORIES" %}
         {% for cat, _ in categories %}
         <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
         {% endfor %}
-        {% endif %}
+        {% elif item == "TAGS" %}
+        {% for tag, _ in tags %}
+        <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+        {% endfor %}
+        {% elif item == "MENUITEMS" %}
         {% for title, url in MENUITEMS %}
         <li><a href="{{ url }}">{{ title }}</a></li>
+        {% endfor %}
+        {% else %}
+        <li>{{ item.format(SITEURL=SITEURL) }}</li>
+        {% endif %}
         {% endfor %}
       </ul>
     </nav>
