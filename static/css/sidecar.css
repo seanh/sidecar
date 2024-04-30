@@ -8,8 +8,9 @@ body {
   justify-content: center;
   grid-template-columns: 10rem minmax(auto, 40rem);
   grid-template-rows: auto;
-  grid-template-areas: 
-    "nav content";
+  grid-template-areas:
+    "nav content"
+    "footer footer";
 }
 #nav,
 #content {
@@ -56,12 +57,18 @@ body {
 .next {
   float: right;
 }
+#footer {
+  grid-area: footer;
+  text-align: center;
+  margin-top: calc(3 * var(--oatcake-body-line-height));
+}
 @media screen and (max-width: 52rem){
   body {
     grid-template-columns: 100%;
     grid-template-areas:
       "nav"
-      "content";
+      "content"
+      "footer"
   }
   #content {
     margin-top: var(--oatcake-body-line-height);
