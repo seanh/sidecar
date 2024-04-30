@@ -5,15 +5,25 @@
 {% set anchors = true %}
 
 {% block content %}
-<article id="content" class="article">
-  <h1 class="article__heading noanchor notoc">{{ article.title }}</h1>
+<article id="content">
+  <h1 class="noanchor notoc">{{ article.title }}</h1>
 
-  <div class="article__content">
-    {{ article.content }}
-  </div>
+  {{ article.content }}
 
-  {% with show_authors=True, show_sources=True, css_class="article__footer" %}
+  {% with show_authors=True, show_sources=True %}
     {% include "includes/article/footer.html" %}
   {% endwith %}
 </article>
+{% endblock %}
+
+{% block footer %}
+<footer id="footer" class="secondary">
+    <a href="{{ SITEURL }}">Home</a>
+    {% if OUTPUT_SOURCES and ARTICLE_SOURCE_URL %}
+      &middot;&nbsp;<a rel="alternate" type="text/plain" href="{{ SITEURL }}/{{ ARTICLE_SOURCE_URL.format(slug=article.slug, date=article.date, lang=article.lang, author=article.author, category=article.category, OUTPUT_SOURCES_EXTENSION=OUTPUT_SOURCES_EXTENSION)}}" title="Plain text version of &lsquo;{{ article.title|striptags }}&rsquo;">txt</a>
+    {% endif %}
+    {% if GITHUB_REPO_URL %}
+      &middot;&nbsp;<a rel="alternate" href="{{ GITHUB_REPO_URL }}/blob/main/content/{{ article.relative_source_path }}?plain=1" title="GitHub source for &lsquo;{{ article.title|striptags }}&rsquo;">GitHub</a>
+    {% endif %}
+</footer>
 {% endblock %}

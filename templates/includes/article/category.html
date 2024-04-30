@@ -1,0 +1,3 @@
+{% if article.category %}
+<a class="nowrap" href="{{ SITEURL }}/{{ article.category.url }}" title="All posts in category &lsquo;{{ article.category|striptags }}&rsquo;">{{ article.category }}</a>
+{% endif %}

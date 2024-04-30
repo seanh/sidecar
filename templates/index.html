@@ -13,18 +13,12 @@
   {% endif %}
 
   {% for article in articles_ %}
-  <article class="article-preview">
-    <h4 class="article-preview__heading">
-      <a href="{{ SITEURL }}/{{ article.url }}"
-         rel="bookmark"
-         title="Permanent link to &lsquo;{{ article.title|striptags }}&rsquo;">
-        {{ article.title }}
-      </a>
+  <article>
+    <h4>
+      {% include "includes/article/permalink.html" %}
     </h4>
 
-    {% with css_class="article-preview__footer" %}
-      {% include "includes/article/footer.html" %}
-    {% endwith %}
+    {% include "includes/article/footer.html" %}
   </article>
   {% endfor %}
 

@@ -39,12 +39,10 @@ body {
   margin-top: 0;
   padding-top: 0;
 }
-.article__footer,
-.article-preview__footer {
+.article-footer {
   margin-bottom: var(--oatcake-body-line-height);
 }
-.article-preview__heading a {
-  color: inherit;
+.article-footer a {
   text-decoration: none;
 }
 .prev,

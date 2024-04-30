@@ -1,5 +1,5 @@
 {% if article.tags %}
 {% for tag in article.tags %}
-{% if loop.first %} &middot;&nbsp;{% endif %}<a class="nowrap" rel="tag" href="{{ SITEURL }}/{{ tag.url }}" title="All posts tagged &lsquo;{{ tag|striptags }}&rsquo;">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+<a class="nowrap" rel="tag" href="{{ SITEURL }}/{{ tag.url }}" title="All posts tagged &lsquo;{{ tag|striptags }}&rsquo;">{{ tag }}</a>{% if not loop.last %}, {% endif %}
 {% endfor %}
 {% endif %}

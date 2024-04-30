@@ -1,5 +1,6 @@
-{% if show_authors and article.authors %}
+{% set author_links = [] %}
 {% for author in article.authors %}
-<a class="nowrap" rel="author" href="{{ SITEURL }}/{{ author.url }}" title="All posts by {{ author }}">{{ author }}</a>,&#32;
+  {% set author_link %}<a class="nowrap" rel="author" href="{{ SITEURL }}/{{ author.url }}" title="All posts by {{ author }}">{{ author }}</a>{% endset %}
+  {{ author_links.append(author_link) or "" }}
 {% endfor %}
-{% endif %}
+{{ author_links|join(", ") }}
