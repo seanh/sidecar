@@ -22,7 +22,7 @@
     {% endif %}
   </head>
   <body>
-{% if (SIDECAR_GITHUB_RIBBON or SIDECAR_GITHUB_RIBBON is not defined) and GITHUB_REPO_URL %}
+{% if GITHUB_REPO_URL %}
     <a id="ribbon"
 {% if article %}
        rel="alternate"
