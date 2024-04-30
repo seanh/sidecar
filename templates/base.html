@@ -22,6 +22,19 @@
     {% endif %}
   </head>
   <body>
+{% if (SIDECAR_GITHUB_RIBBON or SIDECAR_GITHUB_RIBBON is not defined) and GITHUB_REPO_URL %}
+    <a id="ribbon"
+{% if article %}
+       rel="alternate"
+       href="{{ GITHUB_REPO_URL }}/blob/main/content/{{ article.relative_source_path }}?plain=1"
+       title="GitHub source for &lsquo;{{ article.title|striptags }}&rsquo;"
+{% else %}
+       href="{{ GITHUB_REPO_URL }}"
+{% endif %}
+    >
+    <img width="149" height="149" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/forkme.webp" alt="Fork me on GitHub">
+    </a>
+{% endif %}
     <nav id="nav">
       <ul id="menu">
         {% if SIDECAR_MENU is not defined %}
@@ -66,7 +79,6 @@
 
     {% block content %}{% endblock %}
 
-    {% include "includes/footer.html" %}
     {% if anchors %}
     <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
