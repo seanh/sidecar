@@ -229,6 +229,8 @@ Certain string values have special meanings in `SIDECAR_MENU`:
 
 * `PAGES`: inserts links to each of your site's static pages
 
+  You can customize the URL format of static pages with Pelican's matching [`PAGE_SAVE_AS` and `PAGE_URL` settings](https://docs.getpelican.com/en/latest/settings.html#url-settings).
+
 * `CATEGORIES`: inserts links to Pelican's category pages for each of your site's categories.
 
   You can customize the URL format of category pages with Pelican's matching [`CATEGORY_SAVE_AS` and `CATEGORY_URL` settings](https://docs.getpelican.com/en/latest/settings.html#url-settings).
