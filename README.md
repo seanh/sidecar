@@ -186,12 +186,12 @@ correct it.
 
 If your site content directory isn't named `content` then you need to add a
 `CONTENT_PATH` setting to your Pelican config to help Sidecar to generate
-the GitHub links for your pages and articles:
+the GitHub links for your pages and articles (no leading or trailing slashes):
 
 ```python
 # pelicanconf.py
 
-CONTENT_PATH = "/path/to/your/content/"
+CONTENT_PATH = "path/to/your/content"
 ```
 
 ### Customizing the sidebar contents
