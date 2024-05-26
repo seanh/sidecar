@@ -22,14 +22,14 @@
     {% endif %}
   </head>
   <body>
-{% if GITHUB_REPO_URL %}
+{% if GITHUB_REPO_URL or GITHUB_URL %}
     <a id="ribbon"
-{% if article %}
+{% if GITHUB_REPO_URL and article %}
        rel="alternate"
        href="{{ GITHUB_REPO_URL }}/blob/main/content/{{ article.relative_source_path }}?plain=1"
        title="GitHub source for &lsquo;{{ article.title|striptags }}&rsquo;"
 {% else %}
-       href="{{ GITHUB_REPO_URL }}"
+       href="{{ GITHUB_REPO_URL or GITHUB_URL }}"
 {% endif %}
     >
     <img width="149" height="149" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/forkme.webp" alt="Fork me on GitHub">
