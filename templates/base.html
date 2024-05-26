@@ -39,13 +39,13 @@
       <ul id="menu">
         {% if SIDECAR_MENU is not defined %}
         {% set SIDECAR_MENU = ["HOME"] %}
+        {{ SIDECAR_MENU.append("MENUITEMS") or "" }}
         {% if DISPLAY_PAGES_ON_MENU %}
         {{ SIDECAR_MENU.append("PAGES") or "" }}
         {% endif %}
         {% if DISPLAY_CATEGORIES_ON_MENU %}
         {{ SIDECAR_MENU.append("CATEGORIES") or "" }}
         {% endif %}
-        {{ SIDECAR_MENU.append("MENUITEMS") or "" }}
         {% endif %}
         {% for item in SIDECAR_MENU %}
         {% if item == "HOME" %}
