@@ -12,8 +12,6 @@
 
   {{ article.content }}
 
-  {% with show_authors=True, show_sources=True %}
-    {% include "includes/article/footer.html" %}
-  {% endwith %}
+  {% include "includes/article/footer.html" %}
 </article>
 {% endblock %}
