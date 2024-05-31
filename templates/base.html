@@ -26,7 +26,7 @@
     <a id="ribbon"
 {% if GITHUB_REPO_URL and (article or page) %}
        rel="alternate"
-       href="{{ GITHUB_REPO_URL }}/blob/main/{{ (RELPATH or PATH)|trim("/") }}/{{ (article or page).relative_source_path }}?plain=1"
+       href="{{ GITHUB_REPO_URL }}/blob/main/{{ (CONTENT_PATH or "content")|trim("/") }}/{{ (article or page).relative_source_path }}?plain=1"
        title="GitHub source for &lsquo;{{ (article or page).title|striptags }}&rsquo;"
 {% else %}
        href="{{ GITHUB_REPO_URL or GITHUB_URL }}"
