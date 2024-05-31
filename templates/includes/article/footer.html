@@ -30,6 +30,11 @@
     {% if footer_item %}
       {{ footer_items.append(footer_item) or "" }}
     {% endif %}
+  {% elif item == "GITHUB" %}
+    {% set footer_item %}{% include "includes/article/github.html" %}{% endset %}
+    {% if footer_item %}
+      {{ footer_items.append(footer_item) or "" }}
+    {% endif %}
   {% else %}
     {{ footer_items.append(item) or "" }}
   {% endif %}

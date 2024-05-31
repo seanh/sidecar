@@ -346,6 +346,8 @@ Certain string values have special meanings in `SIDECAR_ARTICLE_FOOTER`:
   Pelican config to tell Sidecar how to generate the URLs to your article
   source files. See [`ARTICLE_SOURCE_URL` and `PAGE_SOURCE_URL`](#article_source_url-and-page_source_url) above.
 
+* `GITHUB`: inserts a link to the article's source file on GitHub, if [`GITHUB_REPO_URL`](#github_repo_url) (see above) is set.
+
 * `CATEGORY`: inserts a link to Pelican's category page for the article's category.
 
 * `TAGS`: inserts links to Pelican's tag pages for each of the article's tags, if any.
