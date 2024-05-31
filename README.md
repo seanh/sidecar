@@ -184,15 +184,20 @@ GitHub web interface. So if you spot a typo in a page or article, you can
 quickly click on the GitHub ribbon then on GitHub's <kbd>Edit</kbd> button and
 correct it.
 
-If your site content directory isn't named `content` then you need to add a
-`CONTENT_PATH` setting to your Pelican config to help Sidecar to generate
-the GitHub links for your pages and articles (no leading or trailing slashes):
+<details>
+  <summary>Fixing broken GitHub links</summary>
+
+If Sidecar doesn't get the path to your content directory within your GitHub
+repo correct you can fix it by adding a `RELPATH` setting to your Pelican
+config file containing the path to your content directory relative to the root
+of the repo, for example:
 
 ```python
 # pelicanconf.py
 
-CONTENT_PATH = "path/to/your/content"
+RELPATH = "content"
 ```
+</details>
 
 ### Customizing the sidebar contents
 
