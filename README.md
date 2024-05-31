@@ -125,6 +125,10 @@ Tables of contents
 Sidecar uses [Tocbot](https://tscanlin.github.io/tocbot/) to generate tables of
 contents with anchor links from
 [AnchorJS](https://www.bryanbraun.com/anchorjs/).
+I prefer this approach rather than using a Pelican plugin or Markdown extension
+to generate tables of contents because it's portable to other site generators:
+just include AnchorJS and Tocbot in your pages and your tables of contents will
+work.
 
 Insert a div with the CSS class `toc` anywhere in a page or article and it'll
 be turned into a table of contents based on the page or article's headers:
@@ -148,10 +152,37 @@ If you don't want a heading to have an anchor link either, add `noanchor` to it
 <h1 class="noanchor">Heading</h1>
 ```
 
-Customization
--------------
+Settings
+--------
 
-### GitHub ribbon
+### `ARTICLE_SOURCE_URL` and `PAGE_SOURCE_URL`
+
+If [Pelican's `OUTPUT_SOURCES` setting](https://docs.getpelican.com/en/latest/settings.html#basic-settings)
+is enabled Pelican copies the plain text source files of
+your articles and pages into your site's output directory.
+
+On article and static pages, if `OUTPUT_SOURCES` is enabled, Sidecar inserts a
+link to the article or page's plain text source file into the HTML `<head>`
+(using `<link rel="alternate" type="text/plain" href="...">`).
+
+If you've changed [Pelican's `ARTICLE_SAVE_AS` and `ARTICLE_URL` or `PAGE_SAVE_AS` and `PAGE_URL` settings](https://docs.getpelican.com/en/latest/settings.html#url-settings)
+from the defaults then you need to add `ARTICLE_SOURCE_URL` and
+`PAGE_SOURCE_URL` settings to your Pelican config to tell Sidecar how to
+generate the URL's to your article and page source files. For example:
+
+  ```python
+  # pelicanconf.py
+
+  ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+  ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+  ARTICLE_SOURCE_URL = "{article.url}index{OUTPUT_SOURCES_EXTENSION}"
+
+  PAGE_SAVE_AS = '{slug}/index.html'
+  PAGE_URL = '{slug}/'
+  PAGE_SOURCE_URL = "{page.url}index{OUTPUT_SOURCES_EXTENSION}"
+  ```
+
+### `GITHUB_URL`
 
 If Pelican's [`GITHUB_URL`](https://docs.getpelican.com/en/latest/settings.html#GITHUB_URL)
 setting is set in your Pelican config then a GitHub ribbon linking to
@@ -165,11 +196,12 @@ For example:
 GITHUB_URL = "https://github.com/seanh"
 ```
 
-Alternatively, if you keep your site's source files in a GitHub repo, you can
-set `GITHUB_REPO_URL` to the URL of that GitHub repo instead. If you use
-`GITHUB_REPO_URL` instead of `GITHUB_URL` then on your static pages and
-articles the GitHub ribbon will link directly to the page or article's source
-file on GitHub:
+### `GITHUB_REPO_URL`
+
+If you keep your site's source files in a GitHub repo you can set
+`GITHUB_REPO_URL` to the URL of that GitHub repo. If you use `GITHUB_REPO_URL`
+instead of `GITHUB_URL` then on your static pages and articles the GitHub
+ribbon will link directly to the page or article's source file on GitHub:
 
 ```python
 # pelicanconf.py
@@ -184,11 +216,13 @@ GitHub web interface. So if you spot a typo in a page or article, you can
 quickly click on the GitHub ribbon then on GitHub's <kbd>Edit</kbd> button and
 correct it.
 
-If your site content directory isn't a `content` directory in the root of your
-GitHub repo you need to add a `CONTENT_PATH` setting to your Pelican config to
-help Sidecar to generate the GitHub links for your pages and articles.  This
-should be the path to your content directory relative to the root of your
-GitHub repo:
+### `CONTENT_PATH`
+
+If using `GITHUB_REPO_URL` and your site content directory isn't a `content`
+directory in the root of your GitHub repo you need to add a `CONTENT_PATH`
+setting to your Pelican config to help Sidecar to generate the GitHub links for
+your pages and articles. This should be the path to your content directory
+relative to the root of your GitHub repo:
 
 ```python
 # pelicanconf.py
@@ -196,17 +230,10 @@ GitHub repo:
 CONTENT_PATH = "path/to/your/content"
 ```
 
-### Customizing the sidebar contents
+### `SIDECAR_MENU`
 
-The contents of the sidebar respond to default Pelican settings:
-
-* A home link is always included at the top of the menu (uses Pelican's [`SITEURL` setting](https://docs.getpelican.com/en/latest/settings.html#SITEURL))
-* Any items from Pelican's [`MENUITEMS`](https://docs.getpelican.com/en/latest/settings.html#MENUITEMS) setting are included
-* If [`DISPLAY_PAGES_ON_MENU`](https://docs.getpelican.com/en/latest/settings.html#basic-settings) is `True` then links to each of your site's static pages will be included
-* If [`DISPLAY_CATEGORIES_ON_MENU`](https://docs.getpelican.com/en/latest/settings.html#basic-settings) is `True` then links to Pelican's category pages for each of your site's categories will be included
-
-Alternatively, you can customize the sidebar directly by adding a
-`SIDECAR_MENU` setting (list of strings) to your Pelican config. For example:
+You can customize the contents of the sidebar by adding a `SIDECAR_MENU`
+setting (list of strings) to your Pelican config. For example:
 
 ```python
 # pelicanconf.py
@@ -231,15 +258,9 @@ Certain string values have special meanings in `SIDECAR_MENU`:
 
 * `PAGES`: inserts links to each of your site's static pages
 
-  You can customize the URL format of static pages with Pelican's matching [`PAGE_SAVE_AS` and `PAGE_URL` settings](https://docs.getpelican.com/en/latest/settings.html#url-settings).
-
 * `CATEGORIES`: inserts links to Pelican's category pages for each of your site's categories.
 
-  You can customize the URL format of category pages with Pelican's matching [`CATEGORY_SAVE_AS` and `CATEGORY_URL` settings](https://docs.getpelican.com/en/latest/settings.html#url-settings).
-
 * `TAGS`: inserts links to Pelican's tag pages for each of your site's tags.
-
-  You can customize the URL format of tag pages with Pelican's matching [`TAG_SAVE_AS` and `TAG_URL` settings](https://docs.getpelican.com/en/latest/settings.html#url-settings).
 
 * `ARCHIVES`: inserts a link to your site's archives page.
 
@@ -293,7 +314,7 @@ SIDECAR_MENU = [
 ]
 ```
 
-### Customizing the article footer contents
+### `SIDECAR_ARTICLE_FOOTER`
 
 You can customize the contents of the footers at the bottoms of articles by
 adding a `SIDECAR_ARTICLE_FOOTER` setting (list of strings) to your Pelican
@@ -305,7 +326,7 @@ config. For example:
 SIDECAR_ARTICLE_FOOTER = [
     "AUTHORS",
     "TIME",
-    "CATEGORY",
+    "SOURCE",
     "TAGS",
 ]
 ```
@@ -319,6 +340,13 @@ Certain string values have special meanings in `SIDECAR_ARTICLE_FOOTER`:
 * `TIME`: inserts the article's publication date/time.
 
   You can customize the format of dates with Pelican's [`DEFAULT_DATE_FORMAT` and `DATE_FORMATS` settings](https://docs.getpelican.com/en/latest/settings.html#time-and-date).
+
+* `SOURCE`: inserts a link to the article's plain text source file, if [Pelican's `OUTPUT_SOURCES` setting](https://docs.getpelican.com/en/latest/settings.html#basic-settings) is enabled.
+
+  If you've changed Pelican's `ARTICLE_SAVE_AS` and `ARTICLE_URL` settings from
+  the defaults then you need to add an `ARTICLE_SOURCE_URL` setting to your
+  Pelican config to tell Sidecar how to generate the URL's to your article
+  source files. See [`ARTICLE_SOURCE_URL` and `PAGE_SOURCE_URL`](#article_source_url-and-page_source_url) above.
 
 * `CATEGORY`: inserts a link to Pelican's category page for the article's category.
 

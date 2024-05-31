@@ -1,5 +1,5 @@
 {% if SIDECAR_ARTICLE_FOOTER is not defined %}
-  {% set SIDECAR_ARTICLE_FOOTER = ["AUTHORS", "TIME", "CATEGORY", "TAGS"] %}
+  {% set SIDECAR_ARTICLE_FOOTER = ["AUTHORS", "TIME", "SOURCE", "TAGS"] %}
 {% endif %}
 
 {% set footer_items = [] %}
@@ -22,6 +22,11 @@
     {% endif %}
   {% elif item == "TAGS" %}
     {% set footer_item %}{% include "includes/article/tags.html" %}{% endset %}
+    {% if footer_item %}
+      {{ footer_items.append(footer_item) or "" }}
+    {% endif %}
+  {% elif item == "SOURCE" %}
+    {% set footer_item %}{% include "includes/article/source.html" %}{% endset %}
     {% if footer_item %}
       {{ footer_items.append(footer_item) or "" }}
     {% endif %}

@@ -2,6 +2,8 @@
 
 {% block title %}{{ SITENAME|striptags }} - {{ page.title|striptags }}{%endblock%}
 
+{% block head %}{% if OUTPUT_SOURCES and page %}<link rel="alternate" type="text/plain" href="{% include 'includes/page/source_url' %}">{% endif %}{% endblock %}
+
 {% set anchors = true %}
 
 {% block content %}
