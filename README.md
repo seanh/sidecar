@@ -168,7 +168,7 @@ link to the article or page's plain text source file into the HTML `<head>`
 If you've changed [Pelican's `ARTICLE_SAVE_AS` and `ARTICLE_URL` or `PAGE_SAVE_AS` and `PAGE_URL` settings](https://docs.getpelican.com/en/latest/settings.html#url-settings)
 from the defaults then you need to add `ARTICLE_SOURCE_URL` and
 `PAGE_SOURCE_URL` settings to your Pelican config to tell Sidecar how to
-generate the URL's to your article and page source files. For example:
+generate the URLs to your article and page source files. For example:
 
   ```python
   # pelicanconf.py
@@ -335,8 +335,6 @@ Certain string values have special meanings in `SIDECAR_ARTICLE_FOOTER`:
 
 * `AUTHORS`: insert links to Pelican's author pages for the article's authors.
 
-  You can customize the URL format of author pages with Pelican's matching [`AUTHOR_SAVE_AS` and `AUTHOR_URL` settings](https://docs.getpelican.com/en/latest/settings.html#url-settings).
-
 * `TIME`: inserts the article's publication date/time.
 
   You can customize the format of dates with Pelican's [`DEFAULT_DATE_FORMAT` and `DATE_FORMATS` settings](https://docs.getpelican.com/en/latest/settings.html#time-and-date).
@@ -345,16 +343,12 @@ Certain string values have special meanings in `SIDECAR_ARTICLE_FOOTER`:
 
   If you've changed Pelican's `ARTICLE_SAVE_AS` and `ARTICLE_URL` settings from
   the defaults then you need to add an `ARTICLE_SOURCE_URL` setting to your
-  Pelican config to tell Sidecar how to generate the URL's to your article
+  Pelican config to tell Sidecar how to generate the URLs to your article
   source files. See [`ARTICLE_SOURCE_URL` and `PAGE_SOURCE_URL`](#article_source_url-and-page_source_url) above.
 
 * `CATEGORY`: inserts a link to Pelican's category page for the article's category.
 
-  You can customize the URL format of category pages with Pelican's matching [`CATEGORY_SAVE_AS` and `CATEGORY_URL` settings](https://docs.getpelican.com/en/latest/settings.html#url-settings).
-
 * `TAGS`: inserts links to Pelican's tag pages for each of the article's tags, if any.
-
-  You can customize the URL format of tag pages with Pelican's matching [`TAG_SAVE_AS` and `TAG_URL` settings](https://docs.getpelican.com/en/latest/settings.html#url-settings).
 
 Items in `SIDECAR_ARTICLE_FOOTER` that don't match any of the special strings
 above are rendered directly, so you include your own raw HTML strings in
