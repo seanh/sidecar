@@ -169,7 +169,7 @@ Sets the name of your site in tab and feed titles:
 SITENAME = "A Pelican Blog"
 ```
 
-### SITEURL
+### `SITEURL`
 
 You must set this to the base URL of your site with no trailing slash.
 It's used to generate URLs in feeds, links in the sidebar, etc.
@@ -180,7 +180,7 @@ It's used to generate URLs in feeds, links in the sidebar, etc.
 SITEURL = "http://blog.notmyidea.org"
 ```
 
-### DEFAULT_LANG
+### `DEFAULT_LANG`
 
 Your site's default language, used for the standard `lang` attribute on the
 root `<html>` element. If not set this defaults to `"en"`.
@@ -254,11 +254,11 @@ correct it.
 
 ### `CONTENT_PATH`
 
-If using `GITHUB_REPO_URL` and your site content directory isn't a `content`
-directory in the root of your GitHub repo you need to add a `CONTENT_PATH`
-setting to your Pelican config to help Sidecar to generate the GitHub links for
-your pages and articles. This should be the path to your content directory
-relative to the root of your GitHub repo:
+If using `GITHUB_REPO_URL` and your site content directory isn't a directory
+named `content` in the root of your GitHub repo, then you need to add a
+`CONTENT_PATH` setting to your Pelican config to tell Sidecar how to generate
+the GitHub links for your pages and articles. This should be the path to your
+content directory relative to the root of your GitHub repo:
 
 ```python
 # pelicanconf.py
@@ -288,11 +288,11 @@ SIDECAR_MENU = [
 
 Certain string values have special meanings in `SIDECAR_MENU`:
 
-* `HOME`: inserts a link to your site's home page (uses Pelican's [`SITEURL` setting](https://docs.getpelican.com/en/latest/settings.html#SITEURL))
+* `HOME`: inserts a link to your site's home page (uses Pelican's [`SITEURL` setting](https://docs.getpelican.com/en/latest/settings.html#SITEURL)).
 
-* `MENUITEMS`: inserts the items from Pelican's [`MENUITEMS` setting](https://docs.getpelican.com/en/latest/settings.html#MENUITEMS)
+* `MENUITEMS`: inserts the items from Pelican's [`MENUITEMS` setting](https://docs.getpelican.com/en/latest/settings.html#MENUITEMS).
 
-* `PAGES`: inserts links to each of your site's static pages
+* `PAGES`: inserts links to each of your site's static pages.
 
 * `CATEGORIES`: inserts a link to your site's categories page.
 
