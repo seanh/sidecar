@@ -27,14 +27,16 @@ Features
 * **Standard, semantic HTML**:
   `<main>` for the main content of index and static pages,
   `<article>` for articles,
-  `<footer>` for article footers,
-  `<time>` for the publication dates in article footers,
+  `<footer>` for footers,
+  `<time>` for article publication dates,
   `rel="author"` for article author links,
   `rel="bookmark"` for article permalinks,
   `rel="tag"` for tag links,
-  `rel="next"` and `rel="prev"` for pagination links.
-  Links have nice `title`'s for tooltips.
-  Pages have nice `<title>`'s for tab titles.
+  `rel="next"` and `rel="prev"` for pagination links,
+  `aria-current="page"` for the link to the current page in the sidebar,
+  etc.
+  Links have nice `title` attributes for tooltips.
+  Pages have nice `<title>` elements for tab titles.
 
 * Optional **tables of contents** for static pages and articles.
 
