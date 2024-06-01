@@ -38,7 +38,13 @@ Features
   Links have nice `title` attributes for tooltips.
   Pages have nice `<title>` elements for tab titles.
 
-* Optional **tables of contents** for static pages and articles.
+* Optional [tables of contents](#tables-of-contents) for static pages and articles.
+
+* Customizable sidebar and article footer contents with the
+  [`SIDECAR_MENU`](#sidecar_menu)
+  and [`SIDECAR_ARTICLE_FOOTER`](#sidecar_article_footer)
+  settings.
+
 
 Usage
 -----
