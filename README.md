@@ -244,8 +244,8 @@ SIDECAR_MENU = [
     "PAGES",
     "CATEGORIES",
     "TAGS",
-    "ARCHIVES",
     "AUTHORS",
+    "ARCHIVES",
     '<a rel="external" href="https://example.com">Custom Link</a>',
 ]
 ```
@@ -258,32 +258,56 @@ Certain string values have special meanings in `SIDECAR_MENU`:
 
 * `PAGES`: inserts links to each of your site's static pages
 
-* `CATEGORIES`: inserts links to Pelican's category pages for each of your site's categories.
+* `CATEGORIES`: inserts a link to your site's categories page.
 
-* `TAGS`: inserts links to Pelican's tag pages for each of your site's tags.
-
-* `ARCHIVES`: inserts a link to your site's archives page.
-
-  You must add a custom `ARCHIVES_URL` setting to your Pelican config for
-  generation of this link to work correctly,
-  and `ARCHIVES_URL` must match up with Pelican's [`ARCHIVES_SAVE_AS` setting](https://docs.getpelican.com/en/latest/settings.html#url-settings).
+  For this to work you must add matching `CATEGORIES_SAVE_AS`
+  and `CATEGORIES_URL` settings to your Pelican config.
   For example:
 
   ```python
-  ARCHIVES_SAVE_AS = "archive/index.html"
-  ARCHIVES_URL = "/archive/"
+  # pelicanconf.py
+
+  CATEGORIES_SAVE_AS = "categories/index.html"
+  CATEGORIES_URL = "categories/"
+  ```
+
+* `TAGS`: inserts a link to your site's tags page.
+
+  For this to work you must add matching `TAGS_SAVE_AS`
+  and `TAGS_URL` settings to your Pelican config.
+  For example:
+
+  ```python
+  # pelicanconf.py
+
+  TAGS_SAVE_AS = "tags/index.html"
+  TAGS_URL = "tags/"
   ```
 
 * `AUTHORS`: inserts a link to your site's authors page.
 
-  You must add a custom `AUTHORS_URL` setting to your Pelican config for
-  generation of this link to work correctly,
-  and `AUTHORS_URL` must match up with Pelican's [`AUTHORS_SAVE_AS` setting](https://docs.getpelican.com/en/latest/settings.html#url-settings).
+  For this to work you must add matching `AUTHORS_SAVE_AS`
+  and `AUTHORS_URL` settings to your Pelican config.
   For example:
 
   ```python
+  # pelicanconf.py
+
   AUTHORS_SAVE_AS = "authors/index.html"
-  AUTHORS_URL = "/authors/"
+  AUTHORS_URL = "authors/"
+  ```
+
+* `ARCHIVES`: inserts a link to your site's archives page.
+
+  For this to work you must add matching `ARCHIVES_SAVE_AS`
+  and `ARCHIVES_URL` settings to your Pelican config.
+  For example:
+
+  ```python
+  # pelicanconf.py
+
+  ARCHIVES_SAVE_AS = "archives/index.html"
+  ARCHIVES_URL = "archives/"
   ```
 
 Items in `SIDECAR_MENU` that don't match any of the special strings above are
@@ -313,6 +337,77 @@ SIDECAR_MENU = [
     '<a rel="license" href="{SITEURL}/license/">License</a>',
 ]
 ```
+
+### `DISPLAY_CATEGORIES_ON_MENU`
+
+If [Pelican's `DISPLAY_CATEGORIES_ON_MENU` setting](https://docs.getpelican.com/en/latest/settings.html#basic-settings)
+is set in your Pelican config then a list of links to each of your site's
+categories will be included in the sidebar.
+
+```python
+# pelicanconf.py
+
+DISPLAY_CATEGORIES_ON_MENU = True
+```
+
+### `DISPLAY_TAGS_ON_MENU`
+
+Include a list of links to each of your site's tags in the sidebar.
+
+```python
+# pelicanconf.py
+
+DISPLAY_TAGS_ON_MENU = True
+```
+
+### `DISPLAY_AUTHORS_ON_MENU`
+
+Include a list of links to each of your site's authors in the sidebar.
+
+```python
+# pelicanconf.py
+
+DISPLAY_AUTHORS_ON_MENU = True
+```
+
+### `LINKS` and `LINKS_WIDGET_NAME`
+
+If [Pelican's `LINKS` setting](https://docs.getpelican.com/en/latest/settings.html#LINKS)
+is set in your Pelican config the list of links will be added to the sidebar.
+`LINKS` should be a list of `(title, URL)` tuples. For example:
+
+```python
+# pelicanconf.py
+
+LINKS = [
+  ("Link One", "https://example.com/link/1"),
+  ("Link Two", "https://example.com/link/2"),
+  ("Link Three", "https://example.com/link/3"),
+]
+LINKS_WIDGET_NAME = "My Links"
+```
+
+[Pelican's `LINKS_WIDGET_NAME` setting](https://docs.getpelican.com/en/latest/settings.html#LINKS_WIDGET_NAME)
+sets the title of the links menu (defaults to "Links").
+
+### `SOCIAL` and `SOCIAL_WIDGET_NAME`
+
+If [Pelican's `SOCIAL` setting](https://docs.getpelican.com/en/latest/settings.html#SOCIAL)
+is set in your Pelican config the list of social media links will be added to the sidebar.
+`SOCIAL` should be a list of `(title, URL)` tuples. For example:
+
+```python
+# pelicanconf.py
+
+SOCIAL = [
+  ("Mastodon", "https://mastodon.social/@YOUR_USERNAME"),
+  ("Tumblr", "https://www.tumblr.com/YOUR_USERNAME"),
+]
+SOCIAL_WIDGET_NAME = "Social Media"
+```
+
+[Pelican's `SOCIAL_WIDGET_NAME` setting](https://docs.getpelican.com/en/latest/settings.html#SOCIAL_WIDGET_NAME)
+sets the title of the social menu (defaults to "Social").
 
 ### `SIDECAR_ARTICLE_FOOTER`
 

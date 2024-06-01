@@ -29,7 +29,7 @@
     {% set ribbon_image %}
       <img width="149" height="149" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/forkme.webp" alt="Fork me on GitHub">
     {% endset %}
-    <div id="ribbon">
+    <div id="ribbon" class="nomobile">
     {% if GITHUB_REPO_URL and (article or page) %}
       {% with github_repo_link_content = ribbon_image %}
         {% include 'includes/github_repo_link.html' %}
@@ -46,43 +46,100 @@
     <nav id="nav">
       <ul>
         {% if SIDECAR_MENU is not defined %}
-        {% set SIDECAR_MENU = ["HOME"] %}
-        {{ SIDECAR_MENU.append("MENUITEMS") or "" }}
-        {% if DISPLAY_PAGES_ON_MENU %}
-        {{ SIDECAR_MENU.append("PAGES") or "" }}
-        {% endif %}
-        {% if DISPLAY_CATEGORIES_ON_MENU %}
-        {{ SIDECAR_MENU.append("CATEGORIES") or "" }}
-        {% endif %}
+          {% set SIDECAR_MENU = ["HOME", "MENUITEMS"] %}
+          {% if DISPLAY_PAGES_ON_MENU %}
+            {{ SIDECAR_MENU.append("PAGES") or "" }}
+          {% endif %}
+          {{ SIDECAR_MENU.extend(["CATEGORIES", "TAGS", "AUTHORS", "ARCHIVES"]) or "" }}
         {% endif %}
         {% for item in SIDECAR_MENU %}
-        {% if item == "HOME" %}
-        <li><a href="{{ SITEURL }}">Home</a></li>
-        {% elif item == "ARCHIVES" %}
-        <li><a href="{{ ARCHIVES_URL }}">Archive</a></li>
-        {% elif item == "AUTHORS" %}
-        <li><a href="{{ AUTHORS_URL }}">Authors</a></li>
-        {% elif item == "PAGES" %}
-        {% for page_ in pages %}
-        <li><a href="{{ SITEURL }}/{{ page_.url }}">{{ page_.title }}</a></li>
-        {% endfor %}
-        {% elif item == "CATEGORIES" %}
-        {% for cat, _ in categories %}
-        <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-        {% endfor %}
-        {% elif item == "TAGS" %}
-        {% for tag, _ in tags %}
-        <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
-        {% endfor %}
-        {% elif item == "MENUITEMS" %}
-        {% for title, url in MENUITEMS %}
-        <li><a href="{{ url }}">{{ title }}</a></li>
-        {% endfor %}
-        {% else %}
-        <li>{{ item.format(SITEURL=SITEURL) }}</li>
-        {% endif %}
+          {% if item == "HOME" %}
+            <li><a href="{{ SITEURL }}">Home</a></li>
+          {% elif item == "MENUITEMS" %}
+            {% for title, url in MENUITEMS %}
+              <li><a href="{{ url }}">{{ title }}</a></li>
+            {% endfor %}
+          {% elif item == "PAGES" %}
+            {% for page_ in pages %}
+              <li><a href="{{ SITEURL }}/{{ page_.url }}">{{ page_.title }}</a></li>
+            {% endfor %}
+          {% elif item == "CATEGORIES" %}
+            {% if CATEGORIES_URL %}<li><a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a></li>{% endif %}
+          {% elif item == "TAGS" %}
+            {% if TAGS_URL %}<li><a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a></li>{% endif %}
+          {% elif item == "AUTHORS" %}
+            {% if AUTHORS_URL %}<li><a href="{{ SITEURL }}/{{ AUTHORS_URL }}">Authors</a></li>{% endif %}
+          {% elif item == "ARCHIVES" %}
+            {% if ARCHIVES_URL %}<li><a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archive</a></li>{% endif %}
+          {% else %}
+            <li>{{ item.format(SITEURL=SITEURL) }}</li>
+          {% endif %}
         {% endfor %}
       </ul>
+
+      {% if DISPLAY_CATEGORIES_ON_MENU %}
+      <div class="nomobile">
+        <h4 class="noanchor">Categories</h4>
+        <ul>
+            {% for category, articles in categories %}
+            <li>
+            <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
+            <span class="secondary">({{ articles|count }})</span>
+            </li>
+            {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if DISPLAY_TAGS_ON_MENU %}
+      <div class="nomobile">
+        <h4 class="noanchor">Tags</h4>
+        <ul>
+          {% for tag, articles in tags %}
+            <li>
+              <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+              <span class="secondary">({{ articles|count }})</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if DISPLAY_AUTHORS_ON_MENU %}
+      <div class="nomobile">
+        <h4 class="noanchor">Authors</h4>
+        <ul>
+          {% for author, articles in authors %}
+            <li>
+              <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+              <span class="secondary">({{ articles|count }})</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if LINKS %}
+      <div class="nomobile">
+        <h4 class="noanchor">{{ LINKS_WIDGET_NAME|default("Links") }}</h4>
+        <ul>
+          {% for title, url in LINKS %}
+            <li><a href="{{ url }}">{{ title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if SOCIAL %}
+      <div class="nomobile">
+        <h4 class="noanchor">{{ SOCIAL_WIDGET_NAME|default("Social") }}</h4>
+        <ul>
+          {% for title, url in SOCIAL %}
+            <li><a href="{{ url }}">{{ title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
     </nav>
 
     {% block content %}{% endblock %}

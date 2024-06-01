@@ -8,7 +8,7 @@
 
 {% block page_content %}
   <ul>
-    {% for tag, articles in tags %}
+    {% for tag, articles in tags_ or tags %}
       <li style="list-style-type: none; margin-left: 0; padding-left: 0;">
         <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
         <span class="secondary">
