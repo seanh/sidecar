@@ -31,18 +31,30 @@ body {
 #nav a {
   color: inherit;
   text-decoration: none;
+  /* Apply padding to all nav menu links (not just current and hovered ones)
+   * so that the widths of links don't change and push following links around
+   * when current/hovered. */
+  padding-left: 3px;
+  padding-right: 3px;
+  /* Slightly less padding above and below than to the left and right.
+     This is to leave some gap between the background colors of adjacent
+     links that're both higlighted (when hover over one of them). */
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border-radius: 3px;
 }
-#menu {
+#nav ul {
   margin-bottom: 0;
   padding-right: 2rem;
   margin-right: 2rem;
   border-right: var(--sidecar-sidebar-border);
 }
-#menu > li {
+#nav li {
   list-style-type: none;
 }
-#menu a[aria-current="page"] {
-  font-weight: bold;
+#nav a[aria-current="page"],
+#nav a:hover {
+  background-color: var(--oatcake-highlight-background-color);
 }
 #content {
   grid-area: content;
@@ -86,7 +98,7 @@ body {
     overflow-x: scroll;
     white-space: nowrap;
   }
-  #menu {
+  #nav ul {
     padding-right: 0;
     margin-right: 0;
     border-right: none;
@@ -94,12 +106,12 @@ body {
     margin-bottom: var(--oatcake-body-line-height);
     border-bottom: var(--sidecar-sidebar-border);
   }
-  #menu > li {
+  #nav li {
     display: inline;
     margin-left: 1rem;
     padding-inline-start: 0;
   }
-  #menu > li:first-child {
+  #nav li:first-child {
     margin-left: 0;
   }
 }

@@ -44,7 +44,7 @@
 {% endif %}
 
     <nav id="nav">
-      <ul id="menu">
+      <ul>
         {% if SIDECAR_MENU is not defined %}
         {% set SIDECAR_MENU = ["HOME"] %}
         {{ SIDECAR_MENU.append("MENUITEMS") or "" }}
