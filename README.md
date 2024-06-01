@@ -13,16 +13,12 @@ Features
 
 * **Responsive design**: works great on both desktop and mobile.
 
-* **Supports most of Pelican's features**, including
-  pagination (if enabled by Pelican's [`DEFAULT_PAGINATION` / `PAGINATED_TEMPLATES` settings](https://docs.getpelican.com/en/latest/settings.html#pagination));
-  [syntax highlighting](https://docs.getpelican.com/en/latest/content.html#internal-pygments-options) for code blocks;
-  archives page, period archives pages, and author/authors, category/categories and tag/tags pages;
-  [Atom and RSS feeds](https://docs.getpelican.com/en/latest/settings.html#feed-settings) (with feed autodiscovery links in the HTML `<head>`);
-  and various Pelican settings including
-  `SITENAME` (used in tab and feed titles),
-  `SITEURL` (used in links),
-  `DEFAULT_LANG` (used for the HTML `lang`)
-  and `GITHUB_URL` (used for the GitHub ribbon, see below).
+* **Supports most of Pelican's features**:
+  all the different pages (archives and period archives, category and categories, tag and tags, author and authors),
+  syntax highlighting,
+  Atom and RSS feeds (with feed autodiscovery links in the HTML `<head>`),
+  pagination,
+  and responds to many of Pelican's default settings.
 
   Support for a couple of Pelican features is still missing, including
   [translations](https://github.com/seanh/sidecar/issues/1)
