@@ -14,7 +14,7 @@ Features
 * **Responsive design**: works great on both desktop and mobile.
 
 * **Supports most of Pelican's features**:
-  all the different pages (archives and period archives, category and categories, tag and tags, author and authors),
+  all the different pages (static pages, archives and period archives, category and categories, tag and tags, author and authors),
   syntax highlighting,
   Atom and RSS feeds (with feed autodiscovery links in the HTML `<head>`),
   pagination,
