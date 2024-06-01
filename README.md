@@ -17,8 +17,8 @@ Features
   all the different pages (static pages, archives and period archives, category and categories pages, tag and tags pages, author and authors pages),
   syntax highlighting,
   Atom and RSS feeds (with feed autodiscovery links in the HTML `<head>`),
-  pagination,
-  and responds to many of Pelican's default settings.
+  pagination.
+  Also responds to many of Pelican's default settings (see [Settings](#settings) below).
 
   Support for a couple of Pelican features is still missing, including
   [translations](https://github.com/seanh/sidecar/issues/1)
@@ -150,6 +150,38 @@ If you don't want a heading to have an anchor link either, add `noanchor` to it
 
 Settings
 --------
+
+### `SITENAME`
+
+Sets the name of your site in tab and feed titles:
+
+```python
+# pelicanconf.py
+
+SITENAME = "A Pelican Blog"
+```
+
+### SITEURL
+
+You must set this to the base URL of your site with no trailing slash.
+It's used to generate URLs in feeds, links in the sidebar, etc.
+
+```python
+# pelicanconf.py
+
+SITEURL = "http://blog.notmyidea.org"
+```
+
+### DEFAULT_LANG
+
+Your site's default language, used for the standard `lang` attribute on the
+root `<html>` element. If not set this defaults to `"en"`.
+
+```python
+# pelicanconf.py
+
+DEFAULT_LANG = "en"
+```
 
 ### `ARTICLE_SOURCE_URL` and `PAGE_SOURCE_URL`
 
