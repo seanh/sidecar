@@ -72,7 +72,7 @@
           {% elif item == "ARCHIVES" %}
             {% if ARCHIVES_URL %}<li><a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archive</a></li>{% endif %}
           {% else %}
-            <li>{{ item }}</li>
+            <li>{{ item.format(SITEURL=SITEURL) }}</li>
           {% endif %}
         {% endfor %}
       </ul>
