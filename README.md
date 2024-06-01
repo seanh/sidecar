@@ -358,19 +358,7 @@ Pelican's `MENUITEMS`:
 SIDECAR_MENU = [
     ...
     '<a rel="external" href="https://example.com">Custom Link</a>',
-]
-```
-
-The substring `{SITEURL}` will be replaced with Pelican's
-[`SITEURL` setting](https://docs.getpelican.com/en/latest/settings.html#SITEURL).
-For example:
-
-```python
-# pelicanconf.py
-
-SIDECAR_MENU = [
-    ...
-    '<a rel="license" href="{SITEURL}/license/">License</a>',
+    f'<a rel="license" href="{SITEURL}/license/">License</a>',
 ]
 ```
 
