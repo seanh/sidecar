@@ -191,6 +191,19 @@ root `<html>` element. If not set this defaults to `"en"`.
 DEFAULT_LANG = "en"
 ```
 
+### `STYLESHEET_URL`
+
+Add your own stylesheet after Sidecar's so you can customize the CSS.
+
+First, add a CSS stylesheet to your site as [static content](https://docs.getpelican.com/en/latest/content.html#static-content)
+then set `STYLESHEET_URL` to its URL, for example:
+
+```python
+# pelicanconf.py
+
+STYLESHEET_URL = "css/stylesheet.css"
+```
+
 ### `ARTICLE_SOURCE_URL` and `PAGE_SOURCE_URL`
 
 If [Pelican's `OUTPUT_SOURCES` setting](https://docs.getpelican.com/en/latest/settings.html#basic-settings)
