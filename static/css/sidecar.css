@@ -112,10 +112,12 @@ body {
   #nav ul {
     padding-right: 0;
     margin-right: 0;
-    border-right: none;
     padding-bottom: var(--oatcake-body-line-height);
     margin-bottom: var(--oatcake-body-line-height);
     border-bottom: var(--sidecar-sidebar-border);
+  }
+  #nav ul:first-child {
+    border-right: none;
   }
   #nav li {
     display: inline;
