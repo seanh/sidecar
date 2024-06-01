@@ -76,14 +76,13 @@ showing full article contents or summaries on index pages.
 This can make Pelican's archives page unnecessary, especially if you have
 pagination disabled on the front page: the archives page is just the same as
 the front page. So you might want to remove your site's archives page.
-You can do this with a couple of settings in your Pelican config:
+You can do this with a setting in your Pelican config:
 
 ```python
 # pelicanconf.py
 
 # Disable the archives page.
 ARCHIVES_SAVE_AS = ""
-ARCHIVES_URL = ""
 ```
 
 Article summaries are still used in RSS and Atom feeds.
