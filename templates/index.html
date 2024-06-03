@@ -13,12 +13,12 @@
   {% endif %}
 
   {% for article in articles_ %}
-  <article>
+  <article class="preview">
     <h4>
       {% include "includes/article/permalink.html" %}
     </h4>
 
-    {% include "includes/article/footer.html" %}
+    {% include "includes/article/tagline.html" %}
   </article>
   {% endfor %}
 

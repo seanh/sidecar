@@ -27,6 +27,7 @@ Features
 * **Standard, semantic HTML**:
   `<main>` for the main content of index and static pages,
   `<article>` for articles,
+  `<hgroup>` to group article titles and taglines,
   `<footer>` for footers,
   `<time>` for article publication dates,
   `rel="author"` for article author links,
@@ -40,9 +41,9 @@ Features
 
 * Optional [tables of contents](#tables-of-contents) for static pages and articles.
 
-* Customizable sidebar and article footer contents with the
+* Customizable sidebar and article tagline contents with the
   [`SIDECAR_MENU`](#sidecar_menu)
-  and [`SIDECAR_ARTICLE_FOOTER`](#sidecar_article_footer)
+  and [`SIDECAR_TAGLINE`](#sidecar_tagline)
   settings.
 
 
@@ -448,16 +449,16 @@ SOCIAL_WIDGET_NAME = "Social Media"
 [Pelican's `SOCIAL_WIDGET_NAME` setting](https://docs.getpelican.com/en/latest/settings.html#SOCIAL_WIDGET_NAME)
 sets the title of the social menu (defaults to "Social").
 
-### `SIDECAR_ARTICLE_FOOTER`
+### `SIDECAR_TAGLINE`
 
-You can customize the contents of the footers at the bottoms of articles by
-adding a `SIDECAR_ARTICLE_FOOTER` setting (list of strings) to your Pelican
+You can customize the contents of the taglines beneath article titles by
+adding a `SIDECAR_TAGLINE` setting (list of strings) to your Pelican
 config. For example:
 
 ```python
 # pelicanconf.py
 
-SIDECAR_ARTICLE_FOOTER = [
+SIDECAR_TAGLINE = [
     "AUTHORS",
     "TIME",
     "SOURCE",
@@ -465,7 +466,7 @@ SIDECAR_ARTICLE_FOOTER = [
 ]
 ```
 
-Certain string values have special meanings in `SIDECAR_ARTICLE_FOOTER`:
+Certain string values have special meanings in `SIDECAR_TAGLINE`:
 
 * `AUTHORS`: insert links to Pelican's author pages for the article's authors.
 
@@ -486,6 +487,6 @@ Certain string values have special meanings in `SIDECAR_ARTICLE_FOOTER`:
 
 * `TAGS`: inserts links to Pelican's tag pages for each of the article's tags, if any.
 
-Items in `SIDECAR_ARTICLE_FOOTER` that don't match any of the special strings
-above are rendered directly, so you include your own raw HTML strings in
-article footers.
+Items in `SIDECAR_TAGLINE` that don't match any of the special strings
+above are rendered directly, so you can include your own raw HTML strings in
+taglines.

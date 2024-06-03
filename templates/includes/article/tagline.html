@@ -1,0 +1,43 @@
+{% if SIDECAR_TAGLINE is not defined %}
+  {% set SIDECAR_TAGLINE = ["AUTHORS", "TIME", "SOURCE", "TAGS"] %}
+{% endif %}
+
+{% set tagline_items = [] %}
+
+{% for item in SIDECAR_TAGLINE %}
+  {% if item == "AUTHORS" %}
+    {% set tagline_item %}{% include "includes/article/authors.html" %}{% endset %}
+    {% if tagline_item %}
+      {{ tagline_items.append(tagline_item) or "" }}
+    {% endif %}
+  {% elif item == "TIME" %}
+    {% set tagline_item %}{% include "includes/article/time.html" %}{% endset %}
+    {% if tagline_item %}
+      {{ tagline_items.append(tagline_item) or "" }}
+    {% endif %}
+  {% elif item == "CATEGORY" %}
+    {% set tagline_item %}{% include "includes/article/category.html" %}{% endset %}
+    {% if tagline_item %}
+      {{ tagline_items.append(tagline_item) or "" }}
+    {% endif %}
+  {% elif item == "TAGS" %}
+    {% set tagline_item %}{% include "includes/article/tags.html" %}{% endset %}
+    {% if tagline_item %}
+      {{ tagline_items.append(tagline_item) or "" }}
+    {% endif %}
+  {% elif item == "SOURCE" %}
+    {% set tagline_item %}{% include "includes/article/source.html" %}{% endset %}
+    {% if tagline_item %}
+      {{ tagline_items.append(tagline_item) or "" }}
+    {% endif %}
+  {% elif item == "GITHUB" %}
+    {% set tagline_item %}{% include "includes/article/github.html" %}{% endset %}
+    {% if tagline_item %}
+      {{ tagline_items.append(tagline_item) or "" }}
+    {% endif %}
+  {% else %}
+    {{ tagline_items.append(item) or "" }}
+  {% endif %}
+{% endfor %}
+
+<p class="tagline small">{{ tagline_items|join(" &middot;&nbsp;") }}</p>

@@ -70,14 +70,18 @@ body {
 #content {
   grid-area: content;
 }
-#content > *:first-child {
+.title {
+  margin: 0;
+  padding: 0;
+}
+.tagline {
+  margin-top: calc(0.25 * var(--oatcake-body-line-height));
+  margin-bottom: calc(0.75 * var(--oatcake-body-line-height));
+}
+.preview .tagline {
   margin-top: 0;
-  padding-top: 0;
 }
-.article-footer {
-  margin-bottom: var(--oatcake-body-line-height);
-}
-.article-footer a {
+.tagline a {
   text-decoration: none;
 }
 .prev,

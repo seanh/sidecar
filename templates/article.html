@@ -8,10 +8,11 @@
 
 {% block content %}
 <article id="content">
-  <h1 class="noanchor notoc">{{ article.title }}</h1>
+  <hgroup>
+    <h1 class="title noanchor notoc">{{ article.title }}</h1>
+    {% include "includes/article/tagline.html" %}
+  </hgroup>
 
   {{ article.content }}
-
-  {% include "includes/article/footer.html" %}
 </article>
 {% endblock %}
