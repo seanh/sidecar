@@ -25,23 +25,12 @@
   </head>
   <body>
 
-{% if GITHUB_REPO_URL or GITHUB_URL %}
-  {% with %}
-    {% set ribbon_image %}
+{% if GITHUB_URL %}
+  <div id="ribbon" class="nomobile">
+    <a href="{{ GITHUB_URL }}">
       <img width="149" height="149" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/forkme.webp" alt="Fork me on GitHub">
-    {% endset %}
-    <div id="ribbon" class="nomobile">
-    {% if GITHUB_REPO_URL and (article or page) %}
-      {% with github_repo_link_content = ribbon_image %}
-        {% include 'includes/github_repo_link.html' %}
-      {% endwith %}
-    {% else %}
-      <a href="{{ GITHUB_URL or GITHUB_REPO_URL }}">
-          {{ ribbon_image }}
-      </a>
-    {% endif %}
-    </div>
-  {% endwith %}
+    </a>
+  </div>
 {% endif %}
 
     <nav id="nav">

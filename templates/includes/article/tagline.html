@@ -30,11 +30,6 @@
     {% if tagline_item %}
       {{ tagline_items.append(tagline_item) or "" }}
     {% endif %}
-  {% elif item == "GITHUB" %}
-    {% set tagline_item %}{% include "includes/article/github.html" %}{% endset %}
-    {% if tagline_item %}
-      {{ tagline_items.append(tagline_item) or "" }}
-    {% endif %}
   {% else %}
     {{ tagline_items.append(item) or "" }}
   {% endif %}

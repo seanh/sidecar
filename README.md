@@ -245,40 +245,6 @@ For example:
 GITHUB_URL = "https://github.com/seanh"
 ```
 
-### `GITHUB_REPO_URL`
-
-If you keep your site's source files in a GitHub repo you can set
-`GITHUB_REPO_URL` to the URL of that GitHub repo. If you use `GITHUB_REPO_URL`
-instead of `GITHUB_URL` then on your static pages and articles the GitHub
-ribbon will link directly to the page or article's source file on GitHub:
-
-```python
-# pelicanconf.py
-
-GITHUB_REPO_URL = "https://github.com/seanh/seanh.github.io"
-```
-
-This can be particularly useful for you as the author of the site because, if
-you're logged in to GitHub, the GitHub pages for your files have
-<kbd>Edit</kbd> buttons that you can use to edit your source files right in the
-GitHub web interface. So if you spot a typo in a page or article, you can
-quickly click on the GitHub ribbon then on GitHub's <kbd>Edit</kbd> button and
-correct it.
-
-### `CONTENT_PATH`
-
-If using `GITHUB_REPO_URL` and your site content directory isn't a directory
-named `content` in the root of your GitHub repo, then you need to add a
-`CONTENT_PATH` setting to your Pelican config to tell Sidecar how to generate
-the GitHub links for your pages and articles. This should be the path to your
-content directory relative to the root of your GitHub repo:
-
-```python
-# pelicanconf.py
-
-CONTENT_PATH = "path/to/your/content"
-```
-
 ### `SIDECAR_MENU`
 
 You can customize the contents of the sidebar by adding a `SIDECAR_MENU`
@@ -480,8 +446,6 @@ Certain string values have special meanings in `SIDECAR_TAGLINE`:
   the defaults then you need to add an `ARTICLE_SOURCE_URL` setting to your
   Pelican config to tell Sidecar how to generate the URLs to your article
   source files. See [`ARTICLE_SOURCE_URL` and `PAGE_SOURCE_URL`](#article_source_url-and-page_source_url) above.
-
-* `GITHUB`: inserts a link to the article's source file on GitHub, if [`GITHUB_REPO_URL`](#github_repo_url) (see above) is set.
 
 * `CATEGORY`: inserts a link to Pelican's category page for the article's category.
 
