@@ -96,7 +96,7 @@ body {
   text-decoration: none;
 }
 .article--summary:not(:last-child) {
-  margin-bottom: calc(2 * var(--oatcake-body-line-height));
+  margin-bottom: calc(3 * var(--oatcake-body-line-height));
 }
 .pagination {
   margin-bottom: var(--oatcake-body-line-height);
