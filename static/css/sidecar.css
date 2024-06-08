@@ -1,6 +1,10 @@
 :root {
   --sidecar-sidebar-border: 1px solid #eee;
 }
+a.subtle {
+  color: inherit;
+  text-decoration: none;
+}
 body {
   display: grid;
   padding-left: 1rem;
@@ -18,7 +22,7 @@ body {
 }
 .ribbon__image {
   margin: 0;
-  padding: 0;
+  padding: 0 !important;
 }
 .sidebar,
 .content {
@@ -46,9 +50,13 @@ body {
 .sidebar li {
   list-style-type: none;
 }
-.sidebar a {
+.sidebar a,
+.article__hgroup a {
   color: inherit;
   text-decoration: none;
+  border-radius: 3px;
+}
+.sidebar a {
   /* Apply padding to all nav menu links (not just current and hovered ones)
    * so that the widths of links don't change and push following links around
    * when current/hovered. */
@@ -59,10 +67,10 @@ body {
      links that're both higlighted (when hover over one of them). */
   padding-top: 1px;
   padding-bottom: 1px;
-  border-radius: 3px;
 }
 .sidebar a[aria-current="page"],
-.sidebar a:hover {
+.sidebar a:hover,
+.article__hgroup a:hover {
   background-color: var(--oatcake-highlight-background-color);
 }
 .content {
@@ -84,15 +92,20 @@ body {
   margin-top: 0;
 }
 .article__tagline a {
+  color: inherit;
   text-decoration: none;
 }
 .article--summary:not(:last-child) {
-  margin-bottom: calc(5 * var(--oatcake-body-line-height));
+  margin-bottom: calc(2 * var(--oatcake-body-line-height));
 }
 .pagination {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: var(--oatcake-body-line-height);
+}
+.pagination__prev {
+  float: left;
+}
+.pagination__next {
+  float: right;
 }
 .pagination a {
   color: inherit;
