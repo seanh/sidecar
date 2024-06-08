@@ -1,9 +1,15 @@
-{% extends "tags.html" %}
+{% extends "base.html" %}
 
 {% block title %}{{ SITENAME|striptags }} - Authors{% endblock %}
 
-{% block page_title %}
-  <h1 class="noanchor notoc">Authors</h1>
-{% endblock %}
+{% block content %}
+  <main class="page page--authors">
+    {% with content_title="Authors" %}
+      {% include "includes/content_title.html" %}
+    {% endwith %}
 
-{% set tags_=authors %}
+    {% with tags=authors %}
+      {% include "includes/tags.html" %}
+    {% endwith %}
+  </main>
+{% endblock content %}

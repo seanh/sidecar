@@ -1,39 +1,41 @@
 <!DOCTYPE html>
-<html lang="{{ DEFAULT_LANG }}">
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{{ SITENAME|striptags }}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments.css">
-    <link rel="stylesheet" href="https://www.seanh.cc/oatcake/oatcake.css">
-    <link rel="stylesheet" href="https://www.seanh.cc/oatcake/lines/lines.css">
-    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/sidecar.css">
-    {% if STYLESHEET_URL %}<link rel="stylesheet" href="{{ STYLESHEET_URL }}" />{% endif %}
-    {% if FEED_ALL_ATOM %}
-    <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Atom (all languages)">
-    {% endif %}
-    {% if FEED_ALL_RSS %}
-    <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} RSS (all languages)">
-    {% endif %}
-    {% if FEED_ATOM %}
-    <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Atom ({{ DEFAULT_LANG }})">
-    {% endif %}
-    {% if FEED_RSS %}
-    <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} RSS ({{ DEFAULT_LANG }})">
-    {% endif %}
-    {% block head %}{% endblock %}
+    {% block head %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{% block title %}{{ SITENAME|striptags }}{% endblock title %}</title>
+      <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments.css">
+      <link rel="stylesheet" href="https://www.seanh.cc/oatcake/oatcake.css">
+      <link rel="stylesheet" href="https://www.seanh.cc/oatcake/lines/lines.css">
+      <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/sidecar.css">
+      {% if STYLESHEET_URL %}<link rel="stylesheet" href="{{ STYLESHEET_URL }}" />{% endif %}
+      {% if FEED_ALL_ATOM %}
+      <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Atom (all languages)">
+      {% endif %}
+      {% if FEED_ALL_RSS %}
+      <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} RSS (all languages)">
+      {% endif %}
+      {% if FEED_ATOM %}
+      <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Atom ({{ DEFAULT_LANG }})">
+      {% endif %}
+      {% if FEED_RSS %}
+      <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} RSS ({{ DEFAULT_LANG }})">
+      {% endif %}
+      {% block extra_head %}{% endblock extra_head %}
+    {% endblock head %}
   </head>
   <body>
 
 {% if GITHUB_URL %}
-  <div id="ribbon" class="nomobile">
-    <a href="{{ GITHUB_URL }}">
-      <img width="149" height="149" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/forkme.webp" alt="Fork me on GitHub">
+  <div class="ribbon" class="nomobile">
+    <a class="ribbon__link" href="{{ GITHUB_URL }}">
+      <img class="ribbon__image" width="149" height="149" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/forkme.webp" alt="Fork me on GitHub">
     </a>
   </div>
 {% endif %}
 
-    <nav id="nav">
+    <nav class="sidebar">
       <ul>
         {% if SIDECAR_MENU is not defined %}
           {% set SIDECAR_MENU = ["HOME", "MENUITEMS"] %}
@@ -132,7 +134,9 @@
       {% endif %}
     </nav>
 
-    {% block content %}{% endblock %}
+    <div class="content">
+      {% block content %}{% endblock content %}
+    </div>
 
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/menu.js" defer></script>
     {% if anchors %}

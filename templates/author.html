@@ -2,6 +2,9 @@
 
 {% block title %}{{ SITENAME|striptags }} - Posts by {{ author }}{% endblock %}
 
-{% block page_title %}
-  <h1 class="noanchor notoc">Posts by {{ author }}</h1>
+{% block content_title %}
+  {% with %}
+    {% set content_title %}Posts by {{ author }}{% endset %}
+    {% include "includes/content_title.html" %}
+  {% endwith %}
 {% endblock %}

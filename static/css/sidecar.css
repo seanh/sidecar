@@ -11,28 +11,44 @@ body {
   grid-template-areas:
     "nav content"
 }
-#ribbon {
+.ribbon {
   position: absolute;
   top: 0;
   right: 0;
 }
-#ribbon img {
+.ribbon__image {
   margin: 0;
   padding: 0;
 }
-#nav,
-#content {
+.sidebar,
+.content {
   margin-top: calc(2 * var(--oatcake-body-line-height));
 }
-#nav {
+.sidebar {
   grid-area: nav;
   text-align: right;
 }
-#nav a {
+.sidebar ul,
+.sidebar h4 {
+  margin-bottom: 0;
+  padding-right: 2rem;
+  margin-right: 2rem;
+}
+.sidebar h4 {
+  margin-top: var(--oatcake-body-line-height);
+}
+.sidebar ul:first-child {
+  border-right: var(--sidecar-sidebar-border);
+}
+.sidebar ul:not(:first-child) {
+  padding-right: calc(2rem + 1px);
+}
+.sidebar li {
+  list-style-type: none;
+}
+.sidebar a {
   color: inherit;
   text-decoration: none;
-}
-#nav ul a {
   /* Apply padding to all nav menu links (not just current and hovered ones)
    * so that the widths of links don't change and push following links around
    * when current/hovered. */
@@ -45,55 +61,42 @@ body {
   padding-bottom: 1px;
   border-radius: 3px;
 }
-#nav ul,
-#nav h4 {
-  margin-bottom: 0;
-  padding-right: 2rem;
-  margin-right: 2rem;
-}
-#nav ul:first-child {
-  border-right: var(--sidecar-sidebar-border);
-}
-#nav ul:not(:first-child) {
-  padding-right: calc(2rem + 1px);
-}
-#nav li {
-  list-style-type: none;
-}
-#nav a[aria-current="page"],
-#nav a:hover {
+.sidebar a[aria-current="page"],
+.sidebar a:hover {
   background-color: var(--oatcake-highlight-background-color);
 }
-#nav h4 {
-  margin-top: var(--oatcake-body-line-height);
-}
-#content {
+.content {
   grid-area: content;
 }
-.title {
+.page__heading {
+  margin-top: 0;
+  padding-top: 0;
+}
+.article__heading {
   margin: 0;
   padding: 0;
 }
-.tagline {
+.article__tagline {
   margin-top: calc(0.25 * var(--oatcake-body-line-height));
   margin-bottom: calc(0.75 * var(--oatcake-body-line-height));
 }
-.preview .tagline {
+.article__tagline {
   margin-top: 0;
 }
-.tagline a {
+.article__tagline a {
   text-decoration: none;
 }
-.prev,
-.next {
+.article--summary:not(:last-child) {
+  margin-bottom: calc(5 * var(--oatcake-body-line-height));
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--oatcake-body-line-height);
+}
+.pagination a {
   color: inherit;
   text-decoration: none;
-}
-.prev {
-  float: left;
-}
-.next {
-  float: right;
 }
 @media screen and (max-width: 52rem){
   body {
@@ -105,30 +108,30 @@ body {
   .nomobile {
     display: none;
   }
-  #content {
+  .content {
     margin-top: var(--oatcake-body-line-height);
   }
-  #nav {
+  .sidebar {
     text-align: left;
     overflow-x: scroll;
     white-space: nowrap;
   }
-  #nav ul {
+  .sidebar ul {
     padding-right: 0;
     margin-right: 0;
     padding-bottom: var(--oatcake-body-line-height);
     margin-bottom: var(--oatcake-body-line-height);
     border-bottom: var(--sidecar-sidebar-border);
   }
-  #nav ul:first-child {
+  .sidebar ul:first-child {
     border-right: none;
   }
-  #nav li {
+  .sidebar li {
     display: inline;
     margin-left: 1rem;
     padding-inline-start: 0;
   }
-  #nav li:first-child {
+  .sidebar li:first-child {
     margin-left: 0;
   }
 }

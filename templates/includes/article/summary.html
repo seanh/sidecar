@@ -1,0 +1,12 @@
+<article class="article article--summary">
+  <hgroup class="article__hgroup">
+    {% with %}
+      {% set link_text %}
+        <h1 class="article__heading noanchor">{{ article.title }}</h1>
+      {% endset %}
+      {% include "includes/article/permalink.html" %}
+    {% endwith %}
+    {% include "includes/article/tagline.html" %}
+  </hgroup>
+  <div class="article__summary">{{ article.summary }}</div>
+</article>

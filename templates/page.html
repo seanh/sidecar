@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME|striptags }} - {{ page.title|striptags }}{%endblock%}
+{% block title %}{{ SITENAME|striptags }} - {{ page.title|striptags }}{% endblock title %}
 
-{% block head %}{% if OUTPUT_SOURCES and page %}<link rel="alternate" type="text/plain" href="{% include 'includes/page/source_url' %}">{% endif %}{% endblock %}
+{% block head %}
+  {{ super() }}
+  {% if OUTPUT_SOURCES and page %}<link rel="alternate" type="text/plain" href="{% include 'includes/page/source_url' %}">{% endif %}
+{% endblock head %}
 
 {% set anchors = true %}
 
 {% block content %}
-  <main id="content">
-    {% block page_title %}
-      <h1 class="noanchor notoc">{{ page.title_ or page.title }}</h1>
-    {% endblock %}
+  <main class="page page--static">
+    {% with content_title=page.title_ or page.title %}
+      {% include "includes/content_title.html" %}
+    {% endwith %}
 
-    {% block page_content %}
+    <div class="page__content">
       {{ page.content }}
-    {% endblock %}
+    </div>
   </main>
-{% endblock %}
+{% endblock content %}
