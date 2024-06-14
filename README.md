@@ -5,6 +5,8 @@ A plain but pretty [Pelican](https://getpelican.com/) theme with a little sideba
 
 <img src="screenshots/desktop.png" alt="Screenshot of Sidecar Pelican theme on desktop">
 
+<img src="screenshots/mobile.png" alt="Screenshot of Sidecar Pelican theme on mobile">
+
 Features
 --------
 
