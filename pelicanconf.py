@@ -24,6 +24,11 @@ DEFAULT_CATEGORY = "Tech"
 
 FEED_DOMAIN = SITEURL
 
+# Make the URLs of static pages nicer.
+PAGE_SAVE_AS = '{slug}/index.html'
+PAGE_URL = '{slug}/'
+PAGE_SOURCE_URL = "{page.url}index{OUTPUT_SOURCES_EXTENSION}"
+
 LINKS = (
     ("Pelican", "https://getpelican.com/"),
     ("Oatcake", "https://github.com/seanh/oatcake"),
