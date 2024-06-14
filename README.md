@@ -402,3 +402,129 @@ Certain string values have special meanings in `SIDECAR_TAGLINE`:
 Items in `SIDECAR_TAGLINE` that don't match any of the special strings
 above are rendered directly, so you can include your own raw HTML strings in
 taglines.
+
+Customizing the templates
+-------------------------
+
+### Moving the archive page to the home page
+
+Some people like to use the archive page as the home page of their site:
+showing only the titles of posts on the home page (no summaries) and listing
+all post titles on one long page (no pagination).
+
+You can do this in your Pelican config file just by telling Pelican not to
+render the index page (the normal home page) and telling it write the archives
+page to the root `/index.html` file where the index page would normally be:
+
+```python
+# pelicanconf.py
+
+# Use the archives page as the home page.
+INDEX_SAVE_AS = ""
+ARCHIVES_SAVE_AS = "index.html"
+```
+
+You can use a similar trick to use a static page as your home page,
+see [How can I use a static page as my home page?](https://docs.getpelican.com/en/latest/faq.html#how-can-i-use-a-static-page-as-my-home-page)
+in Pelican's docs.
+
+### Overriding templates
+
+You can use Pelican's [`THEME_TEMPLATE_OVERRIDES`](https://docs.getpelican.com/en/latest/settings.html#themes)
+setting to override individual templates from the Sidecar theme.
+
+Set `THEME_TEMPLATE_OVERRIDES` to a folder (path relative to your Pelican config file):
+
+```python
+# pelicanconf.py
+
+# Override individual templates from the theme.
+THEME_TEMPLATES_OVERRIDES = ["theme_template_overrides"]
+```
+
+Now to replace the front page with your own custom
+[Jinja](https://jinja.palletsprojects.com/) template, create a
+`theme_template_overrides/index.html` file:
+
+```jinja2
+{# theme_template_overrides/index.html #}
+
+<h1>My Custom Home Page</h1>
+```
+
+Read Jinja's [Template Designer Documentation](https://jinja.palletsprojects.com/en/3.1.x/templates/)
+to learn how to write Jinja templates, and Pelican's
+[Themes](https://docs.getpelican.com/en/latest/themes.html) page to see what
+variables are available to each template.
+
+Template overrides can use Jinja's `{% extends %}` to extend Sidecar's base
+templates. This can be an alternative way to replace the home page with the
+archives page:
+
+```jinja2
+{# theme_template_overrides/index.html #}
+
+{% extends '!theme/archives.html' %}
+```
+
+You'll probably also want to disable generation of the archives page, since
+you've turned the home page into an archives page:
+
+```python
+# pelicanconf.py
+
+# Disable generation of the archives page.
+ARCHIVES_SAVE_AS = ""
+```
+
+When extending a template you can use Jinja's `{% block %}` to replace specific
+parts of the base template. `{{ super() }}` can also be useful. See
+[Template Inheritance](https://jinja.palletsprojects.com/en/3.1.x/templates/#template-inheritance)
+in Jinja's docs for details.
+
+For example the archives page has the title **Archive** at the top of the page,
+and also in the tab title. You might not want that title if you're using the
+archives page as your home page. Fortunately the `archives.html` template
+provides a `title` and `content_title` blocks that you can use to override the
+tab title and in-page title:
+
+```jinja2
+{# theme_template_overrides/index.html #}
+
+{% extends '!theme/archives.html' %}
+
+{% block title %}My Blog - Home Page{% endblock %}
+
+{% block content_title %}My Blog{% endblock %}
+```
+
+To remove the content title entirely just use an empty block:
+
+```jinja2
+{% block content_title %}{% endblock %}
+```
+
+Take a look at [Sidecar's templates](https://github.com/seanh/sidecar/tree/main/templates)
+to see what template files are available for overriding, and look for `{% block %}`
+definitions in the template files to see what blocks are available for
+overriding when extending each template.
+
+Lastly, Sidecar provides a collection of [include templates](https://github.com/seanh/sidecar/tree/main/templates/includes)
+that you can call from your custom templates by using Jinja's [`{% include %}`](https://jinja.palletsprojects.com/en/3.1.x/templates/#include).
+Also see [Inheritance](https://docs.getpelican.com/en/latest/themes.html#inheritance) in Pelican's docs.
+For example there's an `article/archives.html` include which Sidecar's default
+archives page uses to render each article: the include renders just the
+article's title and tagline. This can be a third way to replace the articles on
+your front page with only their titles:
+
+```jinja2
+{# theme_template_overrides/index.html #}
+
+{% extends '!theme/index.html' %}
+
+{% block content %}
+  {% for article in articles %}
+    {% include "includes/article/archives.html" %}
+  {% endfor %}
+{% endblock %}
+```
