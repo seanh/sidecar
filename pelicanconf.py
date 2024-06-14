@@ -24,6 +24,19 @@ DEFAULT_CATEGORY = "Tech"
 
 FEED_DOMAIN = SITEURL
 
+# Make the URLs of article permalink pages nicer.
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+ARTICLE_SOURCE_URL = "{article.url}index{OUTPUT_SOURCES_EXTENSION}"
+
+# Make the URLs of period archive pages nicer.
+YEAR_ARCHIVE_SAVE_AS = "{date:%Y}/index.html"
+YEAR_ARCHIVE_URL = "{date:%Y}/"
+MONTH_ARCHIVE_SAVE_AS = "{date:%Y}/{date:%m}/index.html"
+MONTH_ARCHIVE_URL = "{date:%Y}/{date:%m}/"
+DAY_ARCHIVE_SAVE_AS = "{date:%Y}/{date:%m}/{date:%d}/index.html"
+DAY_ARCHIVE_URL = "{date:%Y}/{date:%m}/{date:%d}/"
+
 # Make the URLs of static pages nicer.
 PAGE_SAVE_AS = '{slug}/index.html'
 PAGE_URL = '{slug}/'
