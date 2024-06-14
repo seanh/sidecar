@@ -3,6 +3,8 @@ Sidecar
 
 A plain but pretty [Pelican](https://getpelican.com/) theme with a little sidebar.
 
+<img src="screenshots/desktop.png" alt="Screenshot of Sidecar Pelican theme on desktop">
+
 Features
 --------
 
