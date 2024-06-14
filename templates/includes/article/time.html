@@ -1,5 +1,4 @@
 {% with %}
-{% set content %}<time class="nowrap" datetime="{{ article.date.strftime("%Y-%m") }}">{{ article.locale_date }}</time>{% endset %}
-{% include "includes/article/permalink.html" %}
-
+  {% set link_text %}<time class="nowrap" datetime="{{ article.date.strftime("%Y-%m") }}">{{ article.locale_date }}</time>{% endset %}
+  {% include "includes/article/permalink.html" %}
 {% endwith %}

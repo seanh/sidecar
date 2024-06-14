@@ -1,9 +1,11 @@
-{% extends "tags.html" %}
+{% extends "base.html" %}
 
-{% block title %}{{ SITENAME|striptags }} - Categories{% endblock %}
+{% block title %}{{ super() }} - Categories{% endblock %}
 
-{% block page_title %}
-  <h1 class="noanchor notoc">Categories</h1>
+{% block content_title %}Categories{% endblock %}
+
+{% block content %}
+  {% with tags=categories %}
+    {% include "includes/tags.html" %}
+  {% endwith %}
 {% endblock %}
-
-{% set tags_=categories %}

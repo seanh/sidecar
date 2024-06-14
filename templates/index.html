@@ -1,39 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<main id="content">
-  {% block page_title %}{% endblock %}
-
-  {% if articles_ is not defined %}
-    {% if articles_page is defined %}
-      {% set articles_ = articles_page.object_list %}
-    {% else %}
-      {% set articles_ = articles %}
-    {% endif %}
-  {% endif %}
-
-  {% for article in articles_ %}
-  <article class="preview">
-    <h4>
-      {% include "includes/article/permalink.html" %}
-    </h4>
-
-    {% include "includes/article/tagline.html" %}
-  </article>
+  {% for article in articles_page.object_list %}
+    {% include "includes/article/summary.html" %}
   {% endfor %}
 
-  {% if articles_page is defined and articles_page.has_other_pages() %}
-  <footer style="margin-bottom: var(--oatcake-body-line-height);">
-  {% if articles_previous_page %}
-    <a class="prev" rel="prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}">&blacktriangleleft; Previous</a>
-  {% endif %}
+  {% if articles_page.has_other_pages() %}
+    <footer class="pagination">
+      {% if articles_previous_page %}
+        <a rel="prev" class="pagination__prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}">&blacktriangleleft; Previous</a>
+      {% endif %}
 
-  {% if articles_next_page %}
-    <a class="next" rel="next" href="{{ SITEURL }}/{{ articles_next_page.url }}">Next Page &blacktriangleright;</a>
-  {% endif %}
+      {% if articles_next_page %}
+        <a rel="next" class="pagination__next" href="{{ SITEURL }}/{{ articles_next_page.url }}">Next Page &blacktriangleright;</a>
+      {% endif %}
 
-    <div style="clear: both;"></div>
-  </footer>
+      <div style="clear: both;"></div>
+    </footer>
   {% endif %}
-</main>
 {% endblock %}

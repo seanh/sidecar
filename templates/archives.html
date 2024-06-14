@@ -1,7 +1,11 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
-{% block title %}{{ SITENAME|striptags }} - Archive{% endblock %}
+{% block title %}{{ super() }} - Archive{% endblock %}
 
-{% block page_title %}
-  <h1 class="noanchor notoc">Archive</h1>
+{% block content_title %}Archive{% endblock %}
+
+{% block content %}
+  {% for article in articles %}
+    {% include "includes/article/archives.html" %}
+  {% endfor %}
 {% endblock %}

@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME|striptags }} - {{ article.title|striptags  }}{% endblock %}
+{% block html_lang %}{{ article.lang }}{% endblock %}
 
-{% block head %}{% if OUTPUT_SOURCES %}<link rel="alternate" type="text/plain" href="{% include 'includes/article/source_url' %}">{% endif %}{% endblock %}
+{% block title %}{{ super() }} - {{ article.title|striptags  }}{% endblock title %}
+
+{% block head %}
+  {{ super() }}
+  {% if OUTPUT_SOURCES %}
+    <link rel="alternate" type="text/plain" href="{% include 'includes/article/source_url' %}">
+  {% endif %}
+{% endblock %}
 
 {% set anchors = true %}
 
 {% block content %}
-<article id="content">
-  <hgroup>
-    <h1 class="title noanchor notoc">{{ article.title }}</h1>
+  <hgroup class="article__hgroup">
+    <h1 class="article__heading noanchor">{{ article.title }}</h1>
     {% include "includes/article/tagline.html" %}
   </hgroup>
-
-  {{ article.content }}
-</article>
+  <div class="article__content">{{ article.content }}</div>
 {% endblock %}

@@ -1,25 +1,9 @@
-{% extends "page.html" %}
+{% extends "base.html" %}
 
-{% block title %}{{ SITENAME|striptags }} - Tags{% endblock %}
+{% block title %}{{ super() }} - Tags{% endblock %}
 
-{% block page_title %}
-  <h1 class="noanchor notoc">Tags</h1>
-{% endblock %}
+{% block content_title %}Tags{% endblock %}
 
-{% block page_content %}
-  <ul>
-    {% for tag, articles in tags_ or tags %}
-      <li style="list-style-type: none; margin-left: 0; padding-left: 0;">
-        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-        <span class="secondary">
-          &middot;
-          {% if articles|count == 1 %}
-            1 post
-          {% else %}
-            {{ articles|count }} posts
-          {% endif %} 
-        </span>
-      </li>
-    {% endfor %}
-  </ul>
+{% block content %}
+  {% include "includes/tags.html" %}
 {% endblock %}
