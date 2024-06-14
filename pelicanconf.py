@@ -45,7 +45,6 @@ SIDECAR_MENU = [
     "MENUITEMS",
     "PAGES",
     "TAGS",
-    "AUTHORS",
     "ARCHIVES",
 ]
 
