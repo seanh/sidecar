@@ -14,3 +14,5 @@ jobs:
       settings: "pelicanconf.py"
       requirements: "-r requirements/dev.txt"
       theme: "https://github.com/seanh/sidecar.git"
+      theme: "https://github.com/seanh/sidecar.git"
+      feed_domain: "https://example.com"
