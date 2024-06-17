@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   deploy:
-    uses: "seanh/pelican/.github/workflows/github_pages.yml@gha-theme-support-wip"
+    uses: "seanh/pelican/.github/workflows/github_pages.yml@gha-theme-support"
     permissions:
       contents: "read"
       pages: "write"
