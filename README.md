@@ -29,7 +29,7 @@ Features
   and [author, category and tag feeds](https://github.com/seanh/sidecar/issues/18).
 
 * **Standard, semantic HTML**:
-  `<main>` for the main content of index and static pages,
+  `<main>` for the main content of pages,
   `<article>` for articles,
   `<hgroup>` to group article titles and taglines,
   `<footer>` for footers,
