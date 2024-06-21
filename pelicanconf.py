@@ -62,7 +62,7 @@ SIDECAR_MENU = [
 ]
 
 SIDECAR_TAGLINE = [
-    "AUTHORS",
     "TIME",
+    "AUTHORS",
     "TAGS",
 ]
