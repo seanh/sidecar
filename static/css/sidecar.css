@@ -21,7 +21,7 @@ body {
 }
 .sidebar,
 .content {
-  margin-top: calc(2 * var(--oatcake-body-line-height));
+  margin-top: calc(2 * var(--oatcake-line-height));
   grid-area: content;
 }
 .sidebar {
@@ -35,7 +35,7 @@ body {
   margin-right: 2rem;
 }
 .sidebar h4 {
-  margin-top: var(--oatcake-body-line-height);
+  margin-top: var(--oatcake-line-height);
 }
 .sidebar ul:first-child {
   border-right: var(--sidecar-sidebar-border);
@@ -83,8 +83,8 @@ body {
   padding: 0;
 }
 .article__tagline {
-  margin-top: calc(0.25 * var(--oatcake-body-line-height));
-  margin-bottom: calc(0.75 * var(--oatcake-body-line-height));
+  margin-top: calc(0.25 * var(--oatcake-line-height));
+  margin-bottom: calc(0.75 * var(--oatcake-line-height));
 }
 .article__tagline {
   margin-top: 0;
@@ -97,10 +97,10 @@ body {
   font-weight: normal;
 }
 .article--summary:not(:last-child) {
-  margin-bottom: calc(2 * var(--oatcake-body-line-height));
+  margin-bottom: calc(2 * var(--oatcake-line-height));
 }
 .pagination {
-  margin-bottom: var(--oatcake-body-line-height);
+  margin-bottom: var(--oatcake-line-height);
 }
 .pagination__prev {
   float: left;
@@ -123,7 +123,7 @@ body {
     display: none;
   }
   .content {
-    margin-top: var(--oatcake-body-line-height);
+    margin-top: var(--oatcake-line-height);
   }
   .sidebar {
     text-align: left;
@@ -133,8 +133,8 @@ body {
   .sidebar ul {
     padding-right: 0;
     margin-right: 0;
-    padding-bottom: var(--oatcake-body-line-height);
-    margin-bottom: var(--oatcake-body-line-height);
+    padding-bottom: var(--oatcake-line-height);
+    margin-bottom: var(--oatcake-line-height);
     border-bottom: var(--sidecar-sidebar-border);
   }
   .sidebar ul:first-child {
