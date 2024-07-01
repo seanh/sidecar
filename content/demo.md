@@ -144,8 +144,7 @@ etc).
 ## Grab bag
 
 Keyboard input with `<kbd>`: <kbd>Ctrl</kbd> + <kbd>F1</kbd>,
-<span class="badge">badges</span> with `<span class="badge">`
-and <span class="pill">pills</span> with `<span class="pill">`,
+<span class="badge">badges</span> with `<span class="badge">`,
 <mark>highlights</mark> with `<mark>`,
 <s>strike-throughs</s> with `<s>` or `<del>`, etc.
 
