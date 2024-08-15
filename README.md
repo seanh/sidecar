@@ -107,6 +107,21 @@ If you don't want a heading to have an anchor link either, add `noanchor` to it
 Settings
 --------
 
+### `ANALYTICS`
+
+Put any desired analytics in this setting
+(it's the same as [Pelican's built-in `notmyidea` theme's `ANALYTICS` setting](https://docs.getpelican.com/en/latest/settings.html#ANALYTICS).
+Example:
+
+```python
+ANALYTICS = """
+    <script src="/theme/js/primary-analytics.js"></script>
+    <script>
+        [ … in-line Javascript code for secondary analytics … ]
+    </script>
+"""
+```
+
 ### `SITENAME`
 
 Sets the name of your site in tab and feed titles:
