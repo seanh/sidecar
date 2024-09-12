@@ -109,7 +109,7 @@ Settings
 
 ### `ANALYTICS`
 
-Put any desired analytics in this setting
+Put any desired analytics scripts in this setting
 (it's the same as [Pelican's built-in `notmyidea` theme's `ANALYTICS` setting](https://docs.getpelican.com/en/latest/settings.html#ANALYTICS).
 Example:
 
