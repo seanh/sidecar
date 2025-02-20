@@ -6,10 +6,10 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
   justify-content: center;
-  grid-template-columns: 16rem minmax(auto, 40rem) 16rem;
+  grid-template-columns: 16rem minmax(auto, 40rem);
   grid-template-rows: auto;
   grid-template-areas:
-    "nav content ."
+    "nav content"
 }
 .ribbon {
   position: absolute;
