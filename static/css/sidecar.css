@@ -4,7 +4,7 @@
   --sidebar-width: 16rem;
 }
 body {
-  width: calc(var(--sidebar-width) + var(--content-width) + var(--sidebar-width));
+  max-width: calc(var(--sidebar-width) + var(--content-width) + var(--sidebar-width));
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
@@ -115,9 +115,11 @@ body {
   text-decoration: none;
 }
 @media screen and (max-width: calc(16rem + 40rem + 2rem)){
-  body,
+  body {
+    max-width: var(--content-width);
+  }
   .sidebar {
-    width: var(--content-width);
+    width: 100%;
   }
   .nomobile {
     display: none;
