@@ -1,15 +1,14 @@
 :root {
   --sidecar-sidebar-border: 1px solid #eee;
+  --content-width: 40rem;
+  --sidebar-width: 16rem;
 }
 body {
-  display: grid;
+  width: calc(var(--sidebar-width) + var(--content-width) + var(--sidebar-width));
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  justify-content: center;
-  grid-template-columns: 16rem minmax(auto, 40rem);
-  grid-template-rows: auto;
-  grid-template-areas:
-    "nav content"
 }
 .ribbon {
   position: absolute;
@@ -22,11 +21,15 @@ body {
 .sidebar,
 .content {
   margin-top: calc(2 * var(--oatcake-line-height));
-  grid-area: content;
 }
 .sidebar {
-  grid-area: nav;
+  width: var(--sidebar-width);
+  float: left;
   text-align: right;
+}
+.content {
+  max-width: var(--content-width);
+  float: left;
 }
 .sidebar ul,
 .sidebar h4 {
@@ -111,18 +114,22 @@ body {
   color: inherit;
   text-decoration: none;
 }
-@media screen and (max-width: 52rem){
-  body {
-    grid-template-columns: 100%;
-    grid-template-areas:
-      "nav"
-      "content"
+@media screen and (max-width: calc(16rem + 40rem + 2rem)){
+  body,
+  .sidebar {
+    width: var(--content-width);
   }
   .nomobile {
     display: none;
   }
   .content {
     margin-top: var(--oatcake-line-height);
+  }
+  .content,
+  .sidebar {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
   }
   .sidebar {
     text-align: left;
