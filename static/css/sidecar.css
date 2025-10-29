@@ -20,7 +20,7 @@ body {
 }
 .sidebar,
 .content {
-  margin-top: calc(2 * var(--oatcake-line-height));
+  margin-top: calc(2 * var(--ok-line-height));
 }
 .sidebar {
   width: var(--sidebar-width);
@@ -38,7 +38,7 @@ body {
   margin-right: 2rem;
 }
 .sidebar h4 {
-  margin-top: var(--oatcake-line-height);
+  margin-top: var(--ok-line-height);
 }
 .sidebar ul:first-child {
   border-right: var(--sidecar-sidebar-border);
@@ -68,7 +68,7 @@ body {
 }
 .sidebar a[aria-current="page"],
 .sidebar a:hover {
-  background-color: var(--oatcake-highlight-background-color);
+  background-color: var(--ok-color-highlight-bg);
 }
 .article__hgroup a {
   color: inherit;
@@ -85,8 +85,8 @@ body {
   padding-bottom: 0;
 }
 .article__tagline {
-  margin-top: calc(0.25 * var(--oatcake-line-height));
-  margin-bottom: calc(0.75 * var(--oatcake-line-height));
+  margin-top: calc(0.25 * var(--ok-line-height));
+  margin-bottom: calc(0.75 * var(--ok-line-height));
 }
 .article__tagline {
   margin-top: 0;
@@ -99,10 +99,10 @@ body {
   font-weight: normal;
 }
 .article--summary:not(:last-child) {
-  margin-bottom: calc(2 * var(--oatcake-line-height));
+  margin-bottom: calc(2 * var(--ok-line-height));
 }
 .pagination {
-  margin-bottom: var(--oatcake-line-height);
+  margin-bottom: var(--ok-line-height);
 }
 .pagination__prev {
   float: left;
@@ -125,7 +125,7 @@ body {
     display: none;
   }
   .content {
-    margin-top: var(--oatcake-line-height);
+    margin-top: var(--ok-line-height);
   }
   .content,
   .sidebar {
@@ -141,8 +141,8 @@ body {
   .sidebar ul {
     padding-right: 0;
     margin-right: 0;
-    padding-bottom: var(--oatcake-line-height);
-    margin-bottom: var(--oatcake-line-height);
+    padding-bottom: var(--ok-line-height);
+    margin-bottom: var(--ok-line-height);
     border-bottom: var(--sidecar-sidebar-border);
   }
   .sidebar ul:first-child {
