@@ -121,9 +121,9 @@ and [`<summary>`](https://html.spec.whatwg.org/multipage/interactive-elements.ht
 
 ## Lead paragraphs
 
-You can create large-text "lead" paragraphs with `<p class="lead">...</p>`:
+You can create large-text "ok-lead" paragraphs with `<p class="ok-lead">...</p>`:
 
-<p class="lead">
+<p class="ok-lead">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae ex eros.
 Sed nec lacinia turpis. Donec nec nisi et dolor tincidunt commodo vulputate eu
 sem. Interdum et malesuada fames ac ante ipsum primis in faucibus.
@@ -132,19 +132,19 @@ sem. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 ## Note boxes
 
 You can create highlighted note boxes with
-<code class="nowrap">&lt;p class="note"&gt;...&lt;/p&gt;</code>
-(or <code class="nowrap">&lt;div class="note"&gt;...&lt;/div&gt;</code> for a multi-paragraph note box,
-<code class="nowrap">&lt;ol class="note"&gt;...&lt;/ol&g with `<s>` or `<del>`t;</code>,
-<code class="nowrap">&lt;ul class="note"&gt;...&lt;/ul&gt;</code>,
-<code class="nowrap">&lt;aside class="note"&gt;...&lt;/aside&gt;</code>,
+<code class="ok-nowrap">&lt;p class="ok-note"&gt;...&lt;/p&gt;</code>
+(or <code class="ok-nowrap">&lt;div class="ok-note"&gt;...&lt;/div&gt;</code> for a multi-paragraph note box,
+<code class="ok-nowrap">&lt;ol class="ok-note"&gt;...&lt;/ol&g with `<s>` or `<del>`t;</code>,
+<code class="ok-nowrap">&lt;ul class="ok-note"&gt;...&lt;/ul&gt;</code>,
+<code class="ok-nowrap">&lt;aside class="ok-note"&gt;...&lt;/aside&gt;</code>,
 etc).
 
-<p class="note"><b>Note</b>: morbi sed facilisis nunc. Quisque dictum lectus vitae purus lobortis, dapibus malesuada sapien imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+<p class="ok-note"><b>Note</b>: morbi sed facilisis nunc. Quisque dictum lectus vitae purus lobortis, dapibus malesuada sapien imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
 
 ## Grab bag
 
 Keyboard input with `<kbd>`: <kbd>Ctrl</kbd> + <kbd>F1</kbd>,
-<span class="badge">badges</span> with `<span class="badge">`,
+<span class="badge">badges</span> with `<span class="ok-badge">`,
 <mark>highlights</mark> with `<mark>`,
 <s>strike-throughs</s> with `<s>` or `<del>`, etc.
 

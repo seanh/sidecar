@@ -76,7 +76,7 @@
             {% for category, articles in categories %}
             <li>
             <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
-            <span class="secondary">({{ articles|count }})</span>
+            <span class="ok-secondary">({{ articles|count }})</span>
             </li>
             {% endfor %}
         </ul>
@@ -90,7 +90,7 @@
           {% for tag, articles in tags %}
             <li>
               <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-              <span class="secondary">({{ articles|count }})</span>
+              <span class="ok-secondary">({{ articles|count }})</span>
             </li>
           {% endfor %}
         </ul>
@@ -104,7 +104,7 @@
           {% for author, articles in authors %}
             <li>
               <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-              <span class="secondary">({{ articles|count }})</span>
+              <span class="ok-secondary">({{ articles|count }})</span>
             </li>
           {% endfor %}
         </ul>
