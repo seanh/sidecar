@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   deploy:
-    uses: "getpelican/pelican/.github/workflows/github_pages.yml@69e24fa82f0b6103930d85de5eeb8234414e6a11"
+    uses: "seanh/ghp-pelican/.github/workflows/github_pages.yml@main"
     permissions:
       contents: "read"
       pages: "write"
@@ -14,3 +14,4 @@ jobs:
       settings: "pelicanconf.py"
       requirements: "-r requirements/dev.txt"
       theme: "https://github.com/seanh/sidecar.git"
+      python: "3.14"
