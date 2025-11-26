@@ -1,7 +1,7 @@
 Sidecar
 =======
 
-A plain but pretty [Pelican](https://getpelican.com/) theme with a little sidebar.
+A plain but pretty [Pelican](https://getpelican.com/) theme based on [Oatcake](https://github.com/seanh/oatcake).
 
 <img src="screenshots/desktop.png" alt="Screenshot of Sidecar Pelican theme on desktop">
 
@@ -38,15 +38,15 @@ Features
   `rel="bookmark"` for article permalinks,
   `rel="tag"` for tag links,
   `rel="next"` and `rel="prev"` for pagination links,
-  `aria-current="page"` for the link to the current page in the sidebar,
+  `aria-current="page"` for the link to the current page in the navbar,
   etc.
   Links have nice `title` attributes for tooltips.
   Pages have nice `<title>` elements for tab titles.
 
 * Optional [tables of contents](#tables-of-contents) for static pages and articles.
 
-* Customizable sidebar and article tagline contents with the
-  [`SIDECAR_MENU`](#sidecar_menu)
+* Customizable navbar and article tagline contents with the
+  [`SIDECAR_NAVBAR`](#sidecar_navbar)
   and [`SIDECAR_TAGLINE`](#sidecar_tagline)
   settings.
 
@@ -135,7 +135,7 @@ SITENAME = "A Pelican Blog"
 ### `SITEURL`
 
 You must set this to the base URL of your site with no trailing slash.
-It's used to generate URLs in feeds, links in the sidebar, etc.
+It's used to generate URLs in feeds, links in the navbar, etc.
 
 ```python
 # pelicanconf.py
@@ -208,15 +208,15 @@ For example:
 GITHUB_URL = "https://github.com/seanh"
 ```
 
-### `SIDECAR_MENU`
+### `SIDECAR_NAVBAR`
 
-You can customize the contents of the sidebar by adding a `SIDECAR_MENU`
+You can customize the contents of the navbar by adding a `SIDECAR_NAVBAR`
 setting (list of strings) to your Pelican config. For example:
 
 ```python
 # pelicanconf.py
 
-SIDECAR_MENU = [
+SIDECAR_NAVBAR = [
     "HOME",
     "MENUITEMS",
     "PAGES",
@@ -228,7 +228,7 @@ SIDECAR_MENU = [
 ]
 ```
 
-Certain string values have special meanings in `SIDECAR_MENU`:
+Certain string values have special meanings in `SIDECAR_NAVBAR`:
 
 * `HOME`: inserts a link to your site's home page (uses Pelican's [`SITEURL` setting](https://docs.getpelican.com/en/latest/settings.html#SITEURL)).
 
@@ -288,16 +288,16 @@ Certain string values have special meanings in `SIDECAR_MENU`:
   ARCHIVES_URL = "archives/"
   ```
 
-Items in `SIDECAR_MENU` that don't match any of the special strings above are
+Items in `SIDECAR_NAVBAR` that don't match any of the special strings above are
 rendered directly. This lets you include your own raw HTML strings as menu
 items. For example you could include a custom link. This lets you use HTML
-attributes other than `href` in your sidebar links, which you can't do with
+attributes other than `href` in your navbar links, which you can't do with
 Pelican's `MENUITEMS`:
 
 ```python
 # pelicanconf.py
 
-SIDECAR_MENU = [
+SIDECAR_NAVBAR = [
     ...
     '<a rel="external" href="https://example.com">Custom Link</a>',
     '<a rel="license" href="{SITEURL}/license/">License</a>',
@@ -306,77 +306,6 @@ SIDECAR_MENU = [
 
 `{SITEURL}` in menu item strings will be replaced with Pelican's
 [`SITEURL` setting](https://docs.getpelican.com/en/latest/settings.html#SITEURL).
-
-### `DISPLAY_CATEGORIES_ON_MENU`
-
-If [Pelican's `DISPLAY_CATEGORIES_ON_MENU` setting](https://docs.getpelican.com/en/latest/settings.html#basic-settings)
-is set in your Pelican config then a list of links to each of your site's
-categories will be included in the sidebar.
-
-```python
-# pelicanconf.py
-
-DISPLAY_CATEGORIES_ON_MENU = True
-```
-
-### `DISPLAY_TAGS_ON_MENU`
-
-Include a list of links to each of your site's tags in the sidebar.
-
-```python
-# pelicanconf.py
-
-DISPLAY_TAGS_ON_MENU = True
-```
-
-### `DISPLAY_AUTHORS_ON_MENU`
-
-Include a list of links to each of your site's authors in the sidebar.
-
-```python
-# pelicanconf.py
-
-DISPLAY_AUTHORS_ON_MENU = True
-```
-
-### `LINKS` and `LINKS_WIDGET_NAME`
-
-If [Pelican's `LINKS` setting](https://docs.getpelican.com/en/latest/settings.html#LINKS)
-is set in your Pelican config the list of links will be added to the sidebar.
-`LINKS` should be a list of `(title, URL)` tuples. For example:
-
-```python
-# pelicanconf.py
-
-LINKS = [
-  ("Link One", "https://example.com/link/1"),
-  ("Link Two", "https://example.com/link/2"),
-  ("Link Three", "https://example.com/link/3"),
-]
-LINKS_WIDGET_NAME = "My Links"
-```
-
-[Pelican's `LINKS_WIDGET_NAME` setting](https://docs.getpelican.com/en/latest/settings.html#LINKS_WIDGET_NAME)
-sets the title of the links menu (defaults to "Links").
-
-### `SOCIAL` and `SOCIAL_WIDGET_NAME`
-
-If [Pelican's `SOCIAL` setting](https://docs.getpelican.com/en/latest/settings.html#SOCIAL)
-is set in your Pelican config the list of social media links will be added to the sidebar.
-`SOCIAL` should be a list of `(title, URL)` tuples. For example:
-
-```python
-# pelicanconf.py
-
-SOCIAL = [
-  ("Mastodon", "https://mastodon.social/@YOUR_USERNAME"),
-  ("Tumblr", "https://www.tumblr.com/YOUR_USERNAME"),
-]
-SOCIAL_WIDGET_NAME = "Social Media"
-```
-
-[Pelican's `SOCIAL_WIDGET_NAME` setting](https://docs.getpelican.com/en/latest/settings.html#SOCIAL_WIDGET_NAME)
-sets the title of the social menu (defaults to "Social").
 
 ### `SIDECAR_TAGLINE`
 

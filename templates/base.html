@@ -37,16 +37,16 @@
     >
     {% endif %}
 
-    <nav class="sidebar">
+    <nav class="navbar">
       <ul>
-        {% if SIDECAR_MENU is not defined %}
-          {% set SIDECAR_MENU = ["HOME", "MENUITEMS"] %}
+        {% if SIDECAR_NAVBAR is not defined %}
+          {% set SIDECAR_NAVBAR = ["HOME", "MENUITEMS"] %}
           {% if DISPLAY_PAGES_ON_MENU %}
-            {{ SIDECAR_MENU.append("PAGES") or "" }}
+            {{ SIDECAR_NAVBAR.append("PAGES") or "" }}
           {% endif %}
-          {{ SIDECAR_MENU.extend(["CATEGORIES", "TAGS", "AUTHORS", "ARCHIVES"]) or "" }}
+          {{ SIDECAR_NAVBAR.extend(["CATEGORIES", "TAGS", "AUTHORS", "ARCHIVES"]) or "" }}
         {% endif %}
-        {% for item in SIDECAR_MENU %}
+        {% for item in SIDECAR_NAVBAR %}
           {% if item == "HOME" %}
             <li><a href="{{ SITEURL }}">Home</a></li>
           {% elif item == "MENUITEMS" %}
@@ -70,73 +70,9 @@
           {% endif %}
         {% endfor %}
       </ul>
-
-      {% if DISPLAY_CATEGORIES_ON_MENU %}
-      <div class="nomobile">
-        <h4 class="noanchor">Categories</h4>
-        <ul>
-            {% for category, articles in categories %}
-            <li>
-            <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
-            <span class="secondary">({{ articles|count }})</span>
-            </li>
-            {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-
-      {% if DISPLAY_TAGS_ON_MENU %}
-      <div class="nomobile">
-        <h4 class="noanchor">Tags</h4>
-        <ul>
-          {% for tag, articles in tags %}
-            <li>
-              <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-              <span class="secondary">({{ articles|count }})</span>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-
-      {% if DISPLAY_AUTHORS_ON_MENU %}
-      <div class="nomobile">
-        <h4 class="noanchor">Authors</h4>
-        <ul>
-          {% for author, articles in authors %}
-            <li>
-              <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-              <span class="secondary">({{ articles|count }})</span>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-
-      {% if LINKS %}
-      <div class="nomobile">
-        <h4 class="noanchor">{{ LINKS_WIDGET_NAME|default("Links") }}</h4>
-        <ul>
-          {% for title, url in LINKS %}
-            <li><a href="{{ url }}">{{ title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-
-      {% if SOCIAL %}
-      <div class="nomobile">
-        <h4 class="noanchor">{{ SOCIAL_WIDGET_NAME|default("Social") }}</h4>
-        <ul>
-          {% for title, url in SOCIAL %}
-            <li><a href="{{ url }}">{{ title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
     </nav>
 
-    <main class="content">
+    <main>
       {% with %}
         {% set content_title %}{% block content_title %}{% endblock %}{% endset %}
         {% include "includes/content_title.html" %}
