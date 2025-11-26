@@ -197,10 +197,9 @@ generate the URLs to your article and page source files. For example:
 ### `GITHUB_URL`
 
 If Pelican's [`GITHUB_URL`](https://docs.getpelican.com/en/latest/settings.html#GITHUB_URL)
-setting is set in your Pelican config then a GitHub ribbon linking to
-`GITHUB_URL` will be added to the top-right corner of your site.
-The idea is that you set `GITHUB_URL` to your GitHub profile page.
-For example:
+setting is set in your Pelican config then a GitHub icon linking to `GITHUB_URL`
+will be added to your site's navbar. The idea is that you set `GITHUB_URL` to
+your GitHub profile page. For example:
 
 ```python
 # pelicanconf.py
@@ -218,6 +217,7 @@ setting (list of strings) to your Pelican config. For example:
 
 SIDECAR_NAVBAR = [
     "HOME",
+    "SPACE",
     "MENUITEMS",
     "PAGES",
     "CATEGORIES",
@@ -230,7 +230,9 @@ SIDECAR_NAVBAR = [
 
 Certain string values have special meanings in `SIDECAR_NAVBAR`:
 
-* `HOME`: inserts a link to your site's home page (uses Pelican's [`SITEURL` setting](https://docs.getpelican.com/en/latest/settings.html#SITEURL)).
+* `HOME`: inserts a link to your site's home page (uses Pelican's [`SITEURL`](https://docs.getpelican.com/en/latest/settings.html#SITEURL) and [`SITENAME`](https://docs.getpelican.com/en/latest/settings.html#SITENAME) settings).
+
+* `SPACE`: inserts a flexible space. All items after a `SPACE` will be right-aligned rather than left-aligned.
 
 * `MENUITEMS`: inserts the items from Pelican's [`MENUITEMS` setting](https://docs.getpelican.com/en/latest/settings.html#MENUITEMS).
 

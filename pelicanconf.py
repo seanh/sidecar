@@ -1,6 +1,6 @@
 THEME = "."
 AUTHOR = "Sean Hammond"
-SITENAME = "Sidecar"
+SITENAME = "Sidecar Demo Site"
 SITEURL = "http://localhost:8000"
 PATH = "content"
 DELETE_OUTPUT_DIRECTORY = True
@@ -43,6 +43,7 @@ PAGE_SOURCE_URL = "{page.url}index{OUTPUT_SOURCES_EXTENSION}"
 
 SIDECAR_NAVBAR = [
     "HOME",
+    "SPACE",
     "MENUITEMS",
     "PAGES",
     "TAGS",
