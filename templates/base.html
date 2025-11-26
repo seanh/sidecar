@@ -5,9 +5,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{% block title %}{{ SITENAME|striptags }}{% endblock %}</title>
+      {% if GITHUB_URL %}<link rel="preload" as="image" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/github-mark.svg" />{% endif %}
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/seanh/oatcake@1.0.0-alpha.6/oatcake.min.css">
       <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/sidecar.css">
-      <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/gh-fork-ribbon.css">
       <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments.css">
       <link rel="stylesheet" href="https://www.seanh.cc/oatcake/lines/lines.css">
       {% if STYLESHEET_URL %}<link rel="stylesheet" href="{{ STYLESHEET_URL }}" />{% endif %}
@@ -27,49 +27,45 @@
     {% endblock head %}
   </head>
   <body>
-
-    {% if GITHUB_URL %}
-    <a
-      class="github-fork-ribbon"
-      href="{{ GITHUB_URL }}"
-      data-ribbon="Fork me on GitHub"
-      >Fork me on GitHub</a
-    >
-    {% endif %}
-
     <nav class="navbar">
-      <ul>
-        {% if SIDECAR_NAVBAR is not defined %}
-          {% set SIDECAR_NAVBAR = ["HOME", "MENUITEMS"] %}
-          {% if DISPLAY_PAGES_ON_MENU %}
-            {{ SIDECAR_NAVBAR.append("PAGES") or "" }}
-          {% endif %}
-          {{ SIDECAR_NAVBAR.extend(["CATEGORIES", "TAGS", "AUTHORS", "ARCHIVES"]) or "" }}
+      {% if SIDECAR_NAVBAR is not defined %}
+        {% set SIDECAR_NAVBAR = ["HOME", "MENUITEMS"] %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+          {{ SIDECAR_NAVBAR.append("PAGES") or "" }}
         {% endif %}
-        {% for item in SIDECAR_NAVBAR %}
-          {% if item == "HOME" %}
-            <li><a href="{{ SITEURL }}">Home</a></li>
-          {% elif item == "MENUITEMS" %}
-            {% for title, url in MENUITEMS %}
-              <li><a href="{{ url }}">{{ title }}</a></li>
-            {% endfor %}
-          {% elif item == "PAGES" %}
-            {% for page_ in pages %}
-              <li><a href="{{ SITEURL }}/{{ page_.url }}">{{ page_.title }}</a></li>
-            {% endfor %}
-          {% elif item == "CATEGORIES" %}
-            {% if CATEGORIES_URL %}<li><a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a></li>{% endif %}
-          {% elif item == "TAGS" %}
-            {% if TAGS_URL %}<li><a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a></li>{% endif %}
-          {% elif item == "AUTHORS" %}
-            {% if AUTHORS_URL %}<li><a href="{{ SITEURL }}/{{ AUTHORS_URL }}">Authors</a></li>{% endif %}
-          {% elif item == "ARCHIVES" %}
-            {% if ARCHIVES_URL %}<li><a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archive</a></li>{% endif %}
-          {% else %}
-            <li>{{ item.format(SITEURL=SITEURL) }}</li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+        {{ SIDECAR_NAVBAR.extend(["CATEGORIES", "TAGS", "AUTHORS", "ARCHIVES"]) or "" }}
+      {% endif %}
+
+      {% for item in SIDECAR_NAVBAR %}
+        {% if item == "HOME" %}
+          <a style="font-weight: bold;" href="{{ SITEURL }}">{{ SITENAME }}</a>
+        {% elif item == "MENUITEMS" %}
+          {% for title, url in MENUITEMS %}
+            <a href="{{ url }}">{{ title }}</a>
+          {% endfor %}
+        {% elif item == "PAGES" %}
+          {% for page_ in pages %}
+            <a href="{{ SITEURL }}/{{ page_.url }}">{{ page_.title }}</a>
+          {% endfor %}
+        {% elif item == "CATEGORIES" %}
+          {% if CATEGORIES_URL %}<a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a>{% endif %}
+        {% elif item == "TAGS" %}
+          {% if TAGS_URL %}<a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a>{% endif %}
+        {% elif item == "AUTHORS" %}
+          {% if AUTHORS_URL %}<a href="{{ SITEURL }}/{{ AUTHORS_URL }}">Authors</a>{% endif %}
+        {% elif item == "ARCHIVES" %}
+          {% if ARCHIVES_URL %}<a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archive</a>{% endif %}
+        {% elif item == "SPACE" %}
+          <div class="space"></div>
+        {% else %}
+          {{ item.format(SITEURL=SITEURL) }}
+        {% endif %}
+      {% endfor %}
+      {% if GITHUB_URL %}
+        <a href="{{ GITHUB_URL }}" aria-label="Fork me on GitHub">
+          <img width="98" height="96" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/github-mark.svg" alt="Fork me on GitHub" title="Fork me on GitHub">
+        </a>
+      {% endif %}
     </nav>
 
     <main>
@@ -81,7 +77,6 @@
       {% block content %}{% endblock %}
     </main>
 
-    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/menu.js" defer></script>
     {% if anchors %}
     <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
