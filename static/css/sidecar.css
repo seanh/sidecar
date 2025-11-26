@@ -1,52 +1,36 @@
 :root {
-  --sidecar-sidebar-border: 1px solid #eee;
+  --sidecar-navbar-border: 1px solid #eee;
   --content-width: 40rem;
-  --sidebar-width: 16rem;
 }
 body {
-  max-width: calc(var(--sidebar-width) + var(--content-width) + var(--sidebar-width));
+  max-width: var(--content-width);
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.sidebar,
-.content {
+.navbar {
   margin-top: calc(2 * var(--ok-line-height));
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: calc(2 * var(--ok-line-height));
 }
-.sidebar {
-  width: var(--sidebar-width);
-  float: left;
-  text-align: right;
+.navbar ul {
+  padding-bottom: var(--ok-line-height);
+  border-bottom: var(--sidecar-navbar-border);
 }
-.content {
-  max-width: var(--content-width);
-  float: left;
+.navbar li {
+  display: inline;
+  margin-left: 1rem;
+  padding-inline-start: 0;
 }
-.sidebar ul,
-.sidebar h4 {
-  margin-bottom: 0;
-  padding-right: 2rem;
-  margin-right: 2rem;
+.navbar li:first-child {
+  margin-left: 0;
 }
-.sidebar h4 {
-  margin-top: var(--ok-line-height);
-}
-.sidebar ul:first-child {
-  border-right: var(--sidecar-sidebar-border);
-}
-.sidebar ul:not(:first-child) {
-  padding-right: calc(2rem + 1px);
-}
-.sidebar li {
-  list-style-type: none;
-}
-.sidebar a {
+.navbar a {
   color: inherit;
   text-decoration: none;
   border-radius: 3px;
-}
-.sidebar a {
   /* Apply padding to all nav menu links (not just current and hovered ones)
    * so that the widths of links don't change and push following links around
    * when current/hovered. */
@@ -58,8 +42,8 @@ body {
   padding-top: 1px;
   padding-bottom: 1px;
 }
-.sidebar a[aria-current="page"],
-.sidebar a:hover {
+.navbar a[aria-current="page"],
+.navbar a:hover {
   background-color: var(--ok-color-highlight-bg);
 }
 .article__hgroup a {
@@ -105,47 +89,4 @@ body {
 .pagination a {
   color: inherit;
   text-decoration: none;
-}
-@media screen and (max-width: calc(16rem + 40rem + 2rem)){
-  body {
-    max-width: var(--content-width);
-  }
-  .sidebar {
-    width: 100%;
-  }
-  .nomobile {
-    display: none;
-  }
-  .content {
-    margin-top: var(--ok-line-height);
-  }
-  .content,
-  .sidebar {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .sidebar {
-    text-align: left;
-    overflow-x: scroll;
-    white-space: nowrap;
-  }
-  .sidebar ul {
-    padding-right: 0;
-    margin-right: 0;
-    padding-bottom: var(--ok-line-height);
-    margin-bottom: var(--ok-line-height);
-    border-bottom: var(--sidecar-sidebar-border);
-  }
-  .sidebar ul:first-child {
-    border-right: none;
-  }
-  .sidebar li {
-    display: inline;
-    margin-left: 1rem;
-    padding-inline-start: 0;
-  }
-  .sidebar li:first-child {
-    margin-left: 0;
-  }
 }
