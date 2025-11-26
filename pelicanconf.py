@@ -1,6 +1,6 @@
 THEME = "."
 AUTHOR = "Sean Hammond"
-SITENAME = "Sidecar Demo Site"
+SITENAME = "Sidecar"
 SITEURL = "http://localhost:8000"
 PATH = "content"
 DELETE_OUTPUT_DIRECTORY = True
