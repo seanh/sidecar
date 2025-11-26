@@ -10,14 +10,6 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.ribbon {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.ribbon__image {
-  margin: 0 !important;
-}
 .sidebar,
 .content {
   margin-top: calc(2 * var(--ok-line-height));

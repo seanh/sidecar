@@ -5,10 +5,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{% block title %}{{ SITENAME|striptags }}{% endblock %}</title>
-      <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/seanh/oatcake@1.0.0-alpha.6/oatcake.min.css">
-      <link rel="stylesheet" href="https://www.seanh.cc/oatcake/lines/lines.css">
       <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/sidecar.css">
+      <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/gh-fork-ribbon.css">
+      <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments.css">
+      <link rel="stylesheet" href="https://www.seanh.cc/oatcake/lines/lines.css">
       {% if STYLESHEET_URL %}<link rel="stylesheet" href="{{ STYLESHEET_URL }}" />{% endif %}
       {% if FEED_ALL_ATOM %}
       <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Atom (all languages)">
@@ -28,11 +29,12 @@
   <body>
 
     {% if GITHUB_URL %}
-    <div class="ribbon nomobile">
-      <a class="ribbon__link" href="{{ GITHUB_URL }}">
-        <img class="ribbon__image" width="149" height="149" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/forkme.webp" alt="Fork me on GitHub">
-      </a>
-    </div>
+    <a
+      class="github-fork-ribbon"
+      href="{{ GITHUB_URL }}"
+      data-ribbon="Fork me on GitHub"
+      >Fork me on GitHub</a
+    >
     {% endif %}
 
     <nav class="sidebar">
