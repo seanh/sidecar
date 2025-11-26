@@ -8,11 +8,11 @@
   {% if articles_page.has_other_pages() %}
     <footer class="pagination">
       {% if articles_previous_page %}
-        <a rel="prev" class="pagination__prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}">&blacktriangleleft; Previous</a>
+        <a rel="prev" class="pagination__prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}" title="Previous page">&larr;</a>
       {% endif %}
 
       {% if articles_next_page %}
-        <a rel="next" class="pagination__next" href="{{ SITEURL }}/{{ articles_next_page.url }}">Next Page &blacktriangleright;</a>
+        <a rel="next" class="pagination__next" href="{{ SITEURL }}/{{ articles_next_page.url }}" title="Next page">&rarr;</a>
       {% endif %}
 
       <div style="clear: both;"></div>
