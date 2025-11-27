@@ -46,14 +46,14 @@ article footer {
 article h1:first-of-type a {
   color: inherit;
 }
-.archives h2 {
-  font-size: inherit;
-  font-weight: normal;
+.archives :is(article, h2, footer) {
+  display: inline;
+  margin: 0;
   padding: 0;
 }
-.archives h2 a {
-  color: inherit;
-  text-decoration: none;
+.archives h2 {
+  font-size: inherit;
+  font-weight: inherit;
 }
 main > footer {
   margin-top: calc(2 * var(--ok-line-height));

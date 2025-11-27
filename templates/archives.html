@@ -5,13 +5,25 @@
 {% block content_title %}Archives{% endblock %}
 
 {% block content %}
-  <div class="archives">
+  <ol reversed class="archives">
     {% for article in articles %}
-      {% block article scoped %}
-        {% with context = "archives" %}
-          {% include "includes/article/article.html" %}
-        {% endwith %}
-      {% endblock %}
+      <li>
+        {% block article scoped %}
+          <article>
+            {% set title %}
+              {% with link_text = article.title %}
+                {% include "includes/article/permalink.html" %}
+              {% endwith %}
+            {% endset %}
+            <h2 class="noanchor">{{ title }}</h2>
+            <footer>
+              <small>
+                {% include "includes/article/time.html" %}
+              </small>
+            </footer>
+          </article>
+        {% endblock %}
+      </li>
     {% endfor %}
-  </div>
+  </ol>
 {% endblock %}
