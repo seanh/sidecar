@@ -14,9 +14,9 @@
 {% set anchors = true %}
 
 {% block content %}
-  <h1 class="article__heading noanchor">{{ article.title }}</h1>
-
-  <div class="article__content">{{ article.content }}</div>
-
-  <footer>{% include "includes/article/tagline.html" %}</footer>
+  {% block article scoped %}
+    {% with context = "article" %}
+      {% include "includes/article/article.html" %}
+    {% endwith %}
+  {% endblock %}
 {% endblock %}

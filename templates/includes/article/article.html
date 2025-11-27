@@ -1,0 +1,29 @@
+{% if context in ["index", "archives"] %}
+  {% set title %}
+    {% with link_text=article.title %}
+      {% include "includes/article/permalink.html" %}
+    {% endwith %}
+  {% endset %}
+{% elif context == "article" %}
+  {% set title = article.title %}
+{% endif %}
+
+{% if context in ["index", "article"] %}
+  {% set header = "h1" %}
+{% elif context == "archives" %}
+  {% set header = "h2" %}
+{% endif %}
+
+{% if context == "index" %}
+  {% set body = article.summary %}
+{% elif context == "article" %}
+  {% set body = article.content %}
+{% endif %}
+
+<article>
+  <{{ header }} class="noanchor">{{ title }}</{{ header }}>
+
+  {% if body %}{{ body }}{% endif %}
+
+  {% include "includes/article/tagline.html" %}
+</article>

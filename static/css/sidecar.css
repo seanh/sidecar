@@ -1,79 +1,58 @@
-:root {
-  --sidecar-navbar-border: 1px solid var(--ok-color-border);
-  --content-width: 40rem;
-}
 body {
-  max-width: var(--content-width);
+  max-width: 40rem;
   margin-left: auto;
   margin-right: auto;
   padding-left: calc(0.5 * var(--ok-line-height));
   padding-right: calc(0.5 * var(--ok-line-height));
 }
-.navbar {
+nav {
   margin-top: calc(2 * var(--ok-line-height));
-  margin-bottom: calc(3 * var(--ok-line-height));
   padding-bottom: var(--ok-line-height);
-  border-bottom: var(--sidecar-navbar-border);
+  border-bottom: 1px solid var(--ok-color-border);
   display: flex;
   column-gap: var(--ok-line-height);
   overflow-x: auto;
 }
-.navbar > * {
+nav > * {
   flex-shrink: 0;
 }
-.navbar .space {
+nav .space {
   margin-left: auto;
 }
-.navbar a {
+nav a {
   color: inherit;
   text-decoration: none;
 }
-.navbar img {
+nav a:hover {
+  text-decoration: underline;
+}
+nav img {
   height: var(--ok-line-height);
   width: auto;
   margin: 0;
 }
-.article__hgroup a {
-  color: inherit;
-  text-decoration: none;
-}
-.article__hgroup a:hover {
-  text-decoration: underline;
-}
-.article__heading,
-.page__heading {
-  padding-top: 0;
-}
-.article--summary .article__heading {
-  padding-bottom: 0;
-}
-.article__tagline {
-  margin-top: calc(0.25 * var(--ok-line-height));
-  margin-bottom: calc(0.75 * var(--ok-line-height));
-}
-.article__tagline {
-  margin-top: 0;
-}
-.article__tagline a {
-  color: inherit;
-  text-decoration: none;
-}
-.article--archives .article__heading {
-  font-weight: normal;
-}
-.article--summary:not(:last-child) {
-  margin-bottom: calc(2 * var(--ok-line-height));
-}
-.pagination {
+article {
   margin-bottom: var(--ok-line-height);
 }
-.pagination__prev {
-  float: left;
+article footer {
+  margin: 0;
 }
-.pagination__next {
-  float: right;
+article h1:first-of-type a {
+  color: inherit;
 }
-.pagination a {
+.archives h2 {
+  font-size: inherit;
+  font-weight: normal;
+  padding: 0;
+}
+.archives h2 a {
   color: inherit;
   text-decoration: none;
+}
+main > footer {
+  margin-top: calc(2 * var(--ok-line-height));
+  margin-bottom: var(--ok-line-height);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }

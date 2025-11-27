@@ -26,7 +26,7 @@
     {% endblock head %}
   </head>
   <body>
-    <nav class="navbar">
+    <nav>
       {% if SIDECAR_NAVBAR is not defined %}
         {% set SIDECAR_NAVBAR = ["HOME", "MENUITEMS"] %}
         {% if DISPLAY_PAGES_ON_MENU %}
@@ -92,6 +92,7 @@
       });
     </script>
     {% endif %}
+
     {% include 'analytics.html' %}
   </body>
 </html>
