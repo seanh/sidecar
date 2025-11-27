@@ -6,8 +6,8 @@ body {
   padding-right: calc(0.5 * var(--ok-line-height));
 }
 nav {
-  margin-top: calc(2 * var(--ok-line-height));
-  padding-bottom: var(--ok-line-height);
+  margin-top: var(--ok-line-height);
+  padding-bottom: calc(var(--ok-line-height) - 1px);
   border-bottom: 1px solid var(--ok-color-border);
   display: flex;
   column-gap: var(--ok-line-height);
