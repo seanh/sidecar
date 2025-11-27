@@ -14,6 +14,7 @@ nav {
   display: flex;
   column-gap: var(--ok-line-height);
   overflow-x: auto;
+  text-transform: lowercase;
 }
 nav > * {
   flex-shrink: 0;
