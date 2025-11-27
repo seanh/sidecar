@@ -2,13 +2,11 @@ Title: Demo Post
 Author: Sean Hammond
 Date: 2024-09-04
 Category: Tech
-Summary: This is the demo site for [Sidecar](https://github.com/seanh/sidecar),
+Summary:
+Subheading:
+    This is the demo site for [Sidecar](https://github.com/seanh/sidecar),
     a plain but pretty theme for the [Pelican](https://getpelican.com/) static
-    site generator. This post demos a few of the things you can do with Sidecar&hellip;
-
-This is the demo site for [Sidecar](https://github.com/seanh/sidecar),
-a plain but pretty theme for the [Pelican](https://getpelican.com/) static
-site generator. This post demos a few of the things you can do with Sidecar.
+    site generator. This post demos a few of the things you can do with Sidecar.
 
 See [Sidecar's README](https://github.com/seanh/sidecar) for more features and
 customization settings.
