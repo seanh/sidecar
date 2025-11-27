@@ -57,7 +57,7 @@ and [`<figcaption>`](https://html.spec.whatwg.org/multipage/grouping-content.htm
 elements:
 
 <figure>
-  <img class="rounded" src="{static}/images/sidecar.jpg" alt="A photo of a motorbike with a sidecar">
+  <img src="{static}/images/sidecar.jpg" alt="A photo of a motorbike with a sidecar">
   <figcaption>Photo by <a href="https://unsplash.com/@hdsfotografie95?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">hidde schalm</a> on <a href="https://unsplash.com/photos/blue-tricycle-parked-beside-house-38FLdKhz_rM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
   </figcaption>
 </figure>
