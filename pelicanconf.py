@@ -20,7 +20,7 @@ ARCHIVES_SAVE_AS = "archives/index.html"
 ARCHIVES_URL = "archives/"
 GITHUB_URL = "https://github.com/seanh/sidecar"
 DEFAULT_CATEGORY = "Tech"
-DEFAULT_DATE_FORMAT = '%b %Y'
+DEFAULT_DATE_FORMAT = "%b %Y"
 
 FEED_DOMAIN = SITEURL
 
@@ -51,7 +51,7 @@ SIDECAR_NAVBAR = [
     "ARCHIVES",
 ]
 
-SIDECAR_TAGLINE = [
+SIDECAR_ARTICLE_FOOTER = [
     "TIME",
     "TAGS",
 ]

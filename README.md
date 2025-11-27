@@ -31,7 +31,7 @@ Features
 * **Standard, semantic HTML**:
   `<main>` for the main content of pages,
   `<article>` for articles,
-  `<hgroup>` to group article titles and taglines,
+  `<hgroup>` to group article titles and subheadings,
   `<footer>` for footers,
   `<time>` for article publication dates,
   `rel="author"` for article author links,
@@ -45,9 +45,9 @@ Features
 
 * Optional [tables of contents](#tables-of-contents) for static pages and articles.
 
-* Customizable navbar and article tagline contents with the
+* Customizable navbar and article footer contents with the
   [`SIDECAR_NAVBAR`](#sidecar_navbar)
-  and [`SIDECAR_TAGLINE`](#sidecar_tagline)
+  and [`SIDECAR_ARTICLE_FOOTER`](#sidecar_article_footer)
   settings.
 
 
@@ -309,16 +309,16 @@ SIDECAR_NAVBAR = [
 `{SITEURL}` in menu item strings will be replaced with Pelican's
 [`SITEURL` setting](https://docs.getpelican.com/en/latest/settings.html#SITEURL).
 
-### `SIDECAR_TAGLINE`
+### `SIDECAR_ARTICLE_FOOTER`
 
-You can customize the contents of the taglines beneath article titles by
-adding a `SIDECAR_TAGLINE` setting (list of strings) to your Pelican
+You can customize the contents of the footers beneath article titles by
+adding a `SIDECAR_ARTICLE_FOOTER` setting (list of strings) to your Pelican
 config. For example:
 
 ```python
 # pelicanconf.py
 
-SIDECAR_TAGLINE = [
+SIDECAR_ARTICLE_FOOTER = [
     "AUTHORS",
     "TIME",
     "SOURCE",
@@ -326,7 +326,7 @@ SIDECAR_TAGLINE = [
 ]
 ```
 
-Certain string values have special meanings in `SIDECAR_TAGLINE`:
+Certain string values have special meanings in `SIDECAR_ARTICLE_FOOTER`:
 
 * `AUTHORS`: insert links to Pelican's author pages for the article's authors.
 
@@ -345,9 +345,9 @@ Certain string values have special meanings in `SIDECAR_TAGLINE`:
 
 * `TAGS`: inserts links to Pelican's tag pages for each of the article's tags, if any.
 
-Items in `SIDECAR_TAGLINE` that don't match any of the special strings
+Items in `SIDECAR_ARTICLE_FOOTER` that don't match any of the special strings
 above are rendered directly, so you can include your own raw HTML strings in
-taglines.
+footers.
 
 Customizing the templates
 -------------------------
@@ -460,7 +460,7 @@ that you can call from your custom templates by using Jinja's [`{% include %}`](
 Also see [Inheritance](https://docs.getpelican.com/en/latest/themes.html#inheritance) in Pelican's docs.
 For example there's an `article/archives.html` include which Sidecar's default
 archives page uses to render each article: the include renders just the
-article's title and tagline. This can be a third way to replace the articles on
+article's title and footer. This can be a third way to replace the articles on
 your front page with only their titles:
 
 ```jinja2
