@@ -21,6 +21,7 @@ ARCHIVES_URL = "archives/"
 GITHUB_URL = "https://github.com/seanh/sidecar"
 DEFAULT_CATEGORY = "Tech"
 DEFAULT_DATE_FORMAT = "%b %Y"
+FORMATTED_FIELDS = ["summary", "subheading"]
 
 FEED_DOMAIN = SITEURL
 

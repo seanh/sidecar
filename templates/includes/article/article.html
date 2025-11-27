@@ -9,9 +9,9 @@
 {% endif %}
 
 {% if context in ["index", "article"] %}
-  {% set header = "h1" %}
+  {% set header_tag = "h1" %}
 {% elif context == "archives" %}
-  {% set header = "h2" %}
+  {% set header_tag = "h2" %}
 {% endif %}
 
 {% if context == "index" %}
@@ -20,8 +20,23 @@
   {% set body = article.content %}
 {% endif %}
 
+{% set header %}
+  <{{ header_tag }} class="noanchor">{{ title }}</{{ header_tag }}>
+{% endset %}
+
 <article>
-  <{{ header }} class="noanchor">{{ title }}</{{ header }}>
+  {% if context != "archives" and article.metadata.subheading %}
+    <hgroup>
+      {{ header }}
+      {% if "subheading" in FORMATTED_FIELDS %}
+        {{ article.metadata.subheading }}
+      {% else %}
+        <p>{{ article.metadata.subheading|join(" ") }}</p>
+      {% endif %}
+    </hgroup>
+  {% else %}
+    {{ header }}
+  {% endif %}
 
   {% if body %}{{ body }}{% endif %}
 
