@@ -132,11 +132,11 @@ sem. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 ## Note boxes
 
 You can create highlighted note boxes with
-<code class="nowrap">&lt;p class="note"&gt;...&lt;/p&gt;</code>
-(or <code class="nowrap">&lt;div class="note"&gt;...&lt;/div&gt;</code> for a multi-paragraph note box,
-<code class="nowrap">&lt;ol class="note"&gt;...&lt;/ol&g with `<s>` or `<del>`t;</code>,
-<code class="nowrap">&lt;ul class="note"&gt;...&lt;/ul&gt;</code>,
-<code class="nowrap">&lt;aside class="note"&gt;...&lt;/aside&gt;</code>,
+<code style="white-space: nowrap;">&lt;p class="note"&gt;...&lt;/p&gt;</code>
+(or <code style="white-space: nowrap;">&lt;div class="note"&gt;...&lt;/div&gt;</code> for a multi-paragraph note box,
+<code style="white-space: nowrap;">&lt;ol class="note"&gt;...&lt;/ol&g with `<s>` or `<del>`t;</code>,
+<code style="white-space: nowrap;">&lt;ul class="note"&gt;...&lt;/ul&gt;</code>,
+<code style="white-space: nowrap;">&lt;aside class="note"&gt;...&lt;/aside&gt;</code>,
 etc).
 
 <p class="note"><b>Note</b>: morbi sed facilisis nunc. Quisque dictum lectus vitae purus lobortis, dapibus malesuada sapien imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
