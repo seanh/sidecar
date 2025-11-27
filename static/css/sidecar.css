@@ -16,6 +16,11 @@ nav {
   overflow-x: auto;
   text-transform: lowercase;
 }
+@media (max-width: 50rem) {
+  nav {
+    margin-bottom: var(--ok-line-height);
+  }
+}
 nav > * {
   flex-shrink: 0;
 }
