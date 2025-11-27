@@ -9,7 +9,7 @@ nav {
   padding-top: var(--ok-line-height);
   padding-bottom: calc(var(--ok-line-height) - 1px);
   margin-bottom: calc(2 * var(--ok-line-height));
-  border-bottom: 1px solid var(--ok-color-border);
+  border-bottom: 1px solid #ececec;
   max-width: 50rem;
   display: flex;
   column-gap: var(--ok-line-height);
