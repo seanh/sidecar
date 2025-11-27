@@ -46,9 +46,7 @@ PAGE_SOURCE_URL = "{page.url}index{OUTPUT_SOURCES_EXTENSION}"
 SIDECAR_NAVBAR = [
     "HOME",
     "SPACE",
-    "MENUITEMS",
     "PAGES",
-    "TAGS",
     "ARCHIVES",
 ]
 
