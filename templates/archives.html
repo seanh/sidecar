@@ -5,7 +5,13 @@
 {% block content_title %}Archive{% endblock %}
 
 {% block content %}
-  {% for article in articles %}
-    {% include "includes/article/archives.html" %}
-  {% endfor %}
+  <div class="archives">
+    {% for article in articles %}
+      {% block article scoped %}
+        {% with context = "archives" %}
+          {% include "includes/article/article.html" %}
+        {% endwith %}
+      {% endblock %}
+    {% endfor %}
+  </div>
 {% endblock %}
