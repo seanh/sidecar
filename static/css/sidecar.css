@@ -1,7 +1,9 @@
+nav {
+  padding-left: calc(2 * var(--ok-line-height));
+  padding-right: calc(2 * var(--ok-line-height));
+}
 nav,
 main {
-  padding-left: calc(0.5 * var(--ok-line-height));
-  padding-right: calc(0.5 * var(--ok-line-height));
   margin-left: auto;
   margin-right: auto;
 }
@@ -19,6 +21,8 @@ nav {
 @media (max-width: 50rem) {
   nav {
     margin-bottom: var(--ok-line-height);
+    padding-left: calc(0.5 * var(--ok-line-height));
+    padding-right: calc(0.5 * var(--ok-line-height));
   }
 }
 nav > * {
@@ -41,6 +45,8 @@ nav img {
 }
 main {
   max-width: 40rem;
+  padding-left: calc(0.5 * var(--ok-line-height));
+  padding-right: calc(0.5 * var(--ok-line-height));
 }
 article {
   margin-bottom: var(--ok-line-height);
