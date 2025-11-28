@@ -1,13 +1,6 @@
 nav {
   padding-left: calc(2 * var(--ok-line-height));
   padding-right: calc(2 * var(--ok-line-height));
-}
-nav,
-main {
-  margin-left: auto;
-  margin-right: auto;
-}
-nav {
   padding-top: var(--ok-line-height);
   padding-bottom: calc(var(--ok-line-height) - 1px);
   margin-bottom: calc(2 * var(--ok-line-height));
@@ -43,32 +36,33 @@ nav img {
   width: auto;
   margin: 0;
 }
+nav,
+main {
+  margin-left: auto;
+  margin-right: auto;
+}
 main {
   max-width: 40rem;
   padding-left: calc(0.5 * var(--ok-line-height));
   padding-right: calc(0.5 * var(--ok-line-height));
 }
-article {
-  margin-bottom: var(--ok-line-height);
-}
-article footer {
-  margin: 0;
-}
-article h1:first-of-type a {
-  color: inherit;
-}
-.archives {
+.articles {
   margin-bottom: var(--ok-line-height);
   margin-top: var(--ok-line-height);
 }
-.archives a {
+.articles a {
   color: inherit;
   text-decoration: none;
 }
-main > footer {
+footer {
   margin-top: calc(2 * var(--ok-line-height));
-  margin-bottom: var(--ok-line-height);
   display: flex;
-  flex-direction: row-reverse;
   justify-content: space-between;
+}
+footer a[rel="prev"],
+footer a[rel="next"] {
+  text-decoration: none;
+}
+footer a[rel="next"] {
+  margin-left: auto;
 }

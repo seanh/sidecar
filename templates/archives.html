@@ -1,23 +1,5 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 
 {% block title %}{{ super() }} - Archives{% endblock %}
 
 {% block content_title %}Archives{% endblock %}
-
-{% block content %}
-  <table class="archives">
-    <caption><b>Posts</b></caption>
-    <tbody>
-      {% for article in articles %}
-        <tr>
-          <td><b>{% include "includes/article/time.html" %}</b></td>
-          <td>
-            {% with link_text = article.title %}
-              {% include "includes/article/permalink.html" %}
-            {% endwith %}
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-{% endblock %}
