@@ -5,25 +5,19 @@
 {% block content_title %}Archives{% endblock %}
 
 {% block content %}
-  <ol reversed class="archives">
-    {% for article in articles %}
-      <li>
-        {% block article scoped %}
-          <article>
-            {% set title %}
-              {% with link_text = article.title %}
-                {% include "includes/article/permalink.html" %}
-              {% endwith %}
-            {% endset %}
-            <h2 class="noanchor">{{ title }}</h2>
-            <footer>
-              <small>
-                {% include "includes/article/time.html" %}
-              </small>
-            </footer>
-          </article>
-        {% endblock %}
-      </li>
-    {% endfor %}
-  </ol>
+  <table class="archives">
+    <caption><b>Posts</b></caption>
+    <tbody>
+      {% for article in articles %}
+        <tr>
+          <td><b>{% include "includes/article/time.html" %}</b></td>
+          <td>
+            {% with link_text = article.title %}
+              {% include "includes/article/permalink.html" %}
+            {% endwith %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}

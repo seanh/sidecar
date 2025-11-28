@@ -1,4 +1,4 @@
-{% if context in ["index", "archives"] %}
+{% if context == "index" %}
   {% set title %}
     {% with link_text=article.title %}
       {% include "includes/article/permalink.html" %}
@@ -8,26 +8,20 @@
   {% set title = article.title %}
 {% endif %}
 
-{% if context in ["index", "article"] %}
-  {% set header_tag = "h1" %}
-{% elif context == "archives" %}
-  {% set header_tag = "h2" %}
-{% endif %}
-
 {% if context == "index" %}
   {% set body = article.summary %}
 {% elif context == "article" %}
   {% set body = article.content %}
 {% endif %}
 
-{% set header %}
-  <{{ header_tag }} class="noanchor">{{ title }}</{{ header_tag }}>
+{% set heading %}
+  <h1 class="noanchor">{{ title }}</h1>
 {% endset %}
 
 <article>
-  {% if context != "archives" and article.metadata.subheading %}
+  {% if article.metadata.subheading %}
     <hgroup>
-      {{ header }}
+      {{ heading }}
       {% if "subheading" in FORMATTED_FIELDS %}
         {{ article.metadata.subheading }}
       {% else %}
@@ -35,10 +29,10 @@
       {% endif %}
     </hgroup>
   {% else %}
-    {{ header }}
+    {{ heading }}
   {% endif %}
 
-  {% if body %}{{ body }}{% endif %}
+  {{ body }}
 
   {% include "includes/article/footer.html" %}
 </article>
