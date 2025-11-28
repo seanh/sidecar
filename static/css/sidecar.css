@@ -1,3 +1,6 @@
+:root {
+  --ok-color-fg: #374151;
+}
 nav {
   padding-left: calc(2 * var(--ok-line-height));
   padding-right: calc(2 * var(--ok-line-height));
