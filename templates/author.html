@@ -1,5 +1,7 @@
 {% extends "index.html" %}
 
+{% set articles_caption = "Posts by {}".format(author) %}
+
 {% block title %}{{ super() }} - Posts by {{ author }}{% endblock %}
 
-{% block content_title %}Posts by {{ author }}{% endblock %}
+{% block content_title %}{{ author }}{% endblock %}

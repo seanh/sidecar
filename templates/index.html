@@ -6,7 +6,7 @@
   {% endif %}
 
   <table class="articles">
-    <caption style="font-weight: bold;">Posts</caption>
+    <caption style="font-weight: bold;">{{ articles_caption or "Posts" }}</caption>
     <tbody>
       {% for article in articles %}
         <tr>

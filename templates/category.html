@@ -1,5 +1,7 @@
 {% extends "index.html" %}
 
+{% set articles_caption = "Posts in category &ldquo;{}&rdquo;".format(category) %}
+
 {% block title %}{{ super() }} - {{ category }}{% endblock %}
 
-{% block content_title %}Posts in category &ldquo;{{ category }}&rdquo;{% endblock %}
+{% block content_title %}{{ category }}{% endblock %}
