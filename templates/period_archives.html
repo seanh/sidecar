@@ -1,5 +1,9 @@
-{% extends "archives.html" %}
+{% extends "index.html" %}
 
-{% block title %}{{ super() }} - {{ period | reverse | join(' ') }}{% endblock %}
+{% set periodstr = period | reverse | join(" ") %}
 
-{% block content_title %}Posts from {{ period | reverse | join(" ") }}{% endblock %}
+{% set articles_caption = "Posts from {}".format(periodstr) %}
+
+{% block title %}{{ super() }} - {{ periodstr }}{% endblock %}
+
+{% block content_title %}{{ periodstr }}{% endblock %}
