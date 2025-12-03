@@ -2,17 +2,17 @@
   --ok-color-fg: #374151;
 }
 nav {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  column-gap: var(--ok-line-height);
+  display: flex;
+  margin-bottom: calc(4 * var(--ok-line-height));
+  max-width: 50rem;
+  overflow-x: auto;
+  padding-bottom: calc(var(--ok-line-height) - 1px);
   padding-left: calc(2 * var(--ok-line-height));
   padding-right: calc(2 * var(--ok-line-height));
   padding-top: var(--ok-line-height);
-  padding-bottom: calc(var(--ok-line-height) - 1px);
-  margin-bottom: calc(4 * var(--ok-line-height));
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  max-width: 50rem;
-  display: flex;
-  column-gap: var(--ok-line-height);
-  overflow-x: auto;
   text-transform: lowercase;
 }
 nav > * {
@@ -30,8 +30,8 @@ nav a:hover {
 }
 nav img {
   height: var(--ok-line-height);
-  width: auto;
   margin: 0;
+  width: auto;
 }
 nav,
 main {
@@ -39,25 +39,25 @@ main {
   margin-right: auto;
 }
 .bio {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  row-gap: var(--ok-line-height);
-  max-width: 25rem;
+  margin-bottom: calc(5 * var(--ok-line-height));
   margin-left: auto;
   margin-right: auto;
+  max-width: 25rem;
+  row-gap: var(--ok-line-height);
   text-align: center;
-  margin-bottom: calc(5 * var(--ok-line-height));
 }
 .bio > * {
   margin: 0;
   padding: 0;
 }
 .bio > img {
-  border: none;
   border-radius: 100%;
-  width: calc(3 * var(--ok-line-height));
+  border: none;
   height: calc(3 * var(--ok-line-height));
+  width: calc(3 * var(--ok-line-height));
 }
 .bio,
 main {
@@ -83,9 +83,9 @@ main h1:first-of-type {
 }
 .pagination {
   color: var(--ok-color-fg);
-  margin-top: calc(2 * var(--ok-line-height));
   display: flex;
   justify-content: space-between;
+  margin-top: calc(2 * var(--ok-line-height));
 }
 .pagination :is(a[rel="prev"], a[rel="next"]) {
   text-decoration: none;
@@ -99,10 +99,10 @@ nav,
 }
 @media (max-width: 50rem) {
   nav {
+    padding-bottom: calc(0.5 * var(--ok-line-height) - 1px);
     padding-left: calc(0.5 * var(--ok-line-height));
     padding-right: calc(0.5 * var(--ok-line-height));
     padding-top: calc(0.5 * var(--ok-line-height));
-    padding-bottom: calc(0.5 * var(--ok-line-height) - 1px);
   }
   .bio {
     margin-bottom: calc(2 * var(--ok-line-height));
