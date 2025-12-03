@@ -74,7 +74,6 @@ main {
 }
 main {
   max-width: 40rem;
-  padding-top: var(--ok-line-height);
 }
 main h1:first-of-type {
   padding-top: 0;
