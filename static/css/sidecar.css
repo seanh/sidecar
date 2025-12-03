@@ -85,6 +85,7 @@ main h1:first-of-type {
   text-decoration: none;
 }
 .pagination {
+  color: var(--ok-color-fg);
   margin-top: calc(2 * var(--ok-line-height));
   display: flex;
   justify-content: space-between;
