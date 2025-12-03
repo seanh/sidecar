@@ -6,7 +6,7 @@ nav {
   padding-right: calc(2 * var(--ok-line-height));
   padding-top: var(--ok-line-height);
   padding-bottom: calc(var(--ok-line-height) - 1px);
-  margin-bottom: calc(2 * var(--ok-line-height));
+  margin-bottom: calc(4 * var(--ok-line-height));
   border-bottom-width: 1px;
   border-bottom-style: solid;
   max-width: 50rem;
@@ -17,9 +17,10 @@ nav {
 }
 @media (max-width: 50rem) {
   nav {
-    margin-bottom: var(--ok-line-height);
     padding-left: calc(0.5 * var(--ok-line-height));
     padding-right: calc(0.5 * var(--ok-line-height));
+    padding-top: calc(0.5 * var(--ok-line-height));
+    padding-bottom: calc(0.5 * var(--ok-line-height) - 1px);
   }
 }
 nav > * {
@@ -54,7 +55,6 @@ main {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  margin-top: calc(4 * var(--ok-line-height));
   margin-bottom: calc(5 * var(--ok-line-height));
 }
 .bio > * {
@@ -67,11 +67,14 @@ main {
   width: calc(3 * var(--ok-line-height));
   height: calc(3 * var(--ok-line-height));
 }
+.bio,
 main {
-  max-width: 40rem;
-  padding-top: calc(2 * var(--ok-line-height));
   padding-left: calc(0.5 * var(--ok-line-height));
   padding-right: calc(0.5 * var(--ok-line-height));
+}
+main {
+  max-width: 40rem;
+  padding-top: var(--ok-line-height);
 }
 main h1:first-of-type {
   padding-top: 0;
