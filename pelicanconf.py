@@ -1,6 +1,9 @@
 THEME = "."
 AUTHOR = "Sean Hammond"
 SITENAME = "Sidecar"
+SITESUBTITLE = "Sidecar Demo"
+SITEBIO = 'This is the demo site for <b>Sidecar</b>, a theme for the Pelican blog engine. See the <a href="{SITEURL}/about/">about</a> page for more.'
+AVATAR_URL = "{SITEURL}/{THEME_STATIC_DIR}/images/avatar.jpg"
 SITEURL = "http://localhost:8000"
 PATH = "content"
 DELETE_OUTPUT_DIRECTORY = True

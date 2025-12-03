@@ -1,5 +1,6 @@
 {% extends "index.html" %}
 
+{% set bio = false %}
 {% set articles_caption = "Posts tagged &ldquo;{}&rdquo;".format(tag) %}
 
 {% block title %}{{ super() }} - {{ tag }}{% endblock %}
