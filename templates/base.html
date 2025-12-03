@@ -26,46 +26,60 @@
     {% endblock head %}
   </head>
   <body>
-    <nav>
-      {% if SIDECAR_NAVBAR is not defined %}
-        {% set SIDECAR_NAVBAR = ["HOME", "MENUITEMS"] %}
-        {% if DISPLAY_PAGES_ON_MENU %}
-          {{ SIDECAR_NAVBAR.append("PAGES") or "" }}
+    <header>
+      <nav>
+        {% if SIDECAR_NAVBAR is not defined %}
+          {% set SIDECAR_NAVBAR = ["HOME", "MENUITEMS"] %}
+          {% if DISPLAY_PAGES_ON_MENU %}
+            {{ SIDECAR_NAVBAR.append("PAGES") or "" }}
+          {% endif %}
+          {{ SIDECAR_NAVBAR.extend(["CATEGORIES", "TAGS", "AUTHORS", "ARCHIVES"]) or "" }}
         {% endif %}
-        {{ SIDECAR_NAVBAR.extend(["CATEGORIES", "TAGS", "AUTHORS", "ARCHIVES"]) or "" }}
-      {% endif %}
 
-      {% for item in SIDECAR_NAVBAR %}
-        {% if item == "HOME" %}
-          <a style="font-weight: bold;" href="{{ SITEURL }}">{{ SITENAME }}</a>
-        {% elif item == "MENUITEMS" %}
-          {% for title, url in MENUITEMS %}
-            <a href="{{ url }}">{{ title }}</a>
-          {% endfor %}
-        {% elif item == "PAGES" %}
-          {% for page_ in pages %}
-            <a href="{{ SITEURL }}/{{ page_.url }}">{{ page_.title }}</a>
-          {% endfor %}
-        {% elif item == "CATEGORIES" %}
-          {% if CATEGORIES_URL %}<a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a>{% endif %}
-        {% elif item == "TAGS" %}
-          {% if TAGS_URL %}<a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a>{% endif %}
-        {% elif item == "AUTHORS" %}
-          {% if AUTHORS_URL %}<a href="{{ SITEURL }}/{{ AUTHORS_URL }}">Authors</a>{% endif %}
-        {% elif item == "ARCHIVES" %}
-          {% if ARCHIVES_URL %}<a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>{% endif %}
-        {% elif item == "SPACE" %}
-          <div class="space"></div>
-        {% else %}
-          {{ item.format(SITEURL=SITEURL) }}
+        {% for item in SIDECAR_NAVBAR %}
+          {% if item == "HOME" %}
+            <a style="font-weight: bold;" href="{{ SITEURL }}">{{ SITENAME }}</a>
+          {% elif item == "MENUITEMS" %}
+            {% for title, url in MENUITEMS %}
+              <a href="{{ url }}">{{ title }}</a>
+            {% endfor %}
+          {% elif item == "PAGES" %}
+            {% for page_ in pages %}
+              <a href="{{ SITEURL }}/{{ page_.url }}">{{ page_.title }}</a>
+            {% endfor %}
+          {% elif item == "CATEGORIES" %}
+            {% if CATEGORIES_URL %}<a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a>{% endif %}
+          {% elif item == "TAGS" %}
+            {% if TAGS_URL %}<a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a>{% endif %}
+          {% elif item == "AUTHORS" %}
+            {% if AUTHORS_URL %}<a href="{{ SITEURL }}/{{ AUTHORS_URL }}">Authors</a>{% endif %}
+          {% elif item == "ARCHIVES" %}
+            {% if ARCHIVES_URL %}<a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>{% endif %}
+          {% elif item == "SPACE" %}
+            <div class="space"></div>
+          {% else %}
+            {{ item.format(SITEURL=SITEURL) }}
+          {% endif %}
+        {% endfor %}
+        {% if GITHUB_URL %}
+          <a href="{{ GITHUB_URL }}" aria-label="Fork me on GitHub">
+            <img style="border: none;" width="98" height="96" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/github-mark.svg" alt="Fork me on GitHub" title="Fork me on GitHub">
+          </a>
         {% endif %}
-      {% endfor %}
-      {% if GITHUB_URL %}
-        <a href="{{ GITHUB_URL }}" aria-label="Fork me on GitHub">
-          <img style="border: none;" width="98" height="96" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/github-mark.svg" alt="Fork me on GitHub" title="Fork me on GitHub">
-        </a>
-      {% endif %}
-    </nav>
+      </nav>
+
+      {% block bio %}
+        {% if bio %}
+          {% if AVATAR_URL or SITESUBTITLE or SITEBIO %}
+            <div class="bio">
+              {% if AVATAR_URL %}<img alt="{{ AVATAR_ALT_TEXT or 'avatar' }}" src="{{ AVATAR_URL.format(SITEURL=SITEURL, THEME_STATIC_DIR=THEME_STATIC_DIR) }}">{% endif %}
+              {% if SITESUBTITLE %}<h1>{{ SITESUBTITLE }}</h1>{% endif %}
+              {% if SITEBIO %}<p>{{ SITEBIO.format(SITEURL=SITEURL) }}</p>{% endif %}
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endblock %}
+    </header>
 
     <main>
       {% with %}

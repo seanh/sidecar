@@ -2,6 +2,7 @@
 
 {% set periodstr = period | reverse | join(" ") %}
 
+{% set bio = false %}
 {% set articles_caption = "Posts from {}".format(periodstr) %}
 
 {% block title %}{{ super() }} - {{ periodstr }}{% endblock %}
