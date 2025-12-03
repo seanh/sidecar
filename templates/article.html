@@ -16,6 +16,8 @@
 {% block content %}
   {% block article scoped %}
     {% with context = "article" %}
+      {% include "includes/article/tagline.html" %}
+
       {% set heading %}
         <h1 class="noanchor">{{ article.title }}</h1>
       {% endset %}
@@ -34,8 +36,6 @@
       {% endif %}
 
       {{ article.content }}
-
-      {% include "includes/article/footer.html" %}
     {% endwith %}
   {% endblock %}
 {% endblock %}
