@@ -6,3 +6,13 @@
 {% block title %}{{ super() }} - Archives{% endblock %}
 
 {% block content_title %}Archives{% endblock %}
+
+{% block content %}
+  {% if SIDECAR_SEARCH != false %}
+    <form method="get" action="https://duckduckgo.com/" class="search">
+      <input type="hidden" name="sites" value="{{ SITEURL }}" />
+      <input type="search" name="q" placeholder="Full-text search&hellip;" aria-label="Full-text search" />
+    </form>
+  {% endif %}
+  {{ super() }}
+{% endblock %}

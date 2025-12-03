@@ -134,6 +134,18 @@ nav,
 .articles td {
   border-color: #ececec;
 }
+.search {
+  text-align: center;
+}
+.search input[type="search"] {
+  background-color: var(--ok-color-block-bg);
+  border-radius: var(--ok-border-radius);
+  border: 1px solid var(--ok-color-border);
+  color: var(--ok-color-block-fg);
+  margin-top: var(--ok-line-height);
+  padding: calc(0.5 * var(--ok-line-height));
+  width: 100%;
+}
 @media (max-width: 50rem) {
   nav {
     padding-bottom: calc(0.5 * var(--ok-line-height) - 1px);
