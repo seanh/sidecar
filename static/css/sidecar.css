@@ -157,3 +157,9 @@ nav,
     margin-bottom: calc(2 * var(--ok-line-height));
   }
 }
+.highlight {
+  border-radius: var(--ok-border-radius);
+}
+.highlight :is(code, pre) {
+  background-color: inherit;
+}
