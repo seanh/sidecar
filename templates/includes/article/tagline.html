@@ -1,10 +1,10 @@
-{% if SIDECAR_ARTICLE_FOOTER is not defined %}
-  {% set SIDECAR_ARTICLE_FOOTER = ["AUTHORS", "TIME", "SOURCE", "TAGS"] %}
+{% if SIDECAR_TAGLINE is not defined %}
+  {% set SIDECAR_TAGLINE = ["AUTHORS", "TIME", "SOURCE", "TAGS"] %}
 {% endif %}
 
 {% set footer_items = [] %}
 
-{% for item in SIDECAR_ARTICLE_FOOTER %}
+{% for item in SIDECAR_TAGLINE %}
   {% if item == "AUTHORS" %}
     {% set footer_item %}{% include "includes/article/authors.html" %}{% endset %}
     {% if footer_item %}

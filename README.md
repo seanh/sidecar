@@ -45,9 +45,9 @@ Features
 
 * Optional [tables of contents](#tables-of-contents) for static pages and articles.
 
-* Customizable navbar and article footer contents with the
+* Customizable navbar and article tagline contents with the
   [`SIDECAR_NAVBAR`](#sidecar_navbar)
-  and [`SIDECAR_ARTICLE_FOOTER`](#sidecar_article_footer)
+  and [`SIDECAR_TAGLINE`](#sidecar_tagline)
   settings.
 
 
@@ -309,16 +309,16 @@ SIDECAR_NAVBAR = [
 `{SITEURL}` in menu item strings will be replaced with Pelican's
 [`SITEURL` setting](https://docs.getpelican.com/en/latest/settings.html#SITEURL).
 
-### `SIDECAR_ARTICLE_FOOTER`
+### `SIDECAR_TAGLINE`
 
-You can customize the contents of the footers beneath article titles by
-adding a `SIDECAR_ARTICLE_FOOTER` setting (list of strings) to your Pelican
+You can customize the contents of the taglines above article titles by
+adding a `SIDECAR_TAGLINE` setting (list of strings) to your Pelican
 config. For example:
 
 ```python
 # pelicanconf.py
 
-SIDECAR_ARTICLE_FOOTER = [
+SIDECAR_TAGLINE = [
     "AUTHORS",
     "TIME",
     "SOURCE",
@@ -326,7 +326,7 @@ SIDECAR_ARTICLE_FOOTER = [
 ]
 ```
 
-Certain string values have special meanings in `SIDECAR_ARTICLE_FOOTER`:
+Certain string values have special meanings in `SIDECAR_TAGLINE`:
 
 * `AUTHORS`: insert links to Pelican's author pages for the article's authors.
 
@@ -345,9 +345,9 @@ Certain string values have special meanings in `SIDECAR_ARTICLE_FOOTER`:
 
 * `TAGS`: inserts links to Pelican's tag pages for each of the article's tags, if any.
 
-Items in `SIDECAR_ARTICLE_FOOTER` that don't match any of the special strings
+Items in `SIDECAR_TAGLINE` that don't match any of the special strings
 above are rendered directly, so you can include your own raw HTML strings in
-footers.
+taglines.
 
 Customizing the templates
 -------------------------

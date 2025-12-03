@@ -24,7 +24,7 @@
   </table>
 
   {% if articles_page and articles_page.has_other_pages() %}
-    <footer>
+    <footer class="pagination">
       {% if articles_previous_page %}
         <a rel="prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}" title="Previous page">&larr;</a>
       {% endif %}
