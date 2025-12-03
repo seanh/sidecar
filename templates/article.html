@@ -15,27 +15,25 @@
 
 {% block content %}
   {% block article scoped %}
-    {% with context = "article" %}
-      {% include "includes/article/tagline.html" %}
+    {% include "includes/article/tagline.html" %}
 
-      {% set heading %}
-        <h1 class="noanchor">{{ article.title }}</h1>
-      {% endset %}
+    {% set heading %}
+      <h1 class="noanchor">{{ article.title }}</h1>
+    {% endset %}
 
-      {% if article.metadata.subheading %}
-        <hgroup>
-          {{ heading }}
-          {% if "subheading" in FORMATTED_FIELDS %}
-            {{ article.metadata.subheading }}
-          {% else %}
-            <p>{{ article.metadata.subheading|join(" ") }}</p>
-          {% endif %}
-        </hgroup>
-      {% else %}
+    {% if article.metadata.subheading %}
+      <hgroup>
         {{ heading }}
-      {% endif %}
+        {% if "subheading" in FORMATTED_FIELDS %}
+          {{ article.metadata.subheading }}
+        {% else %}
+          <p>{{ article.metadata.subheading|join(" ") }}</p>
+        {% endif %}
+      </hgroup>
+    {% else %}
+      {{ heading }}
+    {% endif %}
 
-      {{ article.content }}
-    {% endwith %}
+    {{ article.content }}
   {% endblock %}
 {% endblock %}
