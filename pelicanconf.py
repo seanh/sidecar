@@ -2,7 +2,7 @@ THEME = "."
 AUTHOR = "Sean Hammond"
 SITENAME = "Sidecar"
 SITESUBTITLE = "Sidecar Demo"
-SITEBIO = 'This is the demo site for <b>Sidecar</b>, a theme for the Pelican blog engine. See the <a href="{SITEURL}/about/">about</a> page for more.'
+SITEBIO = 'This is the demo site for <a href="https://github.com/seanh/sidecar">Sidecar</a>, a theme for the <a href="https://getpelican.com/">Pelican</a> static site generator. See the <a href="{SITEURL}/about/">about</a> page for more about Sidecar and its features.'
 AVATAR_URL = "{SITEURL}/{THEME_STATIC_DIR}/images/avatar.jpg"
 SITEURL = "http://localhost:8000"
 PATH = "content"
