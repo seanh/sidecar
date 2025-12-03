@@ -37,8 +37,13 @@ nav {
   */
   margin-bottom: calc(4 * var(--ok-line-height));
 
+  /* The nav bar's contents are deliberately a bit wider than the main contents:
+     it looks nicer and better visually distinguishes the nav bar from the main
+     contents. */
   max-width: 50rem;
+
   overflow-x: auto;
+  /* -1px to account for the 1px border. */
   padding-bottom: calc(var(--ok-line-height) - 1px);
   padding-left: calc(2 * var(--ok-line-height));
   padding-right: calc(2 * var(--ok-line-height));
@@ -46,6 +51,8 @@ nav {
   text-transform: lowercase;
 }
 nav > * {
+  /* Don't allow the GitHub logo image in the nav bar to be horizontally
+     squished on small screens. */
   flex-shrink: 0;
 }
 nav .space {
