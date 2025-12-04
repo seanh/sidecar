@@ -112,7 +112,7 @@
       </script>
       {% endif %}
 
-      {% block analytics %}{% if ANALYTICS %}{{ ANALYTICS }}{% endif %}{% endblock analytics %}
+      {% include 'analytics.html' %}
 
       {% if (article or page) and (article or page).metadata.sidecar_cycle_pygments_themes %}
       <script>
