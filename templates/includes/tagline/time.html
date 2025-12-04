@@ -1,1 +1,2 @@
-<time style="white-space: nowrap;" datetime="{{ article.date.strftime("%Y-%m") }}">{{ article.locale_date }}</time>
+<time style="white-space: nowrap;" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+{% if show_modified_time and article.modified %}(updated: <time style="white-space: nowrap;" datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</time>){% endif %}
