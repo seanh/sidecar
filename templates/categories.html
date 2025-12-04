@@ -1,11 +1,7 @@
-{% extends "base.html" %}
+{% extends "tags.html" %}
 
 {% block title %}{{ super() }} - Categories{% endblock %}
 
 {% block content_title %}Categories{% endblock %}
 
-{% block content %}
-  {% with tags=categories %}
-    {% include "includes/tags.html" %}
-  {% endwith %}
-{% endblock %}
+{% set tags=categories %}
