@@ -18,26 +18,24 @@
 {% set anchors = true %}
 
 {% block content %}
-  {% block article %}
-    {% include "includes/tagline.html" %}
+  {% include "includes/tagline.html" %}
 
-    {% set heading %}
-      <h1 class="noanchor">{{ article.title }}</h1>
-    {% endset %}
+  {% set heading %}
+    <h1 class="noanchor">{{ article.title }}</h1>
+  {% endset %}
 
-    {% if article.metadata.subheading %}
-      <hgroup>
-        {{ heading }}
-        {% if "subheading" in FORMATTED_FIELDS %}
-          {{ article.metadata.subheading }}
-        {% else %}
-          <p>{{ article.metadata.subheading|join(" ") }}</p>
-        {% endif %}
-      </hgroup>
-    {% else %}
+  {% if article.metadata.subheading %}
+    <hgroup>
       {{ heading }}
-    {% endif %}
+      {% if "subheading" in FORMATTED_FIELDS %}
+        {{ article.metadata.subheading }}
+      {% else %}
+        <p>{{ article.metadata.subheading|join(" ") }}</p>
+      {% endif %}
+    </hgroup>
+  {% else %}
+    {{ heading }}
+  {% endif %}
 
-    {{ article.content }}
-  {% endblock %}
+  {{ article.content }}
 {% endblock %}
