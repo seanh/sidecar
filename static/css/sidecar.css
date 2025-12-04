@@ -138,12 +138,13 @@ nav,
   text-align: center;
 }
 .search input[type="search"] {
-  background-color: var(--ok-color-block-bg);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23374151'  stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m17 17 5 5'/%3E%3C/svg%3E") no-repeat 10px center;
   border-radius: var(--ok-border-radius);
   border: 1px solid var(--ok-color-border);
   color: var(--ok-color-block-fg);
   margin-top: var(--ok-line-height);
   padding: calc(0.5 * var(--ok-line-height));
+  padding-left: calc((0.5 * var(--ok-line-height)) + var(--ok-line-height));
   width: 100%;
 }
 @media (max-width: 50rem) {
