@@ -19,16 +19,7 @@
     </tbody>
   </table>
 
-  {% if articles_page and articles_page.has_other_pages() %}
-    <footer class="pagination">
-      {% if articles_previous_page %}
-        <a rel="prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}" title="Previous page">&larr;</a>
-      {% endif %}
-
-      {% if articles_next_page %}
-        <a rel="next" href="{{ SITEURL }}/{{ articles_next_page.url }}" title="Next page">&rarr;</a>
-      {% endif %}
-
-    </footer>
+  {% if articles_page is defined and articles_page.has_other_pages() %}
+      {% include 'pagination.html' %}
   {% endif %}
 {% endblock %}
