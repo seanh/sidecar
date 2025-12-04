@@ -1,11 +1,7 @@
-{% extends "base.html" %}
+{% extends "tags.html" %}
 
 {% block title %}{{ super() }} - Authors{% endblock %}
 
 {% block content_title %}Authors{% endblock %}
 
-{% block content %}
-  {% with tags=authors %}
-    {% include "includes/tags.html" %}
-  {% endwith %}
-{% endblock %}
+{% set tags=authors %}
