@@ -26,159 +26,165 @@
     {% endblock head %}
   </head>
   <body>
-    <header>
-      <nav>
-        {% if SIDECAR_NAVBAR is not defined %}
-          {% set SIDECAR_NAVBAR = ["HOME", "MENUITEMS"] %}
-          {% if DISPLAY_PAGES_ON_MENU %}
-            {{ SIDECAR_NAVBAR.append("PAGES") or "" }}
-          {% endif %}
-          {{ SIDECAR_NAVBAR.extend(["CATEGORIES", "TAGS", "AUTHORS", "ARCHIVES"]) or "" }}
-        {% endif %}
+    {% block body %}
+      <header>
+        {% block header %}
+          {% block nav %}
+            <nav>
+              {% if SIDECAR_NAVBAR is not defined %}
+                {% set SIDECAR_NAVBAR = ["HOME", "MENUITEMS"] %}
+                {% if DISPLAY_PAGES_ON_MENU %}
+                  {{ SIDECAR_NAVBAR.append("PAGES") or "" }}
+                {% endif %}
+                {{ SIDECAR_NAVBAR.extend(["CATEGORIES", "TAGS", "AUTHORS", "ARCHIVES"]) or "" }}
+              {% endif %}
 
-        {% for item in SIDECAR_NAVBAR %}
-          {% if item == "HOME" %}
-            <a style="font-weight: bold;" href="{{ SITEURL }}">{{ SITENAME }}</a>
-          {% elif item == "MENUITEMS" %}
-            {% for title, url in MENUITEMS %}
-              <a href="{{ url }}">{{ title }}</a>
-            {% endfor %}
-          {% elif item == "PAGES" %}
-            {% for page_ in pages %}
-              <a href="{{ SITEURL }}/{{ page_.url }}">{{ page_.title }}</a>
-            {% endfor %}
-          {% elif item == "CATEGORIES" %}
-            {% if CATEGORIES_URL %}<a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a>{% endif %}
-          {% elif item == "TAGS" %}
-            {% if TAGS_URL %}<a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a>{% endif %}
-          {% elif item == "AUTHORS" %}
-            {% if AUTHORS_URL %}<a href="{{ SITEURL }}/{{ AUTHORS_URL }}">Authors</a>{% endif %}
-          {% elif item == "ARCHIVES" %}
-            {% if ARCHIVES_URL %}<a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>{% endif %}
-          {% elif item == "SPACE" %}
-            <div class="space"></div>
-          {% else %}
-            {{ item.format(SITEURL=SITEURL) }}
-          {% endif %}
-        {% endfor %}
-        {% if GITHUB_URL %}
-          <a href="{{ GITHUB_URL }}" aria-label="Fork me on GitHub">
-            <img style="border: none;" width="98" height="96" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/github-mark.svg" alt="Fork me on GitHub" title="Fork me on GitHub">
-          </a>
-        {% endif %}
-      </nav>
+              {% for item in SIDECAR_NAVBAR %}
+                {% if item == "HOME" %}
+                  <a style="font-weight: bold;" href="{{ SITEURL }}">{{ SITENAME }}</a>
+                {% elif item == "MENUITEMS" %}
+                  {% for title, url in MENUITEMS %}
+                    <a href="{{ url }}">{{ title }}</a>
+                  {% endfor %}
+                {% elif item == "PAGES" %}
+                  {% for page_ in pages %}
+                    <a href="{{ SITEURL }}/{{ page_.url }}">{{ page_.title }}</a>
+                  {% endfor %}
+                {% elif item == "CATEGORIES" %}
+                  {% if CATEGORIES_URL %}<a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories</a>{% endif %}
+                {% elif item == "TAGS" %}
+                  {% if TAGS_URL %}<a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a>{% endif %}
+                {% elif item == "AUTHORS" %}
+                  {% if AUTHORS_URL %}<a href="{{ SITEURL }}/{{ AUTHORS_URL }}">Authors</a>{% endif %}
+                {% elif item == "ARCHIVES" %}
+                  {% if ARCHIVES_URL %}<a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>{% endif %}
+                {% elif item == "SPACE" %}
+                  <div class="space"></div>
+                {% else %}
+                  {{ item.format(SITEURL=SITEURL) }}
+                {% endif %}
+              {% endfor %}
+              {% if GITHUB_URL %}
+                <a href="{{ GITHUB_URL }}" aria-label="Fork me on GitHub">
+                  <img style="border: none;" width="98" height="96" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/github-mark.svg" alt="Fork me on GitHub" title="Fork me on GitHub">
+                </a>
+              {% endif %}
+            </nav>
+          {% endblock %}
 
-      {% block bio %}
-        {% if bio %}
-          {% if AVATAR_URL or SITESUBTITLE or SITEBIO %}
-            <div class="bio">
-              {% if AVATAR_URL %}<img alt="{{ AVATAR_ALT_TEXT or 'avatar' }}" src="{{ AVATAR_URL.format(SITEURL=SITEURL, THEME_STATIC_DIR=THEME_STATIC_DIR) }}">{% endif %}
-              {% if SITESUBTITLE %}<h1>{{ SITESUBTITLE }}</h1>{% endif %}
-              {% if SITEBIO %}<p>{{ SITEBIO.format(SITEURL=SITEURL) }}</p>{% endif %}
-            </div>
-          {% endif %}
-        {% endif %}
-      {% endblock %}
-    </header>
+          {% block bio %}
+            {% if bio %}
+              {% if AVATAR_URL or SITESUBTITLE or SITEBIO %}
+                <div class="bio">
+                  {% if AVATAR_URL %}<img alt="{{ AVATAR_ALT_TEXT or 'avatar' }}" src="{{ AVATAR_URL.format(SITEURL=SITEURL, THEME_STATIC_DIR=THEME_STATIC_DIR) }}">{% endif %}
+                  {% if SITESUBTITLE %}<h1>{{ SITESUBTITLE }}</h1>{% endif %}
+                  {% if SITEBIO %}<p>{{ SITEBIO.format(SITEURL=SITEURL) }}</p>{% endif %}
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endblock %}
+        {% endblock %}
+      </header>
 
-    <main>
-      {% with %}
-        {% set content_title %}{% block content_title %}{% endblock %}{% endset %}
-        {% if content_title %}<h1 class="noanchor">{{ content_title }}</h1>{% endif %}
-      {% endwith %}
+      <main>
+        {% with %}
+          {% set content_title %}{% block content_title %}{% endblock %}{% endset %}
+          {% if content_title %}<h1 class="noanchor">{{ content_title }}</h1>{% endif %}
+        {% endwith %}
 
-      {% block content %}{% endblock %}
-    </main>
+        {% block content %}{% endblock %}
+      </main>
 
-    {% if anchors %}
-    <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
-    <script>
-      anchors.options.icon = '#';
-      anchors.add('h1:not(.noanchor), h2:not(.noanchor), h3:not(.noanchor), h4:not(.noanchor), h5:not(.noanchor), h6:not(.noanchor)');
-      tocbot.init({
-        tocSelector: '.toc',
-        contentSelector: 'body',
-        headingSelector: 'h1, h2, h3, h4, h5, h6',
-        ignoreSelector: '.notoc, .noanchor',
-        orderedList: false,
-        scrollSmooth: false,
-      });
-    </script>
-    {% endif %}
+      {% if anchors %}
+      <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+      <script>
+        anchors.options.icon = '#';
+        anchors.add('h1:not(.noanchor), h2:not(.noanchor), h3:not(.noanchor), h4:not(.noanchor), h5:not(.noanchor), h6:not(.noanchor)');
+        tocbot.init({
+          tocSelector: '.toc',
+          contentSelector: 'body',
+          headingSelector: 'h1, h2, h3, h4, h5, h6',
+          ignoreSelector: '.notoc, .noanchor',
+          orderedList: false,
+          scrollSmooth: false,
+        });
+      </script>
+      {% endif %}
 
-    {% block analytics %}{% if ANALYTICS %}{{ ANALYTICS }}{% endif %}{% endblock analytics %}
+      {% block analytics %}{% if ANALYTICS %}{{ ANALYTICS }}{% endif %}{% endblock analytics %}
 
-    {% if (article or page) and (article or page).metadata.sidecar_cycle_pygments_themes %}
-    <script>
-      const stylesheets = [
-        'abap',
-        'algol',
-        'algol_nu',
-        'arduino',
-        'autumn',
-        'borland',
-        'bw',
-        'coffee',
-        'colorful',
-        'default',
-        'dracula',
-        'emacs',
-        'friendly',
-        'friendly_grayscale',
-        'fruity',
-        'github-dark',
-        'gruvbox-dark',
-        'gruvbox-light',
-        'igor',
-        'inkpot',
-        'lightbulb',
-        'lilypond',
-        'lovelace',
-        'manni',
-        'material',
-        'monokai',
-        'murphy',
-        'native',
-        'nord',
-        'nord-darker',
-        'one-dark',
-        'paraiso-dark',
-        'paraiso-light',
-        'pastie',
-        'perldoc',
-        'rainbow_dash',
-        'rrt',
-        'sas',
-        'solarized-dark',
-        'solarized-light',
-        'staroffice',
-        'stata-dark',
-        'stata-light',
-        'tango',
-        'trac',
-        'vim',
-        'vs',
-        'xcode',
-        'zenburn'
-      ];
+      {% if (article or page) and (article or page).metadata.sidecar_cycle_pygments_themes %}
+      <script>
+        const stylesheets = [
+          'abap',
+          'algol',
+          'algol_nu',
+          'arduino',
+          'autumn',
+          'borland',
+          'bw',
+          'coffee',
+          'colorful',
+          'default',
+          'dracula',
+          'emacs',
+          'friendly',
+          'friendly_grayscale',
+          'fruity',
+          'github-dark',
+          'gruvbox-dark',
+          'gruvbox-light',
+          'igor',
+          'inkpot',
+          'lightbulb',
+          'lilypond',
+          'lovelace',
+          'manni',
+          'material',
+          'monokai',
+          'murphy',
+          'native',
+          'nord',
+          'nord-darker',
+          'one-dark',
+          'paraiso-dark',
+          'paraiso-light',
+          'pastie',
+          'perldoc',
+          'rainbow_dash',
+          'rrt',
+          'sas',
+          'solarized-dark',
+          'solarized-light',
+          'staroffice',
+          'stata-dark',
+          'stata-light',
+          'tango',
+          'trac',
+          'vim',
+          'vs',
+          'xcode',
+          'zenburn'
+        ];
 
-      const baseUrl = '{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/';
-      let currentIndex = 0;
+        const baseUrl = '{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/';
+        let currentIndex = 0;
 
-      function cycleStylesheet() {
-        currentIndex = (currentIndex + 1) % stylesheets.length;
+        function cycleStylesheet() {
+          currentIndex = (currentIndex + 1) % stylesheets.length;
 
-        const linkElement = document.querySelector('link[href*="pygments"]');
-        if (linkElement) {
-          linkElement.href = baseUrl + stylesheets[currentIndex] + '.css';
+          const linkElement = document.querySelector('link[href*="pygments"]');
+          if (linkElement) {
+            linkElement.href = baseUrl + stylesheets[currentIndex] + '.css';
+          }
+
+          document.querySelectorAll('.pygments-theme').forEach(el => el.textContent = stylesheets[currentIndex]);
         }
 
-        document.querySelectorAll('.pygments-theme').forEach(el => el.textContent = stylesheets[currentIndex]);
-      }
-
-      setInterval(cycleStylesheet, 4000);
-    </script>
-    {% endif %}
+        setInterval(cycleStylesheet, 4000);
+      </script>
+      {% endif %}
+    {% endblock %}
   </body>
 </html>
