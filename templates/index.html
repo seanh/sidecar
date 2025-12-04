@@ -12,7 +12,7 @@
     <tbody>
       {% for article in articles %}
         <tr>
-          <td style="font-weight: bold;">{% include "includes/tagline/time.html" %}</td>
+          <td style="font-weight: bold;">{% include "tagline/time.html" %}</td>
           <td><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permanent link to &lsquo;{{ article.title|striptags }}&rsquo;">{{ article.title }}</a></td>
         </tr>
       {% endfor %}
