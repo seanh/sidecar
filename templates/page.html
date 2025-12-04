@@ -3,3 +3,15 @@
 {% set article = page %}
 {% set source_url %}{{ SITEURL }}/{{ (PAGE_SOURCE_URL or 'pages/{page.slug}{OUTPUT_SOURCES_EXTENSION}').format(page=page, OUTPUT_SOURCES_EXTENSION=OUTPUT_SOURCES_EXTENSION) }}{% endset %}
 {% set SIDECAR_TAGLINE = [] %}
+
+{% block content %}
+  {{ super() }}
+
+  {% if page.modified %}
+    <footer>
+      <p>
+        Last updated: {{ page.locale_modified }}
+      </p>
+    </footer>
+  {% endif %}
+{% endblock %}
