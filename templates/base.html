@@ -85,7 +85,7 @@
     <main>
       {% with %}
         {% set content_title %}{% block content_title %}{% endblock %}{% endset %}
-        {% include "includes/content_title.html" %}
+        {% if content_title %}<h1 class="noanchor">{{ content_title }}</h1>{% endif %}
       {% endwith %}
 
       {% block content %}{% endblock %}
@@ -108,7 +108,7 @@
     </script>
     {% endif %}
 
-    {% include 'includes/analytics.html' %}
+    {% block analytics %}{% if ANALYTICS %}{{ ANALYTICS }}{% endif %}{% endblock analytics %}
 
     {% if (article or page) and (article or page).metadata.sidecar_cycle_pygments_themes %}
     <script>

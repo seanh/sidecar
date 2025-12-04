@@ -12,12 +12,8 @@
     <tbody>
       {% for article in articles %}
         <tr>
-          <td style="font-weight: bold;">{% include "includes/article/time.html" %}</td>
-          <td>
-            {% with link_text = article.title %}
-              {% include "includes/article/permalink.html" %}
-            {% endwith %}
-          </td>
+          <td style="font-weight: bold;">{% include "includes/tagline/time.html" %}</td>
+          <td><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permanent link to &lsquo;{{ article.title|striptags }}&rsquo;">{{ article.title }}</a></td>
         </tr>
       {% endfor %}
     </tbody>

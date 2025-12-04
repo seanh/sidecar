@@ -5,7 +5,7 @@
 {% block title %}{{ super() }} - {{ article.title|striptags  }}{% endblock title %}
 
 {% if source_url is not defined %}
-  {% set source_url %}{% include 'includes/article/source_url' %}{% endset %}
+  {% set source_url %}{{ SITEURL }}/{{ (ARTICLE_SOURCE_URL or '{article.slug}{OUTPUT_SOURCES_EXTENSION}').format(article=article, OUTPUT_SOURCES_EXTENSION=OUTPUT_SOURCES_EXTENSION) }}{% endset %}
 {% endif %}
 
 {% block head %}
@@ -19,7 +19,7 @@
 
 {% block content %}
   {% block article %}
-    {% include "includes/article/tagline.html" %}
+    {% include "includes/tagline.html" %}
 
     {% set heading %}
       <h1 class="noanchor">{{ article.title }}</h1>

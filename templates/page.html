@@ -1,5 +1,5 @@
 {% extends "article.html" %}
 
 {% set article = page %}
-{% set source_url %}{% include 'includes/page/source_url' %}{% endset %}
+{% set source_url %}{{ SITEURL }}/{{ (PAGE_SOURCE_URL or 'pages/{page.slug}{OUTPUT_SOURCES_EXTENSION}').format(page=page, OUTPUT_SOURCES_EXTENSION=OUTPUT_SOURCES_EXTENSION) }}{% endset %}
 {% set SIDECAR_TAGLINE = [] %}
