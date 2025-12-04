@@ -65,6 +65,12 @@ CATEGORIES_URL = "categories/"
 CATEGORY_SAVE_AS = "category/{slug}/index.html"
 CATEGORY_URL = "category/{slug}/"
 
+# Make pagination URLs nicer.
+PAGINATION_PATTERNS = (
+    (1, "{base_name}", "{save_as}"),
+    (2, "{base_name}/page/{number}/", "{base_name}/page/{number}/index.html"),
+)
+
 SIDECAR_NAVBAR = [
     "HOME",
     "SPACE",
