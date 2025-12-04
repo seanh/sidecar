@@ -1,16 +1,5 @@
-{% extends "base.html" %}
+{% extends "article.html" %}
 
-{% block title %}{{ super() }} - {{ page.title|striptags }}{% endblock %}
-
-{% block head %}
-  {{ super() }}
-  {% if OUTPUT_SOURCES and page %}<link rel="alternate" type="text/plain" href="{% include 'includes/page/source_url' %}">{% endif %}
-{% endblock %}
-
-{% set anchors = true %}
-
-{% block content_title %}{{ page.title_ or page.title }}{% endblock %}
-
-{% block content %}
-  {{ page.content }}
-{% endblock %}
+{% set article = page %}
+{% set source_url %}{% include 'includes/page/source_url' %}{% endset %}
+{% set SIDECAR_TAGLINE = [] %}

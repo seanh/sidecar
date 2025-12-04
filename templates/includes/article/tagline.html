@@ -11,7 +11,9 @@
       {{ footer_items.append(footer_item) or "" }}
     {% endif %}
   {% elif item == "TIME" %}
-    {% set footer_item %}{% include "includes/article/time.html" %}{% endset %}
+    {% if article.date is defined %}
+      {% set footer_item %}{% include "includes/article/time.html" %}{% endset %}
+    {% endif %}
     {% if footer_item %}
       {{ footer_items.append(footer_item) or "" }}
     {% endif %}
@@ -35,4 +37,6 @@
   {% endif %}
 {% endfor %}
 
-<footer class="tagline">{{ footer_items|join(" &middot;&nbsp;") }}</footer>
+{% if footer_items %}
+  <footer class="tagline">{{ footer_items|join('<span style="padding-left:.4em; padding-right:.4em;">&middot;</span>') }}</footer>
+{% endif %}

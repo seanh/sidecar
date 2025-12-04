@@ -56,4 +56,5 @@ SIDECAR_NAVBAR = [
 SIDECAR_TAGLINE = [
     "TIME",
     "TAGS",
+    "SOURCE",
 ]
