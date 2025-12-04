@@ -5,7 +5,6 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{% block title %}{{ SITENAME|striptags }}{% endblock %}</title>
-      {% if GITHUB_URL %}<link rel="preload" as="image" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/github-mark.svg" />{% endif %}
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/oatcake@1.0.0-rc.17">
       <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/sidecar.css">
       {% if SIDECAR_PYGMENTS_NO_BORDER %}<style>.highlight pre { border: none; padding-bottom: var(--ok-line-height); }</style>{% endif %}
