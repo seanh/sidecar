@@ -39,7 +39,7 @@ DAY_ARCHIVE_URL = "{date:%Y}/{date:%m}/{date:%d}"
 # Make the URLs of static pages nicer.
 PAGE_SAVE_AS = "{slug}/index.html"
 PAGE_URL = "{slug}"
-PAGE_SOURCE_URL = "{page.url}index{OUTPUT_SOURCES_EXTENSION}"
+PAGE_SOURCE_URL = "{page.url}/index{OUTPUT_SOURCES_EXTENSION}"
 
 # Make the URL of the authors page nicer.
 AUTHORS_SAVE_AS = "authors/index.html"
