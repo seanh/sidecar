@@ -4,17 +4,21 @@
 
 {% block title %}{{ super() }} - {{ article.title|striptags  }}{% endblock title %}
 
+{% if source_url is not defined %}
+  {% set source_url %}{% include 'includes/article/source_url' %}{% endset %}
+{% endif %}
+
 {% block head %}
   {{ super() }}
   {% if OUTPUT_SOURCES %}
-    <link rel="alternate" type="text/plain" href="{% include 'includes/article/source_url' %}">
+    <link rel="alternate" type="text/plain" href="{{ source_url }}">
   {% endif %}
 {% endblock %}
 
 {% set anchors = true %}
 
 {% block content %}
-  {% block article scoped %}
+  {% block article %}
     {% include "includes/article/tagline.html" %}
 
     {% set heading %}

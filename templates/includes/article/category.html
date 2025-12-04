@@ -1,3 +1,2 @@
-{% if article.category %}
-<a style="white-space: nowrap;" href="{{ SITEURL }}/{{ article.category.url }}" title="All posts in category &lsquo;{{ article.category|striptags }}&rsquo;">{{ article.category }}</a>
-{% endif %}
+{% if article.category %}Category:
+<a style="white-space: nowrap;" href="{{ SITEURL }}/{{ article.category.url }}" title="All posts in category &lsquo;{{ article.category|striptags }}&rsquo;">{{ article.category }}</a>{% endif %}
