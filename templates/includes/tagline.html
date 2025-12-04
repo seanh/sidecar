@@ -12,7 +12,7 @@
     {% endif %}
   {% elif item == "TIME" %}
     {% if article.date is defined %}
-      {% set footer_item %}{% include "includes/tagline/time.html" %}{% endset %}
+      {% set footer_item %}{% with show_modified_time = true %}{% include "includes/tagline/time.html" %}{% endwith %}{% endset %}
     {% endif %}
     {% if footer_item %}
       {{ footer_items.append(footer_item) or "" }}
