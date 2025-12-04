@@ -6,29 +6,29 @@
 
 {% for item in SIDECAR_TAGLINE %}
   {% if item == "AUTHORS" %}
-    {% set footer_item %}{% include "includes/article/authors.html" %}{% endset %}
+    {% set footer_item %}{% include "includes/tagline/authors.html" %}{% endset %}
     {% if footer_item %}
       {{ footer_items.append(footer_item) or "" }}
     {% endif %}
   {% elif item == "TIME" %}
     {% if article.date is defined %}
-      {% set footer_item %}{% include "includes/article/time.html" %}{% endset %}
+      {% set footer_item %}{% include "includes/tagline/time.html" %}{% endset %}
     {% endif %}
     {% if footer_item %}
       {{ footer_items.append(footer_item) or "" }}
     {% endif %}
   {% elif item == "CATEGORY" %}
-    {% set footer_item %}{% include "includes/article/category.html" %}{% endset %}
+    {% set footer_item %}{% include "includes/tagline/category.html" %}{% endset %}
     {% if footer_item %}
       {{ footer_items.append(footer_item) or "" }}
     {% endif %}
   {% elif item == "TAGS" %}
-    {% set footer_item %}{% include "includes/article/tags.html" %}{% endset %}
+    {% set footer_item %}{% include "includes/tagline/tags.html" %}{% endset %}
     {% if footer_item %}
       {{ footer_items.append(footer_item) or "" }}
     {% endif %}
   {% elif item == "SOURCE" %}
-    {% set footer_item %}{% include "includes/article/source.html" %}{% endset %}
+    {% set footer_item %}{% include "includes/tagline/source.html" %}{% endset %}
     {% if footer_item %}
       {{ footer_items.append(footer_item) or "" }}
     {% endif %}
