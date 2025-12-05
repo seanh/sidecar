@@ -7,7 +7,6 @@ Subheading:
     This is the demo site for [Sidecar](https://github.com/seanh/sidecar),
     a plain but pretty theme for the [Pelican](https://getpelican.com/) static
     site generator. This post demos a few of the things you can do with Sidecar.
-sidecar_cycle_pygments_themes: true
 
 See [Sidecar's README](https://github.com/seanh/sidecar) for more features and
 customization settings.
@@ -29,8 +28,6 @@ See [Syntax highlighting](https://docs.getpelican.com/en/latest/content.html#syn
 in Pelican's docs and see the Pygments site for the available
 [language names](https://pygments.org/languages/).
 
-<figure>
-  <figcaption>Pygments theme: <b class="pygments-theme">default</b></figcaption>
 ```python
 def lorem_ipsum(dolor, sit_amet="default"):
     """
@@ -49,7 +46,6 @@ def lorem_ipsum(dolor, sit_amet="default"):
     except Exception as e:
         print("Error:", str(e))
 ```
-</figure>
 
 ## Figures
 
