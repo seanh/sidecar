@@ -25,12 +25,20 @@
   {% endset %}
 
   {% if article.metadata.subheading %}
+    {% set subheading = article.metadata.subheading %}
+    {% set formatted = "subheading" in FORMATTED_FIELDS %}
+  {% elif article.metadata.subtitle %}
+    {% set subheading = article.metadata.subtitle %}
+    {% set formatted = "subtitle" in FORMATTED_FIELDS %}
+  {% endif %}
+
+  {% if subheading %}
     <hgroup>
       {{ heading }}
-      {% if "subheading" in FORMATTED_FIELDS %}
-        {{ article.metadata.subheading }}
+      {% if formatted %}
+        {{ subheading }}
       {% else %}
-        <p>{{ article.metadata.subheading|join(" ") }}</p>
+        <p>{{ subheading|join("") }}</p>
       {% endif %}
     </hgroup>
   {% else %}

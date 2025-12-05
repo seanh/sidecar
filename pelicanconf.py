@@ -15,7 +15,7 @@ DEFAULT_LANG = "en"
 DEFAULT_PAGINATION = 10
 GITHUB_URL = "https://github.com/seanh/sidecar"
 DEFAULT_DATE_FORMAT = "%B, %Y"
-FORMATTED_FIELDS = ["summary", "subheading"]
+FORMATTED_FIELDS = ["summary", "subheading", "subtitle"]
 
 FEED_DOMAIN = SITEURL
 
