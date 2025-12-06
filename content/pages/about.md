@@ -26,50 +26,6 @@ The avatar image on the demo site front page is from [Judy Beth Morris on Unspla
 
 <img width="1920" height="1440" style="height: auto;" src="{static}/images/dog.jpg" alt="A small dog wearing goggles and a vest." title="A small dog wearing goggles and a vest.">
 
-## Tables of contents
-
-Sidecar uses <a href="https://tscanlin.github.io/tocbot/">Tocbot</a> to
-support adding tables of contents to pages and articles.
-Put `<div class="toc"></div>` anywhere in an article or page and it'll be turned
-into a table of contents like this:
-
-<div class="toc"></div>
-
-<details markdown="1">
-  <summary>Omitting headings from tables of contents</summary>
-If you want to omit a heading from the table of contents, add the CSS class
-`notoc` to it:
-
-```html
-<h2 class="notoc">My Heading</h2>
-```
-</details>
-
-<details markdown="1">
-  <summary>Heading anchor links</summary>
-
-The table of contents depends on all the page's headings having `id` attributes
-so that they have anchor links.
-Sidecar uses <a href="https://www.bryanbraun.com/anchorjs/">AnchorJS</a> to add
-`id`'s to all your headings automatically, with the `id` values being generated
-from the heading contents.
-
-If you want to control a heading's `id` value yourself (for example so it
-doesn't change if you re-word the heading), add an `id` attribute manually
-as normal and AnchorJS will use it:
-
-```html
-<h2 id="my-heading">My Heading</h2>
-```
-
-If you _don't_ want a heading to have an anchor link, add the CSS class
-`noanchor` (this will also remove the heading from the table of contents):
-
-```html
-<h2 class="noanchor">My Heading</h2>
-```
-</details>
-
 ## Summaries
 
 The large-text paragraph at the top of this page is the page's <i>summary</i>.
@@ -123,6 +79,50 @@ Summary:
 ```
 
 (The `markdown="1"` is needed to enable Markdown syntax within a `<p>`.)
+</details>
+
+## Tables of contents
+
+Sidecar uses <a href="https://tscanlin.github.io/tocbot/">Tocbot</a> to
+support adding tables of contents to pages and articles.
+Put `<div class="toc"></div>` anywhere in an article or page and it'll be turned
+into a table of contents like this:
+
+<div class="toc"></div>
+
+<details markdown="1">
+  <summary>Omitting headings from tables of contents</summary>
+If you want to omit a heading from the table of contents, add the CSS class
+`notoc` to it:
+
+```html
+<h2 class="notoc">My Heading</h2>
+```
+</details>
+
+<details markdown="1">
+  <summary>Heading anchor links</summary>
+
+The table of contents depends on all the page's headings having `id` attributes
+so that they have anchor links.
+Sidecar uses <a href="https://www.bryanbraun.com/anchorjs/">AnchorJS</a> to add
+`id`'s to all your headings automatically, with the `id` values being generated
+from the heading contents.
+
+If you want to control a heading's `id` value yourself (for example so it
+doesn't change if you re-word the heading), add an `id` attribute manually
+as normal and AnchorJS will use it:
+
+```html
+<h2 id="my-heading">My Heading</h2>
+```
+
+If you _don't_ want a heading to have an anchor link, add the CSS class
+`noanchor` (this will also remove the heading from the table of contents):
+
+```html
+<h2 class="noanchor">My Heading</h2>
+```
 </details>
 
 ## Per-page custom styles
