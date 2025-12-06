@@ -10,6 +10,16 @@
       {% if SIDECAR_PYGMENTS_NO_BORDER %}<style>.highlight pre { border: none; padding-bottom: var(--ok-line-height); }</style>{% endif %}
       <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ SIDECAR_PYGMENTS_THEME or 'default' }}.css">
       {% if STYLESHEET_URL %}<link rel="stylesheet" href="{{ STYLESHEET_URL }}" />{% endif %}
+      {% if STYLESHEET %}
+      <style>
+        {{ STYLESHEET }}
+      </style>
+      {% endif %}
+      {% if article and article.metadata.stylesheet %}
+      <style>
+        {{ article.metadata.stylesheet|join("\n") }}
+      </style>
+      {% endif %}
       {% if FEED_ALL_ATOM %}
       <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Atom (all languages)">
       {% endif %}
