@@ -1,11 +1,12 @@
 Title: About
 Summary:
-    <a href="https://github.com/seanh/sidecar">Sidecar</a> is a plain but
-    pretty theme for the <a href="https://getpelican.com/">Pelican</a> static
-    site generator that works great on both mobile and desktop.
-    For installation instructions and configuration settings see the
-    <a href="https://github.com/seanh/sidecar"><b>README on GitHub</b></a>.
-    This page shows some of the features you can use when writing pages and articles.
+    <b>Sidecar</b> is a plain but pretty theme for the
+    <a href="https://getpelican.com/">Pelican</a> static site
+    generator that works great on both mobile and desktop. For
+    installation instructions and configuration settings see
+    <a href="https://github.com/seanh/sidecar"><b>Sidecar's README on
+    GitHub</b></a>. This page shows some of the features you can use when
+    writing pages and articles.
 Stylesheet:
     .example {
       margin-left: var(--ok-line-height);
@@ -13,21 +14,17 @@ Stylesheet:
     }
 Modified: 2025-12-06
 
-P.S. Sidecar's page layout is inspired by the <a
+Sidecar is based on **Oatcake** my universal typography theme.
+Oatcake styles a wide variety of HTML elements you can use when writing.
+The dummy text articles on this demo site show
+[some of Oatcake's elements in action]({filename}/sunt_excepturi_eius_nihil_ea_dignissimos_dolores.md).
+See [Oatcake's site](https://www.seanh.cc/oatcake/) for full documentation.
+
+Sidecar's page layout is inspired by the <a
 href="https://klise.vercel.app/">Klisé theme</a> for Jekyll.
 The avatar image on the demo site front page is from [Judy Beth Morris on Unsplash](https://unsplash.com/photos/a-small-dog-wearing-goggles-and-a-vest-D5bZ2wzgUkA):
 
 <img width="1920" height="1440" style="height: auto;" src="{static}/images/dog.jpg" alt="A small dog wearing goggles and a vest." title="A small dog wearing goggles and a vest.">
-
-## Oatcake
-
-Sidecar is based on **Oatcake**, my universal typography stylesheet. Oatcake
-styles a wide variety of HTML elements you can use when writing pages and
-articles.
-The dummy text articles on this demo site show
-[some of the elements in action]({filename}/sunt_excepturi_eius_nihil_ea_dignissimos_dolores.md).
-See [Oatcake's site](https://www.seanh.cc/oatcake/) for documentation.
-Everything Oatcake provides can be used with Sidecar.
 
 ## Tables of contents
 
