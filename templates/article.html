@@ -24,22 +24,23 @@
     <h1 class="noanchor">{{ article.title }}</h1>
   {% endset %}
 
-  {% if article.metadata.subheading %}
-    {% set subheading = article.metadata.subheading %}
-    {% set formatted = "subheading" in FORMATTED_FIELDS %}
-  {% elif article.metadata.subtitle %}
-    {% set subheading = article.metadata.subtitle %}
-    {% set formatted = "subtitle" in FORMATTED_FIELDS %}
-  {% endif %}
+  {% set ns = namespace(subheading_fieldnames=[]) %}
+  {% for fieldname in ["summary", "subheading", "subtitle"] %}
+    {% if article.metadata[fieldname] %}
+      {% set ns.subheading_fieldnames = ns.subheading_fieldnames + [fieldname] %}
+    {% endif %}
+  {% endfor %}
 
-  {% if subheading %}
+  {% if ns.subheading_fieldnames %}
     <hgroup>
       {{ heading }}
-      {% if formatted %}
-        {{ subheading }}
-      {% else %}
-        <p>{{ subheading|join("") }}</p>
-      {% endif %}
+      {% for fieldname in ns.subheading_fieldnames %}
+        {% if fieldname in FORMATTED_FIELDS %}
+          {{ article.metadata[fieldname] }}
+        {% else %}
+          <p>{{ article.metadata[fieldname]|join("") }}</p>
+        {% endif %}
+      {% endfor %}
     </hgroup>
   {% else %}
     {{ heading }}
