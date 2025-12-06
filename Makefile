@@ -10,6 +10,8 @@ help:
 	@echo "    Upgrade foo to the latest version"
 	@echo "make upgrade-package package=foo==1.2.3"
 	@echo "    Upgrade or downgrade foo to 1.2.3"
+	@echo "make posts"
+	@echo "    (Re)-generate the example posts"
 
 .PHONY: dev
 dev: python
@@ -30,6 +32,11 @@ upgrade:
 upgrade-package: python
 upgrade-package:
 	tox -e pipcompile -- --upgrade-package $(package)
+
+.PHONY: posts
+posts:
+	rm content/*.md 2>/dev/null || true
+	bin/make_posts
 
 .PHONY: python
 python:
