@@ -316,7 +316,7 @@ Sets the name of your site in tab and feed titles:
 SITENAME = "A Pelican Blog"
 ```
 
-### Avatar and bio
+### Avatar and bio: `AVATAR_URL`, `SITESUBTITLE` and `SITEBIO`
 
 Sidecar's front page includes an optional "bio" section with an avatar
 image, site subtitle, and bio text. To make this appear add the `AVATAR_URL`,
@@ -332,7 +332,7 @@ SITESUBTITLE = "I blog, you blog, weblog."
 SITEBIO = '''Hi 👋, I'm <a rel="author" href="{SITEURL}/about/">Sean</a>, a developer and future Portuguese Water Dog owner living in <s>Berlin</s>, <s>Edinburgh</s>.'''
 ```
 
-<h3 id="sidecar_pygments_theme">Syntax highlighting</h3>
+<h3 id="sidecar_pygments_theme">Syntax highlighting: <code>SIDECAR_PYGMENTS_THEME</code></h3>
 
 Sidecar supports code blocks with syntax highlighting.
 See [Syntax highlighting](https://docs.getpelican.com/en/latest/content.html#syntax-highlighting)
@@ -372,7 +372,7 @@ Set `SIDECAR_PYGMENTS_BORDERLESS = True` to remove the border from code blocks:
 SIDECAR_PYGMENTS_BORDERLESS = True
 ```
 
-<h3 id="custom_css">Customizing Sidecar's colors, fonts, and CSS</h3>
+<h3 id="custom_css">Customizing Sidecar's colors, fonts, and CSS: <code>STYLESHEET</code> and <code>STYLESHEET_URL</code></h3>
 
 Oatcake provides several CSS variables for customizing the colors, fonts, etc.
 See [Oatcake's site](https://www.seanh.cc/oatcake/) for docs.
