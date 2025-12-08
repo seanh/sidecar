@@ -71,8 +71,44 @@ Installation
    THEME = "../sidecar"
    ```
 
+3. You'll want to [customize or remove the favicons](#favicons).
+
 Usage
 -----
+
+### Favicons
+
+Sidecar uses [a photo of a dog](https://unsplash.com/photos/a-small-dog-wearing-goggles-and-a-vest-D5bZ2wzgUkA)
+as the favicon by default, which is probably not what you want.
+To customize or remove the favicon you need to override the [`favicons.html`](https://github.com/seanh/sidecar/blob/main/templates/favicons.html)
+template.
+
+First add [`THEME_TEMPLATES_OVERRIDES`](https://docs.getpelican.com/en/latest/settings.html#THEME_TEMPLATES_OVERRIDES)
+to your Pelican config:
+
+```python
+# pelicanconf.py
+
+THEME_TEMPLATES_OVERRIDES = ["templates"]
+```
+
+Then to remove the favicons just create an empty `favicons.html` file in your site's
+`templates/` directory:
+
+```shell-session
+mkdir -p templates
+touch templates/favicons.html
+```
+
+To customize the favicons put something like this in the `favicons.html` file:
+
+```html
+<!-- favicons.html -->
+<link rel="icon" type="image/png" href="{{ SITEURL }}/static/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="{{ SITEURL }}/static/favicons/favicon.svg" />
+<link rel="shortcut icon" href="{{ SITEURL }}/static/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{ SITEURL }}/static/favicons/apple-touch-icon.png" />
+```
 
 ### Summaries
 
