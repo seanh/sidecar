@@ -4,6 +4,7 @@ Summary:
     pretty theme for the Pelican static site generator.
     See the <a href="https://github.com/seanh/sidecar">README</a>
     for docs.
+Modified: 2025-12-09
 
 Sidecar is based on **Oatcake**, my universal CSS typography theme.
 See [Oatcake's site](https://www.seanh.cc/oatcake/) for documentation:

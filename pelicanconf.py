@@ -77,13 +77,6 @@ SIDECAR_NAVBAR = [
     "ARCHIVES",
 ]
 
-SIDECAR_TAGLINE = [
-    "AUTHORS",
-    "TIME",
-    "TAGS",
-    "SOURCE"
-]
-
 MARKDOWN = {
     'extension_configs': {
         'markdown.extensions.codehilite': {

@@ -18,7 +18,11 @@
 {% set anchors = true %}
 
 {% block content %}
-  {% include "tagline.html" %}
+  {% block tagline %}
+    {% with tagline_items=SIDECAR_ARTICLE_TAGLINE_ITEMS, default_tagline_items=["TIME", "TAGS"] %}
+      {% include "tagline.html" %}
+    {% endwith %}
+  {% endblock %}
 
   {% set heading %}
     <h1 class="noanchor">{{ article.title }}</h1>
@@ -47,4 +51,10 @@
   {% endif %}
 
   {{ article.content }}
+
+  {% block footer %}
+    {% with tagline_items=SIDECAR_ARTICLE_FOOTER_ITEMS, default_tagline_items=["AUTHORS", "SOURCE"] %}
+      {% include "tagline.html" %}
+    {% endwith %}
+  {% endblock %}
 {% endblock %}
