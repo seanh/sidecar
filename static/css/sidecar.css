@@ -108,7 +108,7 @@
   main h1:first-of-type {
     padding-top: 0;
   }
-  .tagline {
+  footer:has(+ hgroup) {
     margin-top: calc(-2 * var(--ok-line-height));
   }
   .articles {

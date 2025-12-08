@@ -21,7 +21,7 @@ Features
   from a few dozen builtin syntax highlighting color themes.
 * **Automatically generated [tables of contents](#tables-of-contents)** for pages and articles.
 * **A customizable navbar** with the [`SIDECAR_NAVBAR`](#sidecar_navbar) setting.
-* **Customizable article taglines** with the [`SIDECAR_TAGLINE`](#sidecar_tagline) setting.
+* **Customizable article and page taglines and footers** with the [`SIDECAR_{ARTICLE|PAGE}_{TAGLINE|FOOTER}_ITEMS`](#footers) settings.
 * **Supports Pelican's Atom and RSS feeds** with feed autodiscovery links in the HTML `<head>`.
 * **Supports all of Pelican's pages:**
   the [index page](https://www.seanh.cc/sidecar/),
@@ -234,8 +234,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit&hellip;</code></pre>
 ### Modification dates
 
 If you add a `Modified` date to an article's metadata it'll be shown in the
-article's tagline as its "updated" date (as long as you have `"TIME"` in your
-[`SIDECAR_TAGLINE`](#sidecar_tagline) setting):
+article's tagline as its "updated" date:
 
 <pre><code>Title: My Article
 Date: 2015-11-12
@@ -246,6 +245,7 @@ You can see an example in [this dummy article](https://www.seanh.cc/sidecar/2021
 _Static pages_ don't show any created or updated date by default, but if you add
 a `Modified` date to a static page's metadata it'll be shown at the bottom of
 the page as "Last updated".
+You can see an example on [the demo site's <i>About</i> page](https://www.seanh.cc/sidecar/about/).
 
 Settings
 --------
@@ -546,24 +546,24 @@ SIDECAR_NAVBAR = [
 `{SITEURL}` in menu item strings will be replaced with Pelican's
 [`SITEURL` setting](https://docs.getpelican.com/en/latest/settings.html#SITEURL).
 
-<h3 id="sidecar_tagline">Customizing article and page taglines with <code>SIDECAR_TAGLINE</code></h3>
+<h3 id="footers">Customizing article and page taglines and footers</h3>
 
-You can customize the contents of the taglines above article titles by
-adding a `SIDECAR_TAGLINE` setting (list of strings) to your Pelican
-config. For example:
+You can customize the contents of the taglines above article and page
+titles and the footers at the bottoms of articles and pages with four
+settings in your Pelican config file: `SIDECAR_ARTICLE_TAGLINE_ITEMS`,
+`SIDECAR_ARTICLE_FOOTER_ITEMS`, `SIDECAR_PAGE_TAGLINE_ITEMS`, and
+`SIDECAR_PAGE_FOOTER_ITEMS`. The default values are:
 
 ```python
 # pelicanconf.py
 
-SIDECAR_TAGLINE = [
-    "AUTHORS",
-    "TIME",
-    "SOURCE",
-    "TAGS",
-]
+SIDECAR_ARTICLE_TAGLINE_ITEMS = ["TIME", "TAGS"]
+SIDECAR_ARTICLE_FOOTER_ITEMS = ["AUTHORS", "SOURCE"]
+SIDECAR_PAGE_TAGLINE_ITEMS = [] # No page tagline will be shown by default.
+SIDECAR_PAGE_FOOTER_ITEMS = ["TIME"] # Shows 'Last updated' dates for pages that have Modified times.
 ```
 
-Certain string values have special meanings in `SIDECAR_TAGLINE`:
+Certain string values have special meanings in `SIDECAR_{ARTICLE|PAGE}_{TAGLINE|FOOTER}_ITEMS` settings:
 
 * `AUTHORS`: insert links to Pelican's author pages for the article's authors.
 
@@ -582,9 +582,8 @@ Certain string values have special meanings in `SIDECAR_TAGLINE`:
 
 * `TAGS`: inserts links to Pelican's tag pages for each of the article's tags, if any.
 
-Items in `SIDECAR_TAGLINE` that don't match any of the special strings
-above are rendered directly, so you can include your own raw HTML strings in
-taglines.
+Items that don't match any of the special strings above are rendered directly,
+so you can include your own raw HTML strings:
 
 <h3 id="article_source_url">Linking to article/page source files</h3>
 
@@ -596,8 +595,8 @@ On article and static pages, if `OUTPUT_SOURCES` is enabled, Sidecar inserts a
 link to the article or page's plain text source file into the HTML `<head>`
 (using `<link rel="alternate" type="text/plain" href="...">`).
 
-Source links can also be included in article taglines by including `"SOURCE"` in
-the [`SIDECAR_TAGLINE`](#sidecar_tagline) setting.
+Source links can also be included in article or page taglines or footers by including `"SOURCE"` in
+the [`SIDECAR_{ARTICLE|PAGE}_{TAGLINE|FOOTER}_ITEMS`](#footers) settings.
 
 If you've changed [Pelican's `ARTICLE_SAVE_AS` and `ARTICLE_URL` or `PAGE_SAVE_AS` and `PAGE_URL` settings](https://docs.getpelican.com/en/latest/settings.html#url-settings)
 from the defaults then you need to add `ARTICLE_SOURCE_URL` and
