@@ -1,12 +1,9 @@
 Title: About
 Summary:
-    <b>Sidecar</b> is a plain but pretty theme for the
-    [Pelican](https://getpelican.com/) static site generator that works great on
-    both mobile and desktop.
-
-This <i>About</i> page is an example of what a static page looks like with
-Sidecar.
-For documentation, see [Sidecar's README on GitHub](https://github.com/seanh/sidecar).
+    This is the demo site for <b>Sidecar</b>, a plain but
+    pretty theme for the Pelican static site generator.
+    See the <a href="https://github.com/seanh/sidecar">README</a>
+    for docs.
 
 Sidecar is based on **Oatcake**, my universal CSS typography theme.
 See [Oatcake's site](https://www.seanh.cc/oatcake/) for documentation:
