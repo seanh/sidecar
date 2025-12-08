@@ -3,9 +3,7 @@ Sidecar
 
 A plain but pretty [Pelican](https://getpelican.com/) theme based on [Oatcake](https://github.com/seanh/oatcake).
 
-<img src="screenshots/desktop.png" alt="Screenshot of Sidecar Pelican theme on desktop">
-
-<img src="screenshots/mobile.png" width="50%" alt="Screenshot of Sidecar Pelican theme on mobile">
+<img src="screenshot.png" alt="A screenshot of the theme.">
 
 Features
 --------
