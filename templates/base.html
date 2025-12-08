@@ -7,7 +7,7 @@
       <title>{% block title %}{{ SITENAME|striptags }}{% endblock %}</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/oatcake@1.0.0-rc.17">
       <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/sidecar.css">
-      {% if SIDECAR_PYGMENTS_NO_BORDER %}<style>.highlight pre { border: none; padding-bottom: var(--ok-line-height); }</style>{% endif %}
+      {% if SIDECAR_PYGMENTS_BORDERLESS %}<style>.highlight pre { border: none; padding-bottom: var(--ok-line-height); }</style>{% endif %}
       <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ SIDECAR_PYGMENTS_THEME or 'default' }}.css">
       {% if STYLESHEET_URL %}<link rel="stylesheet" href="{{ STYLESHEET_URL }}" />{% endif %}
       {% if STYLESHEET %}

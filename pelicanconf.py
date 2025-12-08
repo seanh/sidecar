@@ -2,7 +2,7 @@ THEME = "."
 AUTHOR = "Sean Hammond"
 SITENAME = "Sidecar"
 SITESUBTITLE = "Sidecar Demo Site"
-SITEBIO = """This is the demo site for <a href="https://github.com/seanh/sidecar">Sidecar</a>, a plain but pretty <a href="https://getpelican.com/">Pelican</a> theme based on <a href="https://www.seanh.cc/oatcake/">Oatcake</a>. See the <a href="{SITEURL}/about/">about</a> page for more."""
+SITEBIO = """This is the demo site for <b>Sidecar</b>, a plain but pretty theme for the Pelican static site generator. See the <a href="https://github.com/seanh/sidecar">README</a> for docs."""
 AVATAR_URL = "{SITEURL}/{THEME_STATIC_DIR}/images/avatar.jpg"
 SITEURL = "http://localhost:8000"
 PATH = "content"
@@ -15,7 +15,7 @@ DEFAULT_LANG = "en"
 DEFAULT_PAGINATION = 10
 GITHUB_URL = "https://github.com/seanh/sidecar"
 DEFAULT_DATE_FORMAT = "%-d %B, %Y"
-
+FORMATTED_FIELDS = ["summary", "subheading", "subtitle"]
 FEED_DOMAIN = SITEURL
 
 # Make the URLs of article pages nicer.
