@@ -100,7 +100,7 @@ mkdir -p templates
 touch templates/favicons.html
 ```
 
-To customize the favicons put something like this in the `favicons.html` file:
+To add your own favicons put something like this in your `favicons.html` file:
 
 ```html
 <!-- favicons.html -->
