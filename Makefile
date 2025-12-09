@@ -42,7 +42,7 @@ posts:
 
 .PHONY: readme
 readme:
-	cogapp -D version=${version} -r README.md
+	cog -D version=${version} -r README.md
 
 .PHONY: python
 python:
