@@ -14,7 +14,7 @@ TIMEZONE = "Europe/London"
 DEFAULT_LANG = "en"
 DEFAULT_PAGINATION = 10
 GITHUB_URL = "https://github.com/seanh/sidecar"
-DEFAULT_DATE_FORMAT = "%-d %B, %Y"
+DEFAULT_DATE_FORMAT = "%b %d, %Y"
 FORMATTED_FIELDS = ["summary", "subheading", "subtitle"]
 FEED_DOMAIN = SITEURL
 
