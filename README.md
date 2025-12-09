@@ -66,7 +66,7 @@ Installation
    git -C sidecar checkout 1.0.0-rc.1
    ```
 
-   Follow Sidecar on GitHub or [subscribe to GitHub's Atom feed for new releases](https://github.com/seanh/sidecar/releases.atom)
+   Follow Sidecar on GitHub or subscribe to [GitHub's Atom feed for new releases](https://github.com/seanh/sidecar/releases.atom)
    to get notified so you can update your version number.
 
 3. Set the [`THEME`](https://docs.getpelican.com/en/latest/settings.html#THEME)
