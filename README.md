@@ -60,7 +60,16 @@ Installation
    git clone https://github.com/seanh/sidecar.git
    ```
 
-2. Set the [`THEME`](https://docs.getpelican.com/en/latest/settings.html#THEME)
+2. Pin your version by checking out the latest Sidecar release:
+
+   ```terminal
+   git -C sidecar checkout 1.0.0-rc.1
+   ```
+
+   Follow Sidecar on GitHub or [subscribe to GitHub's Atom feed for new releases](https://github.com/seanh/sidecar/releases.atom)
+   to get notified so you can update your version number.
+
+3. Set the [`THEME`](https://docs.getpelican.com/en/latest/settings.html#THEME)
    setting in your Pelican config to the path to your local clone of Sidecar.
    It can be either an absolute path or a path relative to your Pelican config
    file:
@@ -71,7 +80,7 @@ Installation
    THEME = "../sidecar"
    ```
 
-3. You'll want to [customize or remove the favicons](#favicons).
+4. You'll want to [customize or remove the favicons](#favicons).
 
 Usage
 -----
