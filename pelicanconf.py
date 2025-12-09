@@ -70,13 +70,6 @@ PAGINATION_PATTERNS = (
     (2, "{base_name}/page/{number}/", "{base_name}/page/{number}/index.html"),
 )
 
-SIDECAR_NAVBAR = [
-    "HOME",
-    "SPACE",
-    "PAGES",
-    "ARCHIVES",
-]
-
 MARKDOWN = {
     'extension_configs': {
         'markdown.extensions.codehilite': {
