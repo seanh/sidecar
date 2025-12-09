@@ -43,11 +43,11 @@
           {% block nav %}
             <nav>
               {% if SIDECAR_NAVBAR is not defined %}
-                {% set SIDECAR_NAVBAR = ["HOME", "MENUITEMS"] %}
+                {% set SIDECAR_NAVBAR = ["HOME", "SPACE", "MENUITEMS"] %}
                 {% if DISPLAY_PAGES_ON_MENU %}
                   {{ SIDECAR_NAVBAR.append("PAGES") or "" }}
                 {% endif %}
-                {{ SIDECAR_NAVBAR.extend(["CATEGORIES", "TAGS", "AUTHORS", "ARCHIVES"]) or "" }}
+                {{ SIDECAR_NAVBAR.extend(["ARCHIVES", "GITHUB"]) or "" }}
               {% endif %}
 
               {% for item in SIDECAR_NAVBAR %}
@@ -71,15 +71,16 @@
                   {% if ARCHIVES_URL %}<a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>{% endif %}
                 {% elif item == "SPACE" %}
                   <div class="space"></div>
+                {% elif item == "GITHUB" %}
+                  {% if GITHUB_URL %}
+                    <a href="{{ GITHUB_URL }}" aria-label="Fork me on GitHub">
+                      <img style="border: none;" width="98" height="96" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/github-mark.svg" alt="Fork me on GitHub" title="Fork me on GitHub">
+                    </a>
+                  {% endif %}
                 {% else %}
                   {{ item.format(SITEURL=SITEURL) }}
                 {% endif %}
               {% endfor %}
-              {% if GITHUB_URL %}
-                <a href="{{ GITHUB_URL }}" aria-label="Fork me on GitHub">
-                  <img style="border: none;" width="98" height="96" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/github-mark.svg" alt="Fork me on GitHub" title="Fork me on GitHub">
-                </a>
-              {% endif %}
             </nav>
           {% endblock %}
 

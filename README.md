@@ -341,7 +341,8 @@ DISPLAY_PAGES_ON_MENU = True
 ### `GITHUB_URL`
 
 If `GITHUB_URL` is set in your Pelican config then a GitHub icon linking to
-`GITHUB_URL` will be added to your site's navbar. The idea is that you set
+`GITHUB_URL` will be added to your site's navbar (as long as `"GITHUB"` is in
+your [`SIDECAR_NAVBAR`](#sidecar_navbar) setting). The idea is that you set
 `GITHUB_URL` to your GitHub profile page:
 
 ```python
@@ -476,9 +477,8 @@ SIDECAR_NAVBAR = [
     "MENUITEMS",
     "PAGES",
     "CATEGORIES",
-    "TAGS",
-    "AUTHORS",
     "ARCHIVES",
+    "GITHUB",
     '<a rel="external" href="https://example.com">Custom Link</a>',
 ]
 ```
@@ -492,6 +492,8 @@ Certain string values have special meanings in `SIDECAR_NAVBAR`:
 * `MENUITEMS`: inserts the items from Pelican's [`MENUITEMS` setting](https://docs.getpelican.com/en/latest/settings.html#MENUITEMS).
 
 * `PAGES`: inserts links to each of your site's static pages.
+
+* `GITHUB`: inserts a GitHub logo linking to your [`GITHUB_URL`](#github_url).
 
 * `CATEGORIES`: inserts a link to your site's categories page.
 
