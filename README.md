@@ -279,11 +279,14 @@ ANALYTICS = """
 ### `DEFAULT_DATE_FORMAT`
 
 The format to use for page and article dates in [Python `strftime` format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes).
+Sidecar looks best if `DEFAULT_DATE_FORMAT` is set to something that makes
+different dates (with different months and day numbers) roughly the same length,
+for example:
 
 ```python
 # pelicanconf.py
 
-DEFAULT_DATE_FORMAT = "%-d %B, %Y"
+DEFAULT_DATE_FORMAT = "%b %d, %Y"
 ```
 
 ### `DEFAULT_LANG`
