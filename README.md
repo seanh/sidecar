@@ -382,7 +382,7 @@ the "fenced code block" style because it also works on GitHub:
         print("Hello, world!")
     ```
 
-You can add `hl_lines` to highlight certain lines with the code block:
+You can add `hl_lines` to highlight certain lines within the code block:
 
     ```python hl_lines="1 3"
     def hello_world():
