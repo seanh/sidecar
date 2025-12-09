@@ -7,18 +7,13 @@ jobs:
     name: "Update README"
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt install python3-cogapp
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20.x"
-          registry-url: "https://registry.npmjs.org"
-      - run: npm install -g npm@latest
       - uses: actions/setup-python@v6
         with:
           python-version: "3.14"
       - run: python3 -m pip install pipx
       - run: python3 -m pipx install "git+https://github.com/seanh/gh-pr-upsert.git"
       - run: python3 -m pipx install "git+https://github.com/seanh/gha-token.git"
+      - run: python3 -m pipx install "cogapp"
       - run: |
           git config --global user.name "seanh-github-app[bot]"
           git config --global user.email "244757293+seanh-github-app[bot]@users.noreply.github.com"
