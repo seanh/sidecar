@@ -68,7 +68,7 @@ Installation
 
        cog.outl(f"git -C sidecar checkout {version}")
    ]]]-->
-   git -C sidecar checkout 1.0.0-rc.1
+   git -C sidecar checkout 1.0.0-rc.4
    <!--[[[end]]]-->
    ```
 
