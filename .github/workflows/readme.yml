@@ -1,0 +1,39 @@
+name: Update README
+on:
+  release:
+    types: [published]
+jobs:
+  Update_README:
+    name: "Update README"
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt install python3-cogapp
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org"
+      - run: npm install -g npm@latest
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+      - run: python3 -m pip install pipx
+      - run: python3 -m pipx install "git+https://github.com/seanh/gh-pr-upsert.git"
+      - run: python3 -m pipx install "git+https://github.com/seanh/gha-token.git"
+      - run: |
+          git config --global user.name "seanh-github-app[bot]"
+          git config --global user.email "244757293+seanh-github-app[bot]@users.noreply.github.com"
+      - run: echo GITHUB_TOKEN=$(gha-token --app-id 2313150 --installation-id 95349441 --private-key "$PRIVATE_KEY") >> $GITHUB_OUTPUT
+        id: github_token
+        env:
+          PRIVATE_KEY: ${{ secrets.SEANH_GITHUB_APP_PRIVATE_KEY }}
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ steps.github_token.outputs.GITHUB_TOKEN }}
+      - run: |
+          make readme version="${{ github.event.release.tag_name }}"
+          git switch --no-guess --no-track --force-create readme
+          git commit README.md --allow-empty --message "Update version numbers in README"
+      - run: git fetch origin main
+      - run: gh-pr-upsert --title "Update version numbers in README" --body "This is an automated PR to update the version numbers in the README"
+        env:
+          GITHUB_TOKEN: ${{ steps.github_token.outputs.GITHUB_TOKEN }}
