@@ -88,44 +88,8 @@ Installation
    THEME = "../sidecar"
    ```
 
-4. You'll want to [customize or remove the favicons](#favicons).
-
 Usage
 -----
-
-### Favicons
-
-Sidecar uses [a photo of a dog](https://unsplash.com/photos/a-small-dog-wearing-goggles-and-a-vest-D5bZ2wzgUkA)
-as the favicon by default, which is probably not what you want.
-To customize or remove the favicon you need to override the [`favicons.html`](https://github.com/seanh/sidecar/blob/main/templates/favicons.html)
-template.
-
-First add [`THEME_TEMPLATES_OVERRIDES`](https://docs.getpelican.com/en/latest/settings.html#THEME_TEMPLATES_OVERRIDES)
-to your Pelican config:
-
-```python
-# pelicanconf.py
-
-THEME_TEMPLATES_OVERRIDES = ["templates"]
-```
-
-Then to remove the favicons just create an empty `favicons.html` file in your site's
-`templates/` directory:
-
-```shell-session
-mkdir -p templates
-touch templates/favicons.html
-```
-
-To add your own favicons put something like this in your `favicons.html` file:
-
-```html
-<!-- favicons.html -->
-<link rel="icon" type="image/png" href="{{ SITEURL }}/static/favicons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="{{ SITEURL }}/static/favicons/favicon.svg" />
-<link rel="shortcut icon" href="{{ SITEURL }}/static/favicons/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="{{ SITEURL }}/static/favicons/apple-touch-icon.png" />
-```
 
 ### Summaries
 
@@ -636,3 +600,67 @@ PAGE_SAVE_AS = '{slug}/index.html'
 PAGE_URL = '{slug}/'
 PAGE_SOURCE_URL = "{page.url}index{OUTPUT_SOURCES_EXTENSION}"
 ```
+
+Template Customization
+----------------------
+
+You can customize the Sidecar theme by using Pelican's
+[`THEME_TEMPLATES_OVERRIDES`](https://docs.getpelican.com/en/latest/settings.html#THEME_TEMPLATES_OVERRIDES)
+setting to override some of Sidecar's templates.
+
+When overriding a template you can inherit from one of the theme's templates with
+`{% extends '!theme/<template>.html' %}` and then override some of the template's
+blocks with `{% block %}`. When overriding a block you can call the template's
+original block with `{{ super() }}`.
+
+Let's work through an example of using template customization to add favicons to
+a site:
+
+1.  Generate some favicon images for your site.
+    You can start with an image or photo and use a favicon generator site like
+    <https://realfavicongenerator.net/> to convert it into favicon files in the
+    right formats.
+
+2.  Add the favicon images to your site's `content/images/` directory as
+    [static content](https://docs.getpelican.com/en/latest/content.html#static-content).
+
+3.  Create a `templates` directory in your site, to hold your custom templates:
+
+    ```shell-session
+    mkdir -p templates
+    ```
+
+4.  Add the `THEME_TEMPLATES_OVERRIDES` setting to your Pelican config file:
+
+    ```python
+    # pelicanconf.py
+
+    THEME_TEMPLATES_OVERRIDES = ["templates"]
+    ```
+
+5.  Add a `templates/base.html` file, something like this:
+
+    ```jinja2
+    {# templates/base.html #}
+    
+    {% extends '!theme/base.html' %}
+
+    {% block head %}
+      {{ super() }}
+  
+      <link rel="icon" type="image/png" href="{{ SITEURL }}/images/favicon-96x96.png" sizes="96x96" />
+      <link rel="icon" type="image/svg+xml" href="{{ SITEURL }}/images/favicon.svg" />
+      <link rel="shortcut icon" href="{{ SITEURL }}/images/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="180x180" href="{{ SITEURL }}/images/apple-touch-icon.png" />
+    {% endblock %}
+    ```
+
+That's it--your site should now have a favicon!
+
+What the `base.html` template does is:
+
+1. Overrides [Sidecar's `base.html` template](https://github.com/seanh/sidecar/blob/main/templates/base.html).
+2. Uses `{% extends %}` to inherit from Sidecar's `base.html` template.
+3. Uses `{% block %}` to override the [`head` block](https://github.com/seanh/sidecar/blob/b22d46698d328f9120d980f6f5c3688080346d40/templates/base.html#L4-L37) in Sidecar's `base.html` template.
+4. Uses `{{ super() }}` to call the base template's `head` block.
+5. Finally, adds some HTML to the `head` block to inject the favicons into the site.
