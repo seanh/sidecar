@@ -70,7 +70,7 @@ Installation
        cog.outl("```")
    ]]]-->
    ```terminal
-   git -C sidecar checkout 1.0.0-rc.8
+   git -C sidecar checkout 1.0.0-rc.9
    ```
    <!--[[[end]]]-->
 
