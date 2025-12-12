@@ -168,5 +168,6 @@
   }
   .highlight :is(code, pre) {
     background-color: inherit;
+    color: inherit;
   }
 }
